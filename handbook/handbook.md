@@ -42,7 +42,7 @@ On successful completion of the module students will be able to demonstrate:
 - Knowledge of the implementation and application of geospatial analysis techniques
 - Logical thinking and problem solving
 - Good quality technical writing
-- Self-learning and collaborative skills whilst writing  and understanding algorithms and computer code
+- Self-learning and collaborative skills whilst writing and understanding algorithms and computer code
 - An ability to review current literature, drawing on interdisciplinary perspectives
 
 
