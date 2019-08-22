@@ -116,7 +116,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Assessment weighting:** 45%
 
-**Page limit:** 6 A4 pages
+**Page limit:** 3 A4 pages + code
 
 **Deadline:** TBD
 

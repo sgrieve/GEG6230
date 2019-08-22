@@ -9,7 +9,7 @@ output: pdf_document
 
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 45% module mark (6.75 credits)
-- Page limit: 6 A4 pages
+- Page limit: 3 A4 pages + code
 - Deadline: TBD, via QMplus
 
 You have a dataset of landslide scar outline polygons for the [Coweeta Experimental Catchment](coweeta lter link) in North Carolina, USA. As part of ongoing efforts to better understand landsliding in this area, you need to calculate the factor of safety (`Fs`) of each of these polygons.
