@@ -112,7 +112,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 ## Assignment 3
 
-**GIS portfolio:** Complete a series of GIS tasks, compiling the results into a brief report.
+**GIS project:** Complete a series of GIS tasks, compiling the results into a brief report.
 
 **Assessment weighting:** 45%
 
