@@ -16,27 +16,29 @@ You have a dataset of landslide scar outline polygons for the [Coweeta Experimen
 
 Factor of safety is a measure of the balance between driving and resisting forces operating on hillslope material. When `Fs` is below 1 a failure is likely, and values above 1 suggest that the hillslope is stable under current conditions. We calculate the factor of safety as follows:
 
-$$Fs = \frac{ C \cos{\theta} \tan{\phi}} {h \rho_s g \sin{\theta}} $$
+$$Fs = \frac{ C } { h \rho_s g } + \frac{W \cos{\theta} \tan{\phi}} {\sin{\theta}}$$
 
 Where:
 
 - $C:$ soil cohesion
 - $\theta:$ topographic slope
 - $\phi:$ friction angle
-- $\rho_s:$ soil density = $N$
+- $\rho_s:$ soil density
 - $h:$ soil depth
 - $g:$ gravitational acceleration = $9.81~ms^{-2}$
+- $W:$ hydrological constant
 
 You have access to the following datasets on QMplus:
 
-- soil_cohesion.tif
-- Coweeta_DEM.tif
-- Coweeta_slope.tif
+- Coweeta_clip.tif
+- Coweeta_slope.tif (in radians)
 
-Alongside a series of numbered polygon shapefiles, called `scar_1.shp` through to `scar_N.shp`. Each of these shapefiles has the following attributes, measured in the field:
+Alongside a series of numbered polygon shapefiles, called `scar_1.shp` through to `scar_15.shp`. Each of these shapefiles has the following attributes, measured in the field:
 
-- Friction angle
+- Friction angle (in radians)
 - Soil depth
+- Soil density
+- Hydrological constant
 
 
 ## Tasks
