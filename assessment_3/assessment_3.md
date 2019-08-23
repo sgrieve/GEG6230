@@ -12,7 +12,7 @@ output: pdf_document
 - Page limit: 3 A4 pages + code
 - Deadline: TBD, via QMplus
 
-You have a dataset of landslide scar outline polygons for the [Coweeta Experimental Catchment](coweeta lter link) in North Carolina, USA. As part of ongoing efforts to better understand landsliding in this area, you need to calculate the factor of safety (`Fs`) of each of these polygons.
+You have a dataset of landslide scar outline polygons for the [Coweeta Experimental Catchment](https://coweeta.uga.edu/) in North Carolina, USA. As part of ongoing efforts to better understand landsliding in this area, you need to calculate the factor of safety (`Fs`) of each of these polygons.
 
 Factor of safety is a measure of the balance between driving and resisting forces operating on hillslope material. When `Fs` is below 1 a failure is likely, and values above 1 suggest that the hillslope is stable under current conditions. We calculate the factor of safety as follows:
 
