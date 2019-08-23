@@ -9,7 +9,7 @@ output: pdf_document
 
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 45% module mark (6.75 credits)
-- Page limit: 3 A4 pages + code
+- Page limit: 4 A4 pages + code
 - Deadline: TBD, via QMplus
 
 You have a dataset of landslide scar outline polygons for the [Coweeta Experimental Catchment](https://coweeta.uga.edu/) in North Carolina, USA. As part of ongoing efforts to better understand landsliding in this area, you need to calculate the factor of safety (`Fs`) of each of these polygons.
@@ -45,15 +45,17 @@ Alongside a series of numbered polygon shapefiles, called `scar_1.shp` through t
 
 1. Develop a workflow to calculate the factor of safety of all of the scar polygons, using **ArcGIS ModelBuilder**.
 1. Develop a workflow to calculate the factor of safety of all of the scar polygons, **using Python**.
-1. Create a map (including a caption) showing the variations in factor of safety across some (or all) of the Coweeta catchment.
+1. Create a map (including a caption) showing the variations in factor of safety across some (or all) of the study area.
+1. Create a boxplot of the `Fs` values calculated using Python.
 1. Write a 1 page discussion of the pros and cons of these two approaches to automation, with regard to reproducibility.
 
 ## What to submit
 
-1. A 3 page document containing:
+1. A 4 page document containing:
 - **Page 1:** An image of the ArcGIS ModelBuilder workflow
 - **Page 2:** A map of the calculated factor of safety data for some (or all) of Coweeta, **including a brief caption describing it.**
-- **Page 3:** One written page of discussion of the pros and cons of these two approaches to automation, with regard to reproducibility.
+- **Page 3:** A boxplot of the Fs values for the 15 landslide scars, **including a brief caption describing it.**
+- **Page 4:** One written page of discussion of the pros and cons of these two approaches to automation, with regard to reproducibility.
 
 2. A copy of the Jupyter notebook containing the python workflow to calculate `Fs` for each catchment.
 
