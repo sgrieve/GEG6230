@@ -84,7 +84,7 @@ There are copies of all of these books in the Mile End Library, and an ebook ver
 |  8 |  6/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III  |
 |  9 |  13/11 | 15:00-18:00  |  FB 1.23 | Geostatistics |
 |  10 | 20/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
-|  11 |  27/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and portfolio workshop |
+|  11 |  27/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
 
 # Assessment
 
