@@ -77,12 +77,12 @@ There are copies of all of these books in the Mile End Library, and an ebook ver
 |  1 |  18/9 | 15:00-18:00  |  FB 1.23 | Introduction to Advanced Geospatial Science  |
 |  2 |  25/9 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting I  |
 |  3 |  2/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting II  |
-|  4 |  9/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I |
-|  5 |  16/10 | 15:00-18:00  |  FB 1.23 | Student Presentations  |
+|  4 |  9/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting III |
+|  5 |  16/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I  |
 |  6 |  - | -  |  - | **Reading Week: No class**  |
-|  7 |  30/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
-|  8 |  6/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III  |
-|  9 |  13/11 | 15:00-18:00  |  FB 1.23 | Geostatistics |
+|  7 |  30/10 | 15:00-18:00  |  FB 1.23 | Student Presentations |
+|  8 |  6/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
+|  9 |  13/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III |
 |  10 | 20/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
 |  11 |  27/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
 
