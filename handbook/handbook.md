@@ -17,7 +17,7 @@ author: Stuart Grieve
 - Thursday 10:00-11:00
 - Other times by appointment.
 
-**Timetable:** Semester A, Wednesday 15:00 - 18:00, Bancroft 1.23
+**Timetable:** Semester A, Thursday 15:00 - 18:00, Bancroft 1.23
 
 **Coursework deadlines:**
 
@@ -35,11 +35,10 @@ The aim of this module is to develop an understanding of the implementation and 
 
 On successful completion of the module students will be able to demonstrate:
 
-- An understanding of the implementation of complex geospatial analysis techniques
 - An understanding of how to appropriately apply geospatial analysis techniques in a range of contexts
 - An understanding of how to present spatial information in a compelling manner
 - Computational, statistical and visualisation techniques
-- Knowledge of the implementation and application of geospatial analysis techniques
+- Knowledge of the implementation and application of complex geospatial analysis techniques
 - Logical thinking and problem solving
 - Good quality technical writing
 - Self-learning and collaborative skills whilst writing and understanding algorithms and computer code
@@ -74,17 +73,17 @@ There are copies of all of these books in the Mile End Library, and an ebook ver
 
 | Week  | Date  | Time  | Room  | Session  |
 |---|---|---|---|---|
-|  1 |  18/9 | 15:00-18:00  |  FB 1.23 | Introduction to Advanced Geospatial Science  |
-|  2 |  25/9 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting I  |
-|  3 |  2/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting II  |
-|  4 |  9/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting III |
-|  5 |  16/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I  |
+|  1 |  19/9 | 15:00-18:00  |  FB 1.23 | Introduction to Advanced Geospatial Science  |
+|  2 |  26/9 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting I  |
+|  3 |  3/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting II  |
+|  4 |  10/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting III |
+|  5 |  17/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I  |
 |  6 |  - | -  |  - | **Reading Week: No class**  |
-|  7 |  30/10 | 15:00-18:00  |  FB 1.23 | Student Presentations |
-|  8 |  6/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
-|  9 |  13/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III |
-|  10 | 20/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
-|  11 |  27/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
+|  7 |  31/10 | 15:00-18:00  |  FB 1.23 | Student Presentations |
+|  8 |  7/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
+|  9 |  14/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III |
+|  10 | 21/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
+|  11 |  28/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
 
 # Assessment
 
