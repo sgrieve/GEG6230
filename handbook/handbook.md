@@ -21,9 +21,9 @@ author: Stuart Grieve
 
 **Coursework deadlines:**
 
-- Data visualisation project: TBD
-- Presentation: Week 5
-- GIS portfolio: TBD
+- Data visualisation project: 2pm 31/10/19
+- Presentation: 2pm 31/10/19
+- GIS portfolio: 2pm 5/12/19
 
 # Module Overview
 
@@ -97,7 +97,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 1 A3 page
 
-**Deadline:** TBD
+**Deadline:** 2pm 31/10/19
 
 ## Assignment 2
 
@@ -107,7 +107,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Time limit:** 5 minutes
 
-**Deadline:** Week 5
+**Deadline:** 2pm 31/10/19
 
 ## Assignment 3
 
@@ -117,7 +117,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 4 A4 pages + code
 
-**Deadline:** TBD
+**Deadline:** 2pm 5/12/19
 
 Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2018-19 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
 
