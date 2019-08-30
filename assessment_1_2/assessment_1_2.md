@@ -27,6 +27,8 @@ The following data is available on QMplus for each catchment:
 - Precipitation over time
 - Day and night temperature over time
 
+The precipitation, temperature and flow data is from the period 1-1-2013 to 31-12-2015, with each day numbered sequentially, e.g. day number 366 will be 1-1-2014.
+
 There is also a general DEM of the area containing all of the catchments, called `Lake_District.tif`.
 
 If you wish, you can find additional information about these catchments from the [National River Flow Archive](https://nrfa.ceh.ac.uk/data/search), using the unique catchment numbers to find the 4 catchments we are interested in.
