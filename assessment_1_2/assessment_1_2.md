@@ -22,7 +22,7 @@ The following data is available on QMplus for each catchment:
 
 - DEM
 - Shapefile boundary
-- Landcover statistics
+- Landcover statistics and legend
 - River daily flow measurements over time
 - Precipitation over time
 - Day and night temperature over time
