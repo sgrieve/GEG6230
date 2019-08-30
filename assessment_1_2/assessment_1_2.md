@@ -60,7 +60,7 @@ Having created your one page visualisation for assignment 1, present this visual
 
 You will be given time in class to begin this assignment, where you will be able to discuss your ideas with Stuart, as well as your classmates.
 
-Until the end of Week 3, **Friday 4th of October at 5pm**, students can meet with Stuart to receive feedback and discuss their plans and progress.
+Until the end of Week 5, **Friday 18th of October at 5pm**, students can meet with Stuart to receive feedback and discuss their plans and progress.
 
 These meetings can occur during Stuart's Advice and Feedback hours (without an appointment):
 
