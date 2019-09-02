@@ -2,3 +2,5 @@
 *.docx
 *.tif
 solution.py
+live_coding/*
+!live_coding/_episodes/*
