@@ -114,7 +114,7 @@ at least one test is true
 
 ## Checking Data For Errors
 
-Now that we've seen how conditionals work, we can use them to check for the suspicious features in datasets.
+Now that we've seen how conditionals work, we can use them to check for suspicious features in datasets.
 
 Imagine we have some rain gauge measurements (in mm), stored in a list:
 

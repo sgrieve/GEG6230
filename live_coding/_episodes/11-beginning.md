@@ -6,7 +6,28 @@ We are going to be learning how to use Python to plot and analyse both spatial a
 
 ## Jupyter Notebook
 
-Section here introducing notebooks and how to launch them on the lab computers
+We are going to be using Jupyter Notebooks as our python environment during this course. This is a great way to mix code and notes, helping us to understand what we are doing as well as why we are doing it.
+
+On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows:
+
+EXPLAIN THE LOADING PROCESS ONCE IT IS FINALIZED
+
+Once we have loaded the notebook environment, we can navigate to a directory, and create a new notebook.
+
+When working with the notebook, you can either be in a cell, typing its contents, or outside cells, moving around the notebook.
+
+When in a cell, press escape to leave it. When moving around outside cells, press return to enter.
+
+Outside a cell:
+- Use arrow keys to move around.
+- Press b to add a new cell below the cursor.
+- Press m to turn a cell from code mode to markdown mode.
+- Press shift+enter to calculate the code in the block.
+- Press h to see a list of useful keys in the notebook.
+
+Inside a cell:
+- Press tab to suggest completions of variables.
+
 
 ## Variables
 
