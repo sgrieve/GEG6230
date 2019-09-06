@@ -119,7 +119,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Deadline:** 2pm 5/12/19
 
-Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2018-19 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
+Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2019-20 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
 
 # Feedback
 
