@@ -29,18 +29,18 @@ need for each program.
 Once we've imported the library, we can ask the library to read our data file for us:
 
 ~~~
-numpy.loadtxt(fname='inflammation-01.csv', delimiter=',')
+numpy.loadtxt(fname='data/75001/75001_temperatures_morning.csv', delimiter=',', skiprows=1)
 ~~~
 {: .language-python}
 
 ~~~
-array([[ 0.,  0.,  1., ...,  3.,  0.,  0.],
-       [ 0.,  1.,  2., ...,  1.,  0.,  1.],
-       [ 0.,  1.,  1., ...,  2.,  1.,  1.],
+array([[1.000e+00, 5.600e+00, 4.400e+00],
+       [2.000e+00, 7.200e+00, 4.800e+00],
+       [3.000e+00, 1.080e+01, 9.300e+00],
        ...,
-       [ 0.,  1.,  1., ...,  1.,  1.,  1.],
-       [ 0.,  0.,  0., ...,  0.,  2.,  0.],
-       [ 0.,  0.,  1., ...,  1.,  1.,  0.]])
+       [1.093e+03, 1.340e+01, 8.800e+00],
+       [1.094e+03, 1.290e+01, 9.600e+00],
+       [1.095e+03, 7.100e+00, 3.900e+00]])
 ~~~
 {: .output}
 
@@ -90,7 +90,7 @@ can also assign an array of values to a variable using the same syntax.  Let's r
 `numpy.loadtxt` and save the returned data:
 
 ~~~
-data = numpy.loadtxt(fname='inflammation-01.csv', delimiter=',')
+data = numpy.loadtxt(fname='data/75001/75001_temperatures_morning.csv', delimiter=',', skiprows=1)
 ~~~
 {: .language-python}
 
@@ -131,9 +131,8 @@ print(type(data))
 
 The output tells us that `data` currently refers to
 an N-dimensional array, the functionality for which is provided by the NumPy library.
-These data correspond to arthritis patients' inflammation.
-The rows are the individual patients, and the columns
-are their daily inflammation measurements.
+These data correspond to daily minimum and maximum temperature values.
+The rows are the individual days, and the columns are the temperature measurements.
 
 > ## Data Type
 >
@@ -166,21 +165,19 @@ print(data.shape)
 {: .language-python}
 
 ~~~
-(60, 40)
+(1095, 3)
 ~~~
 {: .output}
 
-The output tells us that the `data` array variable contains 60 rows and 40 columns. When we
-created the variable `data` to store our arthritis data, we didn't just create the array; we also
+The output tells us that the `data` array variable contains 1095 rows and 3 columns. When we
+created the variable `data` to store our data, we didn't just create the array; we also
 created information about the array, called [members]({{ page.root }}/reference/#member) or
 attributes. This extra information describes `data` in the same way an adjective describes a noun.
 `data.shape` is an attribute of `data` which describes the dimensions of `data`. We use the same
-dotted notation for the attributes of variables that we use for the functions in libraries because
-they have the same part-and-whole relationship.
+dotted notation for the attributes of variables that we use for the functions in libraries because they have the same part-and-whole relationship.
 
 If we want to get a single number from the array, we must provide an
-[index]({{ page.root }}/reference/#index) in square brackets after the variable name, just as we
-do in math when referring to an element of a matrix.  Our inflammation data has two dimensions, so
+[index]({{ page.root }}/reference/#index) in square brackets after the variable name, just as we have done with lists, however, our data now has two dimensions, so
 we will need to use two indices to refer to one specific value:
 
 ~~~
@@ -189,23 +186,21 @@ print('first value in data:', data[0, 0])
 {: .language-python}
 
 ~~~
-first value in data: 0.0
+first value in data: 1.0
 ~~~
 {: .output}
 
 ~~~
-print('middle value in data:', data[30, 20])
+print('minimum temperature on day 100:', data[99, 2])
 ~~~
 {: .language-python}
 
 ~~~
-middle value in data: 13.0
+minimum temperature on day 100: -3.8
 ~~~
 {: .output}
 
-The expression `data[30, 20]` accesses the element at row 30, column 20. While this expression may
-not surprise you,
- `data[0, 0]` might.
+The expression `data[99, 2]` accesses the element at row 99, column 2. While this expression may not surprise you, `data[0, 0]` might.
 Programming languages like Fortran, MATLAB and R start counting at 1
 because that's what human beings have done for thousands of years.
 Languages in the C family (including C++, Java, Perl, and Python) count from 0
@@ -236,63 +231,79 @@ the index is how many steps we have to take from the start to get the item we wa
 {: .callout}
 
 ## Slicing data
-An index like `[30, 20]` selects a single element of an array,
+An index like `[99, 2]` selects a single element of an array,
 but we can select whole sections as well.
 For example,
-we can select the first ten days (columns) of values
-for the first four patients (rows) like this:
+we can select the first ten days (columns) of values like this:
 
 ~~~
-print(data[0:4, 0:10])
+print(data[0:10, 1:3])
 ~~~
 {: .language-python}
 
 ~~~
-[[ 0.  0.  1.  3.  1.  2.  4.  7.  8.  3.]
- [ 0.  1.  2.  1.  2.  1.  3.  2.  2.  6.]
- [ 0.  1.  1.  3.  3.  2.  6.  2.  5.  9.]
- [ 0.  0.  2.  0.  4.  2.  2.  1.  6.  7.]]
+[[ 5.6  4.4]
+ [ 7.2  4.8]
+ [10.8  9.3]
+ [10.   9.2]
+ [ 9.7  9.1]
+ [ 9.9  4.1]
+ [ 9.5  8.9]
+ [10.4  9.5]
+ [ 4.1 -1. ]
+ [ 2.5  0.1]]
 ~~~
 {: .output}
 
-The [slice]({{ page.root }}/reference/#slice) `0:4` means, "Start at index 0 and go up to, but not
-including, index 4." Again, the up-to-but-not-including takes a bit of getting used to, but the
+The [slice]({{ page.root }}/reference/#slice) `0:10` means, "Start at index 0 and go up to, but not
+including, index 10." Again, the up-to-but-not-including takes a bit of getting used to, but the
 rule is that the difference between the upper and lower bounds is the number of values in the slice.
 
 We don't have to start slices at 0:
 
 ~~~
-print(data[5:10, 0:10])
+print(data[500:510, 0:3])
 ~~~
 {: .language-python}
 
 ~~~
-[[ 0.  0.  1.  2.  2.  4.  2.  1.  6.  4.]
- [ 0.  0.  2.  2.  4.  2.  2.  5.  5.  8.]
- [ 0.  0.  1.  2.  3.  1.  2.  3.  5.  3.]
- [ 0.  0.  0.  3.  1.  5.  6.  5.  5.  8.]
- [ 0.  1.  1.  2.  1.  3.  5.  3.  5.  8.]]
+[[501.   16.3   6.2]
+ [502.   14.1   8.6]
+ [503.   16.4  11.3]
+ [504.   19.9   8.1]
+ [505.   15.   10.5]
+ [506.   13.2   8.3]
+ [507.   10.5   3.6]
+ [508.   10.    7.1]
+ [509.   14.4   8.4]
+ [510.   13.6   8.7]]
 ~~~
 {: .output}
 
 We also don't have to include the upper and lower bound on the slice.  If we don't include the lower
 bound, Python uses 0 by default; if we don't include the upper, the slice runs to the end of the
-axis, and if we don't include either (i.e., if we just use ':' on its own), the slice includes
-everything:
+axis, and if we don't include either (i.e., if we just use ':' on its own), the slice includes everything:
 
 ~~~
-small = data[:3, 36:]
+small = data[:10, 1:]
 print('small is:')
 print(small)
 ~~~
 {: .language-python}
-The above example selects rows 0 through 2 and columns 36 through to the end of the array.
+The above example selects rows 0 through 9 and columns 1 and 2.
 
 ~~~
 small is:
-[[ 2.  3.  0.  0.]
- [ 1.  1.  0.  1.]
- [ 2.  2.  1.  1.]]
+[[ 5.6  4.4]
+ [ 7.2  4.8]
+ [10.8  9.3]
+ [10.   9.2]
+ [ 9.7  9.1]
+ [ 9.9  4.1]
+ [ 9.5  8.9]
+ [10.4  9.5]
+ [ 4.1 -1. ]
+ [ 2.5  0.1]]
 ~~~
 {: .output}
 
@@ -310,21 +321,25 @@ each element of which is twice the value of the corresponding element in `data`:
 
 ~~~
 print('original:')
-print(data[:3, 36:])
+print(data[:5, :])
 print('doubledata:')
-print(doubledata[:3, 36:])
+print(doubledata[:5, :])
 ~~~
 {: .language-python}
 
 ~~~
 original:
-[[ 2.  3.  0.  0.]
- [ 1.  1.  0.  1.]
- [ 2.  2.  1.  1.]]
+[[ 1.   5.6  4.4]
+ [ 2.   7.2  4.8]
+ [ 3.  10.8  9.3]
+ [ 4.  10.   9.2]
+ [ 5.   9.7  9.1]]
 doubledata:
-[[ 4.  6.  0.  0.]
- [ 2.  2.  0.  2.]
- [ 4.  4.  2.  2.]]
+[[ 2.  11.2  8.8]
+ [ 4.  14.4  9.6]
+ [ 6.  21.6 18.6]
+ [ 8.  20.  18.4]
+ [10.  19.4 18.2]]
 ~~~
 {: .output}
 
@@ -342,29 +357,46 @@ and so on for all other elements of the arrays.
 
 ~~~
 print('tripledata:')
-print(tripledata[:3, 36:])
+print(tripledata[:5, :])
 ~~~
 {: .language-python}
 
 ~~~
 tripledata:
-[[ 6.  9.  0.  0.]
- [ 3.  3.  0.  3.]
- [ 6.  6.  3.  3.]]
+[[ 3.  16.8 13.2]
+ [ 6.  21.6 14.4]
+ [ 9.  32.4 27.9]
+ [12.  30.  27.6]
+ [15.  29.1 27.3]]
 ~~~
 {: .output}
 
-Often, we want to do more than add, subtract, multiply, and divide array elements.  NumPy knows how
-to do more complex operations, too.  If we want to find the average inflammation for all patients on
-all days, for example, we can ask NumPy to compute `data`'s mean value:
+In many cases, it is useful to separate the day count from the actual temperature data. The index values allow us to work out the day number directly from our dataset, so we can create a new NumPy array:
+
 
 ~~~
-print(numpy.mean(data))
+tempdata = data[:, 1:]
+print(tempdata.shape)
 ~~~
 {: .language-python}
 
 ~~~
-6.14875
+(1095, 2)
+~~~
+{: .output}
+
+
+Often, we want to do more than add, subtract, multiply, and divide array elements.  NumPy knows how
+to do more complex operations, too.  If we want to find the average minimum and maximum temperature on
+all days, for example, we can ask NumPy to compute `data`'s mean value:
+
+~~~
+print(numpy.mean(tempdata))
+~~~
+{: .language-python}
+
+~~~
+8.374383561643835
 ~~~
 {: .output}
 
@@ -400,21 +432,21 @@ We'll also use multiple assignment,
 a convenient Python feature that will enable us to do this all in one line.
 
 ~~~
-maxval, minval, stdval = numpy.max(data), numpy.min(data), numpy.std(data)
+maxval, minval, stdval = numpy.max(tempdata), numpy.min(tempdata), numpy.std(tempdata)
 
-print('maximum inflammation:', maxval)
-print('minimum inflammation:', minval)
+print('maximum temperature:', maxval)
+print('minimum temperature:', minval)
 print('standard deviation:', stdval)
 ~~~
 {: .language-python}
 
-Here we've assigned the return value from `numpy.max(data)` to the variable `maxval`, the value
-from `numpy.min(data)` to `minval`, and so on.
+Here we've assigned the return value from `numpy.max(tempdata)` to the variable `maxval`, the value
+from `numpy.min(tempdata)` to `minval`, and so on.
 
 ~~~
-maximum inflammation: 20.0
-minimum inflammation: 0.0
-standard deviation: 4.61383319712
+maximum temperature: 28.3
+minimum temperature: -7.6
+standard deviation: 5.434688722915133
 ~~~
 {: .output}
 
@@ -429,21 +461,18 @@ standard deviation: 4.61383319712
 > explanation of the method! This is the same as doing `help(numpy.cumprod)`.
 {: .callout}
 
-When analyzing data, though,
-we often want to look at variations in statistical values,
-such as the maximum inflammation per patient
-or the average inflammation per day.
-One way to do this is to create a new temporary array of the data we want,
+
+So far, we have lumped together both our minimum and maximum temperature values when calculating those statistics. It'd make more sense to get the mean maximum and mean minimum temperature. One way to do this is to create a new temporary array of the data we want,
 then ask it to do the calculation:
 
 ~~~
-patient_0 = data[0, :] # 0 on the first axis (rows), everything on the second (columns)
-print('maximum inflammation for patient 0:', numpy.max(patient_0))
+minimums = tempdata[:, 1] # every row, only column 1 (minimum temperature)
+print('Highest minimum temperature:', numpy.max(minimums))
 ~~~
 {: .language-python}
 
 ~~~
-maximum inflammation for patient 0: 18.0
+Highest minimum temperature: 16.9
 ~~~
 {: .output}
 
@@ -456,17 +485,17 @@ We don't actually need to store the row in a variable of its own.
 Instead, we can combine the selection and the function call:
 
 ~~~
-print('maximum inflammation for patient 2:', numpy.max(data[2, :]))
+print('Lowest maximum temperature:', numpy.min(tempdata[:, 0]))
 ~~~
 {: .language-python}
 
 ~~~
-maximum inflammation for patient 2: 19.0
+Lowest maximum temperature: -2.8
 ~~~
 {: .output}
 
-What if we need the maximum inflammation for each patient over all days (as in the
-next diagram on the left) or the average for each day (as in the
+What if we need the temperature range for each day (as in the
+next diagram on the left) or the average for the minimum and maximum columns (as in the
 diagram on the right)? As the diagram below shows, we want to perform the
 operation across an axis:
 
@@ -478,55 +507,78 @@ If we ask for the average across axis 0 (rows in our 2D example),
 we get:
 
 ~~~
-print(numpy.mean(data, axis=0))
+print(np.mean(tempdata, axis=0))
 ~~~
 {: .language-python}
 
 ~~~
-[  0.           0.45         1.11666667   1.75         2.43333333   3.15
-   3.8          3.88333333   5.23333333   5.51666667   5.95         5.9
-   8.35         7.73333333   8.36666667   9.5          9.58333333
-  10.63333333  11.56666667  12.35        13.25        11.96666667
-  11.03333333  10.16666667  10.           8.66666667   9.15         7.25
-   7.33333333   6.58333333   6.06666667   5.95         5.11666667   3.6
-   3.3          3.56666667   2.48333333   1.5          1.13333333
-   0.56666667]
+[10.67789954  6.07086758]
 ~~~
 {: .output}
 
-As a quick check,
-we can ask this array what its shape is:
-
-~~~
-print(numpy.mean(data, axis=0).shape)
-~~~
-{: .language-python}
-
-~~~
-(40,)
-~~~
-{: .output}
-
-The expression `(40,)` tells us we have an N×1 vector,
-so this is the average inflammation per day for all patients.
 If we average across axis 1 (columns in our 2D example), we get:
 
 ~~~
-print(numpy.mean(data, axis=1))
+print(numpy.mean(tempdata, axis=1))
 ~~~
 {: .language-python}
 
 ~~~
-[ 5.45   5.425  6.1    5.9    5.55   6.225  5.975  6.65   6.625  6.525
-  6.775  5.8    6.225  5.75   5.225  6.3    6.55   5.7    5.85   6.55
-  5.775  5.825  6.175  6.1    5.8    6.425  6.05   6.025  6.175  6.55
-  6.175  6.35   6.725  6.125  7.075  5.725  5.925  6.15   6.075  5.75
-  5.975  5.725  6.3    5.9    6.75   5.925  7.225  6.15   5.95   6.275  5.7
-  6.1    6.825  5.975  6.725  5.7    6.25   6.4    7.05   5.9  ]
+[ 5.    6.   10.05 ... 11.1  11.25  5.5 ]
 ~~~
 {: .output}
 
-which is the average inflammation per patient across all days.
+which is the average of the max and min temperature across all days.
+
+As a quick check, we can ask this array what its shape is:
+
+~~~
+print(numpy.mean(tempdata, axis=1).shape)
+~~~
+{: .language-python}
+
+~~~
+(1095,)
+~~~
+{: .output}
+
+The expression `(1095,)` tells us we have an N×1 vector, which has the same number of values as we have days of data in this dataset.
+
+A more useful thing than the average of the min and max temperatures would be to calculate the temperature range:
+
+~~~
+print(numpy.diff(tempdata, axis=1))
+~~~
+{: .language-python}
+
+~~~
+[[-1.2]
+ [-2.4]
+ [-1.5]
+ ...
+ [-4.6]
+ [-3.3]
+ [-3.2]]
+~~~
+{: .output}
+
+But why are all the values negative? This is because `numpy.diff` calculates the difference between the current value and the next value in the array as data[i] - data[i + 1], in our case that is the minimum minus the maximum. We can fix this with another NumPy command, which removes negative signs from values in arrays:
+
+~~~
+print(numpy.abs(numpy.diff(tempdata, axis=1)))
+~~~
+{: .language-python}
+
+~~~
+[[1.2]
+ [2.4]
+ [1.5]
+ ...
+ [4.6]
+ [3.3]
+ [3.2]]
+~~~
+{: .output}
 
 > ## Check Your Understanding
 >
@@ -585,7 +637,7 @@ which is the average inflammation per patient across all days.
 >
 > The expression `element[3:3]` produces an [empty string]({{ page.root }}/reference/#empty-string),
 > i.e., a string that contains no characters.
-> If `data` holds our array of patient data,
+> If `data` holds our array of temperature data,
 > what does `data[3:3, 4:4]` produce?
 > What about `data[3:3, :]`?
 >
