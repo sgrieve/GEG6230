@@ -2,10 +2,7 @@
 title: Creating Functions
 ---
 
-At this point,
-we've written code to draw some interesting features in our inflammation data,
-loop over all our data files to quickly draw these plots for each of them,
-and have Python make decisions based on what it sees in our data.
+At this point, we've written code to explore our data, and start to visualise it.
 But, our code is getting pretty long and complicated;
 what if we had thousands of datasets,
 and didn't want to generate a figure for every single one?
@@ -14,6 +11,7 @@ Also, what if we want to use that code again,
 on a different dataset or at a different point in our program?
 Cutting and pasting it is going to make our code get very long and very repetitive,
 very quickly.
+
 We'd like a way to package our code so that it is easier to reuse,
 and Python provides for this by letting us define things called 'functions' ---
 a shorthand way of re-executing longer pieces of code.
