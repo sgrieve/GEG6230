@@ -10,7 +10,7 @@ output: pdf_document
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 45% module mark (6.75 credits)
 - Page limit: 1 A3 page
-- Deadline: 2pm 31/10/19, via QMplus
+- Deadline: 2pm 14/11/19, via QMplus
 
 You are working as a GIS analyst and have been instructed by your client to assist in the identification of suitable hydro power sites across the Lake District. A number of candidate catchments have been proposed but the client does not understand the data about each catchment as they have never done a GIS course.
 
@@ -48,7 +48,7 @@ Factors which may make a catchment good for a hydro power scheme:
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 10% module mark (1.5 credits)
 - Time limit: 5 minutes
-- Deadline: Week 5's class **(16th October 15:00-18:00)**
+- Deadline: 2pm 14/11/19, via QMplus
 
 Having created your one page visualisation for assignment 1, present this visualisation to the class. You should explain:
 

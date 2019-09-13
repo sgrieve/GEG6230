@@ -21,9 +21,9 @@ author: Stuart Grieve
 
 **Coursework deadlines:**
 
-- Data visualisation project: 2pm 31/10/19
-- Presentation: 2pm 31/10/19
-- GIS portfolio: 2pm 5/12/19
+- Data visualisation project: 2pm 14/11/19
+- Presentation: 2pm 14/11/19
+- GIS portfolio: 2pm 12/12/19
 
 # Module Overview
 
@@ -73,17 +73,18 @@ There are copies of all of these books in the Mile End Library, and an ebook ver
 
 | Week  | Date  | Time  | Room  | Session  |
 |---|---|---|---|---|
-|  1 |  19/9 | 15:00-18:00  |  FB 1.23 | Introduction to Advanced Geospatial Science  |
-|  2 |  26/9 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting I  |
-|  3 |  3/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting II  |
-|  4 |  10/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting III |
-|  5 |  17/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I  |
-|  6 |  - | -  |  - | **Reading Week: No class**  |
-|  7 |  31/10 | 15:00-18:00  |  FB 1.23 | Student Presentations |
-|  8 |  7/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
-|  9 |  14/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III |
-|  10 | 21/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
-|  11 |  28/11 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
+|  1 |  26/9 | 15:00-18:00  |  FB 1.23 | Introduction to Advanced Geospatial Science  |
+|  2 |  3/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting I  |
+|  3 |  10/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting II  |
+|  4 |  17/10 | 15:00-18:00  |  FB 1.23 | Data visualisation and plotting III |
+|  5 |  24/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work I  |
+|  6 |  31/10 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work II  |
+|  7 |  - | -  |  - | **Reading Week: No class**  |
+|  8 |  14/11 | 15:00-18:00  |  FB 1.23 | Student Presentations |
+|  9 |  21/11 | 15:00-18:00  |  FB 1.23 | GIS is tedious: Automating your work III |
+|  10 | 28/11  | 15:00-18:00  |  FB 1.23 | Interpolation and LiDAR processing |
+|  11 |  5/12 | 15:00-18:00  |  FB 1.23 | Reproducible geoscience and assessment workshop |
+|  12 |  12/12 | 15:00-18:00  |  FB 1.23 | Consolidation and student directed learning |
 
 # Assessment
 
@@ -97,7 +98,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 1 A3 page
 
-**Deadline:** 2pm 31/10/19
+**Deadline:** 2pm 14/11/19
 
 ## Assignment 2
 
@@ -107,7 +108,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Time limit:** 5 minutes
 
-**Deadline:** 2pm 31/10/19
+**Deadline:** 2pm 14/11/19
 
 ## Assignment 3
 
@@ -117,7 +118,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 4 A4 pages + code
 
-**Deadline:** 2pm 5/12/19
+**Deadline:** 2pm 12/12/19
 
 Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2019-20 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
 
