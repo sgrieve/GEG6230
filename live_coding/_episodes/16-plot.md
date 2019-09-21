@@ -322,10 +322,26 @@ plt.suptitle('Max and Min Temps')
 
 ## Boxplots
 
+~~~
 
+plt.boxplot(data[:, 1:], meanline=True, showmeans=True, labels=['Max', 'min'])
+
+~~~
+{: .language-python}
 
 ## Violin plots
 
+~~~
 
+plt.violinplot(data[:, 1:], showextrema=False, showmedians=True)
+
+ax = plt.gca()
+labels = ax.get_xticklabels()
+labels[2] = 'Max'
+labels[7] = 'Min'
+ax.set_xticklabels(labels)
+
+~~~
+{: .language-python}
 
 ## Finishing touches
