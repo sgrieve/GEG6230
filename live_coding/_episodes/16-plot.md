@@ -314,6 +314,33 @@ plt.suptitle('Max and Min Temps')
 
 ## Bar plots
 
+~~~
+
+landcover = numpy.loadtxt(fname='data/75001/75001_landcover.csv', delimiter=',', skiprows=1)
+labels = ['Forest', 'Farmland', 'Grassland', 'Mountains', 'Urban']
+plt.bar(landcover[:, 0], landcover[:, 1], color='green')
+plt.xticks(landcover[:, 0], labels)
+plt.ylabel('Landcover percentage')
+
+~~~
+{: .language-python}
+
+With a bit of work we can make a single stacked bar showing the cumulative percentages:
+
+~~~
+labels = ['Forest', 'Farmland', 'Grassland', 'Mountains', 'Urban']
+
+cumulative_landcover = np.cumsum(landcover[:, 1])[::-1]  # [::-1] reverses an array
+
+for i in range(5):
+    plt.barh(1, cumulative_landcover[i], label=labels[i])
+
+plt.ylim(0.5, 3)
+plt.xlabel('Landcover percentage')
+plt.legend()
+
+~~~
+{: .language-python}
 
 
 ## Histograms
