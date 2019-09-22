@@ -310,7 +310,35 @@ plt.suptitle('Max and Min Temps')
 
 ## Scatter plots
 
+Scatter plots are a good way of comparing two variables. Lets plot rainfall against discharge and see if there is a relationship. We'll start by loading some more datasets:
 
+~~~
+rainfall = np.loadtxt(fname='data/75004/75004_rainfall.csv', delimiter=',', skiprows=1)
+discharge = np.loadtxt(fname='data/75004/75004_daily_flow.csv', delimiter=',', skiprows=1)
+temperature = np.loadtxt(fname='data/75007/75007_temperatures_evening.csv', delimiter=',', skiprows=1)
+~~~
+{: .language-python}
+
+First things first, there should be an obvious relationship between the evening minimum and maximum temperatures:
+
+~~~
+plt.scatter(x=temperature[:, 2], y=temperature[:, 1], marker='.')
+plt.xlabel('Minimum temperature (C)')
+plt.ylabel('Maximum temperature (C)')
+~~~
+{: .language-python}
+
+What other things can we do with a scatter plot? We can scale the colours of the points, and their size based on other parameters. This can be useful for exploring the relationship between multiple variables:
+
+~~~
+plt.scatter(x=temperature[:, 2], y=rainfall[:, 1], s=discharge[:, 1], c=discharge[:, 1], marker='s', alpha=0.5)
+colorbar = plt.colorbar()
+colorbar.set_label('Discharge (cumecs)')
+plt.xlabel('Minimum temperature (C)')
+plt.xlabel('Rainfall (mm)')
+
+~~~
+{: .language-python}
 
 ## Bar plots
 
