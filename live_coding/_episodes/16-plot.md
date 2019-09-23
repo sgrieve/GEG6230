@@ -283,7 +283,7 @@ its `add_subplot` [method]({{ page.root }}/reference/#method). The `add_subplot`
 parameters. The first denotes how many total rows of subplots there are, the second parameter
 refers to the total number of subplot columns, and the final parameter denotes which subplot
 your variable is referencing (left-to-right, top-to-bottom). Each subplot is stored in a
-different variable (`axes1`, `axes2`, `axes3`). Once a subplot is created, the axes can
+different variable (`axes1`, `axes2`). Once a subplot is created, the axes can
 be titled using the `set_xlabel()` command (or `set_ylabel()`).
 Here are our three plots side by side:
 
@@ -373,7 +373,23 @@ plt.legend()
 
 ## Histograms
 
+Histograms are a great way to see the distribution of values in a dataset. They can be plotted using `plt.hist()`:
 
+~~~
+plt.hist(discharge[:, 1])
+~~~
+{: .language-python}
+
+We can tweak the number of bins and other parameters to improve the clarity of the histogram:
+
+~~~
+other_discharge = np.loadtxt(fname='data/75007/75007_daily_flow.csv', delimiter=',', skiprows=1)
+plt.hist(discharge[:, 1], bins=50, density=True, histtype='step')
+plt.hist(other_discharge[:, 1], bins=50, density=True, histtype='step')
+plt.ylabel('Probability')
+plt.xlabel('Discharge (Cumecs)')
+~~~
+{: .language-python}
 
 ## Boxplots
 
@@ -400,3 +416,34 @@ ax.set_xticklabels(labels)
 {: .language-python}
 
 ## Finishing touches
+
+Having made a bunch of plots, we might want to annotate interesting features, a lot of this can be done using Inkscape, but the more we can do with code, the less work we have to do if we need to edit a plot later.
+
+~~~
+plt.plot(data[:, 0][:32], data[:, 1][:32])
+plt.text(14, 3, 'It was cold here!')
+plt.vlines(9, np.min(data[:, 1][:32]), np.max(data[:, 1][:32]), linestyle=':')
+plt.vlines(26, np.min(data[:, 1][:32]), np.max(data[:, 1][:32]), linestyle=':')
+
+~~~
+{: .language-python}
+
+
+~~~
+plt.plot(data[:, 0][:32], data[:, 1][:32])
+plt.hlines(np.min(data[:, 1][:32]), 0, 31, linestyle='dashed')
+plt.hlines(np.max(data[:, 1][:32]), 0, 31, linestyle='-.')
+
+~~~
+{: .language-python}
+
+
+The last thing we need to cover about matplotlib, is what format to save our figures as, so that we can edit them in Inkscape:
+
+~~~
+plt.plot(data[:, 0][:32], data[:, 1][:32])
+plt.hlines(np.min(data[:, 1][:32]), 0, 31, linestyle='dashed')
+plt.hlines(np.max(data[:, 1][:32]), 0, 31, linestyle='-.')
+plt.savefig('January.svg')
+~~~
+{: .language-python}
