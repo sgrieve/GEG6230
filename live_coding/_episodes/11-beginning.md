@@ -10,9 +10,15 @@ We are going to be using Jupyter Notebooks as our python environment during this
 
 On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows:
 
-EXPLAIN THE LOADING PROCESS ONCE IT IS FINALIZED
+1. Navigate to the following folder: `J:\app\test\python3`
 
-Once we have loaded the notebook environment, we can navigate to a directory, and create a new notebook.
+1. Double click on the file: `set_path`
+
+1. This will open a Terminal window. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
+
+1. A browser window will eventually open: this is our Jupyter Notebook environment.
+
+Once we have loaded the notebook environment, we can navigate to a directory, and create a new notebook. Its important to make sure that the directory you are working in has all of the data files you will be working with. This saves a lot of hassle in the future.
 
 When working with the notebook, you can either be in a cell, typing its contents, or outside cells, moving around the notebook.
 
@@ -22,6 +28,7 @@ Outside a cell:
 - Use arrow keys to move around.
 - Press b to add a new cell below the cursor.
 - Press m to turn a cell from code mode to markdown mode.
+- Press y to turn a cell from markdown mode to code mode.
 - Press shift+enter to calculate the code in the block.
 - Press h to see a list of useful keys in the notebook.
 
