@@ -10,9 +10,7 @@ We are going to be using Jupyter Notebooks as our python environment during this
 
 On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows:
 
-1. Navigate to the following folder: `J:\app\test\python3`
-
-1. Double click on the file: `set_path`
+1. In the start menu, launch `Python 3.7`
 
 1. This will open a Terminal window. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
 
