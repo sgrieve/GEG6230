@@ -1,10 +1,7 @@
 ---
-title: "GEG6230 Python Exercises"
+title: "GEG6230 Python Exercises 3"
 author: Stuart Grieve
 ...
-
-# Python exercises
-
 
 ### Correcting our data
 
@@ -22,7 +19,7 @@ If `data` holds our array of temperature data, what does `data[3:3, 4:4]` produc
 
 What about `data[3:3, :]`?
 
-#### January vs January
+### January vs January
 
 Calculate the daily difference in precipitation between two Januarys in the `75007_rainfall.csv` dataset.
 

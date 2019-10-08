@@ -1,10 +1,7 @@
 ---
-title: "GEG6230 Python Exercises"
+title: "GEG6230 Python Exercises 2"
 author: Stuart Grieve
 ...
-
-# Python exercises
-
 
 ### Missing values
 

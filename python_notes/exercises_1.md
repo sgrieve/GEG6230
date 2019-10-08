@@ -1,9 +1,7 @@
 ---
-title: "GEG6230 Python Exercises"
+title: "GEG6230 Python Exercises 1"
 author: Stuart Grieve
 ...
-
-# Python exercises
 
 
 ### Range
@@ -47,7 +45,9 @@ my_list = []
 Given a nested list containing lists of ingredients:
 
 ```
-food = [['pepper', 'zucchini', 'onion'], ['cabbage', 'lettuce', 'garlic'], ['apple', 'pear', 'banana']]
+food = [['pepper', 'zucchini', 'onion'],
+       ['cabbage', 'lettuce', 'garlic'],
+       ['apple', 'pear', 'banana']]
 ```
 
 Use 2 for loops to reproduce the following output:
