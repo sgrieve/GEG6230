@@ -26,7 +26,7 @@ Using `range`, write a loop that uses range to print the first 3 natural numbers
 
 ### Reverse a String
 
-Knowing that two strings can be concatenated using the `+` operator, write a loop that takes a string and produces a new string with the characters in reverse order, so `'Newton'` becomes `'notweN'`.
+Knowing that two strings can be joined together (concatenated) using the `+` operator, write a loop that takes a string and produces a new string with the characters in reverse order, so `'Newton'` becomes `'notweN'`.
 
 
 ### Turn a String Into a List
@@ -42,13 +42,33 @@ Hint: You can create an empty list like this:
 my_list = []
 ```
 
+### Loops inside loops
 
-### Counting Vowels
+Given a nested list containing lists of ingredients:
 
-Write a loop that counts the number of vowels in a character string.
-Test it on a few individual words and full sentences.
+```
+food = [['pepper', 'zucchini', 'onion'], ['cabbage', 'lettuce', 'garlic'], ['apple', 'pear', 'banana']]
+```
 
+Use 2 for loops to reproduce the following output:
 
-### Temperature data
+```
+pepper
+zucchini
+onion
+---
+cabbage
+lettuce
+garlic
+---
+apple
+pear
+banana
+---
+```
 
-What is the maximum temperature recorded in the first 31 days of each of the 4 catchment evening temperature datasets?
+### Cubing numbers
+
+As well as the usual mathematical operations we have already seen, Python has an easy way to compute powers `**`. For example we can square a value as follows: `myval ** 2`.
+
+Create a list containing the cubes of the values 1 through 9.
