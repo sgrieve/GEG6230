@@ -49,7 +49,7 @@ Once we have finished making our map, we need to export it in the `svg` format, 
 
 ### Creating a graph
 
-We have already created several graphs during today's live coding session. Follow your notes from this part of the class to save one of these graphs as an `svg` file. This practical will use a plot of X, but any `matplotlib` plot in `svg` format will be fine.
+We have already created several graphs during today's live coding session. Follow your notes from this part of the class to save one of these graphs as an `svg` file. For this practical any `matplotlib` plot in `svg` format will be fine.
 
 ## Launch Inkscape
 
