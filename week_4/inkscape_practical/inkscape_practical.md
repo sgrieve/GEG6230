@@ -25,7 +25,7 @@ Before we can start using Inkscape to create data visualisations, we need to hav
 
 This first section is mostly revision from what we covered in GEG5223 last year. Our aim is to make a map in ArcMap that we can import into Inkscape. The map we are going to make is of catchments, with its hydrology overlain on a hillshade.
 
-1. Load the DEM for a of the catchments in the data folder into ArcMap, these notes will use catchment `75006`
+1. Load the DEM for a of the catchments in the data folder into ArcMap, these notes will use catchment `75001`
 
 1. Create a hillshade of the catchment DEMs (`ArcToolbox > Spatial Analyst Tools > Surface > Hillshade`)
 
