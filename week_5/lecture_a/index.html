@@ -60,17 +60,11 @@ https://swdg.io/GEG6230/week_5/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### Lecture overview
-
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
 ### What is a geoprocessing workflow?
 
+- Combinations of individual geospatial analyses
+- Starting from input data and leading to an answer or result
+- Automation of boring/difficult tasks
 
 </textarea>
 </section>
@@ -78,11 +72,9 @@ https://swdg.io/GEG6230/week_5/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### Examples
+### OpenTopography
 
-- OpenTopography
-- DigiMap
-- NCI code
+![https://opentopography.org/about/technology](../../img/OT_arch.jpg) <!-- .element width="100%" -->
 
 </textarea>
 </section>
@@ -90,11 +82,32 @@ https://swdg.io/GEG6230/week_5/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### A general concept
+### DigiMap
 
-Highlight universal nature of this idea - outputs feed into inputs
+![](../../img/digimap.png) <!-- .element width="100%" -->
 
 </textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+![](../../img/nature.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section>
+  <div align="center" data-svg-fragment-big="../../img/schematic_2.svg#[*|label=a]">
+      <a class="fragment" title="[*|label=b]"></a>
+      <a class="fragment" title="[*|label=c]"></a>
+      <a class="fragment" title="[*|label=d]"></a>
+      <a class="fragment" title="[*|label=e]"></a>
+      <a class="fragment" title="[*|label=f]"></a>
+      <a class="fragment" title="[*|label=g]"></a>
+      <a class="fragment" title="[*|label=h]"></a>
+      <a class="fragment" title="[*|label=i]"></a>
+  </div>
 </section>
 
 <section data-markdown>
@@ -135,29 +148,9 @@ Highlight universal nature of this idea - outputs feed into inputs
 <section data-markdown>
 <textarea data-template>
 
-### Knitting!
-
-image or example gif here
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
 ### Manufacture
 
-image or example gif here
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Skateboarding
-
-image or example gif here
+![](../../img/chain.gif) <!-- .element width="100%" -->
 
 </textarea>
 </section>
@@ -169,20 +162,34 @@ image or example gif here
 
 - If a language has flow control, memory and repitition it can do **anything**
 
-keanau whoa gif?
+![](../../img/woah.gif) <!-- .element width="80%" -->
 
 </textarea>
 </section>
-
 
 <section data-markdown>
 <textarea data-template>
 
 ### Geospatial primitives
 
-list the fundamental building blocks of spatial analysis
+Most GIS work is simply a combination of a series of simple operations:
 
-- show how these can be combined
+- Select
+- Buffer
+- Intersect
+- Union
+- Difference
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Geospatial primitives
+
+For example, we can find the number of points within 100 meters of a line by creating a 100 meter
+**buffer** around the line, and **selecting** all of the points within the buffer.
 
 </textarea>
 </section>
@@ -205,7 +212,9 @@ There are 2 main ways we can represent/implement a geospatial workflow:
 
 ### Visual methods
 
-flow chart analogy
+We can use flow charts to describe the flow of data from the input to the output
+
+![](../../img/schematic_2.svg) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -213,15 +222,31 @@ flow chart analogy
 <section data-markdown>
 <textarea data-template>
 
-### FME
+### Feature Manipulation Engine (FME)
 
-Feature manipulation engine
+![https://cdn.safe.com/wp-content/uploads/2018/01/11110127/collapsible-bookmarks.gif](../../img/fme.gif) <!-- .element width="80%" -->
 
-screenshot/illustrative images
+</textarea>
+</section>
 
-basic market stats and info
+<section data-markdown>
+<textarea data-template>
 
-Highlight sectors it is used in - show examples from FCBC
+### Feature Manipulation Engine (FME)
+
+- Very popular in government, infrastructure and energy sectors
+- Good for transforming data between formats
+- Often used to convert CAD drawings of infrastructure project plans into GIS data
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Queensferry Crossing
+
+![https://www.theb1m.com/video/forth-bridges-spanning-three-centuries-of-engineering-innovation](../../img/forth-bridges.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -231,11 +256,7 @@ Highlight sectors it is used in - show examples from FCBC
 
 ### ArcGIS ModelBuilder
 
-image examples
-
-explain history and how it works
-
-preview of practical work and assessment
+![http://desktop.arcgis.com/en/arcmap/10.3/analyze/modelbuilder/what-is-modelbuilder.htm](../../img/modelbuilder-ex.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -273,13 +294,7 @@ preview of practical work and assessment
 
 ### Code
 
-Python, R, javascript
-
-Google earth engine
-
-ArcPy
-
-PyQGIS
+![](../../img/code-logos.png) <!-- .element width="100%" -->
 
 </textarea>
 </section>
@@ -318,7 +333,7 @@ PyQGIS
 
 Identify trees that are within 300 metres of the lake and 400 meters of the road:
 
-![Image of the data](../../img/tree-road-lake.png) <!-- .element width="80%" -->
+![Image of the data](../../img/tree-road-lake.png) <!-- .element width="70%" -->
 
 </textarea>
 </section>
@@ -353,21 +368,10 @@ In small groups:
 <section data-markdown>
 <textarea data-template>
 
-### Group exercise
-
-Heres how I did it in ModelBuilder
-
-Have students follow along?
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
 ### Today's practical
 
-Introduce the ModelBuilder practical
+We are going to learn how to use ArcGIS's ModelBuilder to turn our paper
+and pen workflows into GIS reality.
 
 </textarea>
 </section>
