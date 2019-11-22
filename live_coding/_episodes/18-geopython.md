@@ -178,7 +178,7 @@ print(mypoint.within(mypolygon))
 What if something crosses an edge? We'll create a new LineString to test this.
 
 ~~~
-longline = LineString(LineString([(1, 1), (10, 10), (25, 32)]))
+longline = LineString([(1, 1), (10, 10), (25, 32)])
 ~~~
 {: .language-python}
 
@@ -439,17 +439,29 @@ with fiona.open('tree_triangles.shp', 'w', 'ESRI Shapefile', schema) as c:
 
 ## Working with rasters
 
-We can load raster data into python and combine it with shapefiles in order to calculate zonal statistics or sample values based on a location. To do this we need to use the `rasterstats` module:
+We can load raster data into python and combine it with shapefiles in order to calculate zonal statistics or sample values based on a location. To do this we need to use the `rasterstats` module, alongside the `rasterio` module, which we use to load raster data:
 
 ~~~
+import rasterio
 from rasterstats import point_query, zonal_stats
 ~~~
 {: .language-python}
 
-We will use the slope raster from the ModelBuilder practical for these next few examples. We can use `point_query` to get the raster values at a series of spatial locations:
+We will use the slope raster from the ModelBuilder practical for these next few examples. We will load it into Python using `rasterio`, in a form similar to how we load shapefiles with `fiona`:
 
 ~~~
-pts = point_query('example_data/sample_points.shp', 'example_data/Slope.tif')
+with rasterio.open('example_data/Slope.tif') as dataset:
+    trans = dataset.transform
+    array = dataset.read(1)
+~~~
+{: .language-python}
+
+We create 2 new variables `trans`, which stores the geographic transform information (also called **affine** in some contexts). This is used to map the grid of raster values, `array`, onto a geographic location. The statement `.read(1)` indicates we want to read the first band of the raster dataset, in cases where we are working with multiband data we can select the band of interest using its number.
+
+We can then use `point_query` to get the raster values at a series of spatial locations:
+
+~~~
+pts = point_query('example_data/sample_points.shp', array, affine=trans)
 ~~~
 {: .language-python}
 
@@ -461,14 +473,14 @@ with fiona.open('example_data/sample_points.shp') as shapefile:
     for point in shapefile:
         sample_list.append(shape(point['geometry']))
 
-pts2 = point_query(sample_list, 'example_data/Slope.tif')
+pts2 = point_query(sample_list, , array, affine=trans)
 ~~~
 {: .language-python}
 
 `rasterstats` can also do zonal statistics using either a polygon shapefile:
 
 ~~~
-stats = zonal_stats('example_data/catchment_1.shp', 'example_data/Slope.tif')
+stats = zonal_stats('example_data/catchment_1.shp', array, affine=trans)
 print(stats)
 ~~~
 {: .language-python}
@@ -479,7 +491,7 @@ or a shapely polygon:
 with fiona.open('example_data/catchment_1.shp') as shapefile:
     catchment = shape(shapefile[0]['geometry'])
 
-stats = zonal_stats(catchment, 'example_data/Slope.tif')
+stats = zonal_stats(catchment, array, affine=trans)
 print(stats)
 ~~~
 {: .language-python}
@@ -508,7 +520,7 @@ We can also specify which stats we want to calculate, from the following list:
 - percentile
 
 ~~~
-morestats = zonal_stats(catchment, 'example_data/Slope.tif', stats='median majority range percentile_98')
+morestats = zonal_stats(catchment, array, affine=trans, stats='median majority range percentile_98')
 ~~~
 {: .language-python}
 
@@ -521,6 +533,7 @@ We will start by importing the various libraries we will be using:
 ~~~
 import os
 import fiona
+import rasterio
 from glob import glob
 from rasterstats import zonal_stats
 from shapely.geometry import shape, mapping, Polygon
@@ -541,6 +554,10 @@ With this list of files, we can write a for loop to iterate over each catchment 
 ~~~
 results = {}
 
+with rasterio.open('example_data/Slope.tif') as dataset:
+    trans = dataset.transform
+    array = dataset.read(1)
+
 for filename in catchment_files:
     with fiona.open(filename) as shapefile:
         catchment = shape(shapefile[0]['geometry'])
@@ -551,7 +568,7 @@ for filename in catchment_files:
         K = shapefile[0]['properties']['K']
         Area = shapefile[0]['properties']['Area']
 
-        stats = zonal_stats(catchment, 'example_data/Slope.tif', stats='mean')
+        stats = zonal_stats(catchment, array, affine=trans, stats='mean')
         Slope = stats[0]['mean']
 
         E = K * (Area ** 0.3) * (Slope ** 0.3)
