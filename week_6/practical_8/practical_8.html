@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Stuart Grieve" />
+  <meta name="date" content="2019-03-07" />
+  <title>GEG5223 Practical 8</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--
+  https://gist.github.com/killercup/5917178
+  -->
+  <style type="text/css">
+  html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    color: #444;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 1em;
+    margin: auto;
+    max-width: 42em;
+    background: #fefefe;
+  }
+  
+  a {
+    color: #0645ad;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #0b0080;
+  }
+  
+  a:hover {
+    color: #06e;
+  }
+  
+  a:active {
+    color: #faa700;
+  }
+  
+  a:focus {
+    outline: thin dotted;
+  }
+  
+  *::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  *::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  a::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  a::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  p {
+    margin: 1em 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+    line-height: 125%;
+    margin-top: 2em;
+    font-weight: normal;
+  }
+  
+  h4, h5, h6 {
+    font-weight: bold;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
+  
+  h5 {
+    font-size: 1em;
+  }
+  
+  h6 {
+    font-size: 0.9em;
+  }
+  
+  blockquote {
+    color: #666666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+  
+  hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  pre, code, kbd, samp {
+    color: #000;
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.98em;
+  }
+  
+  pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  b, strong {
+    font-weight: bold;
+  }
+  
+  dfn {
+    font-style: italic;
+  }
+  
+  ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  ul, ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+  }
+  
+  li p:last-child {
+    margin-bottom: 0;
+  }
+  
+  ul ul, ol ol {
+    margin: .3em 0;
+  }
+  
+  dl {
+    margin-bottom: 1em;
+  }
+  
+  dt {
+    font-weight: bold;
+    margin-bottom: .8em;
+  }
+  
+  dd {
+    margin: 0 0 .8em 2em;
+  }
+  
+  dd:last-child {
+    margin-bottom: 0;
+  }
+  
+  img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+  }
+  
+  figure {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  figure img {
+    border: none;
+    margin: 0 auto;
+  }
+  
+  figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0 0 .8em;
+  }
+  
+  table {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  table th {
+    padding: .2em 1em;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+  
+  table td {
+    padding: .2em 1em;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    vertical-align: top;
+  }
+  
+  .author {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      filter: none !important;
+      -ms-filter: none !important;
+    }
+  
+    body {
+      font-size: 12pt;
+      max-width: 100%;
+    }
+  
+    a, a:visited {
+      text-decoration: underline;
+    }
+  
+    hr {
+      height: 1px;
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+  
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+  
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+      content: "";
+    }
+  
+    pre, blockquote {
+      border: 1px solid #999;
+      padding-right: 1em;
+      page-break-inside: avoid;
+    }
+  
+    tr, img {
+      page-break-inside: avoid;
+    }
+  
+    img {
+      max-width: 100% !important;
+    }
+  
+    @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+  }
+  
+    @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+  }
+  
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    h2, h3 {
+      page-break-after: avoid;
+    }
+  }
+  </style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">GEG5223 Practical 8</h1>
+<h2 class="author">Stuart Grieve</h2>
+<h3 class="date">03/07/19</h3>
+</div>
+<h1 id="hot-spot-analysis">Hot spot analysis</h1>
+<h2 id="aims-and-objectives">Aims and Objectives</h2>
+<p>In this practical you will be performing a series of analyses on a point dataset to identify statistically significant spatial patterns. We will be applying techniques discussed in the lecture, including Getis-Ord Gi*.</p>
+<p>By the end of this class you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Prepare data for appropriate geospatial analysis</li>
+<li>Generate visualisations of the spatial organisation of data</li>
+<li>Identify a meaningful scale for an analysis</li>
+<li>Interpret the results of Getis-Ord Gi* tests</li>
+<li>Create a simple interpolated probability surface</li>
+</ol>
+<h2 id="data">Data</h2>
+<p>Today's practical only requires one dataset, a point shapefile containing records of sightings of urban raccoons for an area of Portland, Oregon, USA. Datasets like these can be invaluable in the study of species distribution as well as providing insights into controls on wildlife populations.</p>
+<p>Download the file <code>practical_8.zip</code> from QMplus and extract it into a sensible location (either a folder or a GeoDatabase). The zip archive contains:</p>
+<ul>
+<li><code>raccoons.shp</code> - A shapefile containing over 2000 sightings of raccoons in the first 5 months of 1998.</li>
+</ul>
+<p>You may want to load a basemap using the drop down menu on the <code>Add Data</code> button, to see the observations in their geographical context. Bear in mind that this data is downloaded from the internet and can slow down navigation around the map.</p>
+<h2 id="projecting-our-data">Projecting our data</h2>
+<p>When performing a geostatistical analysis, we need to consider how our data is projected. If we use a <strong>geographic</strong> coordinate system, which represents measurements as degrees, minutes and seconds, distances and areas are not constant across the dataset, which could impact the validity of our results. Instead, we want to use a <strong>projected</strong> coordinate system, which preserves areas and distances across a dataset.</p>
+<p>We will start by checking what type of projection our data has. Load <code>raccoons.shp</code> using the <code>Add Data</code> button, and right click on the layer in the <code>Table of Contents</code> and select <code>Properties</code>. Choose the <code>Source</code> tab and scroll down until you reach the <code>Angular Unit</code> row. As you can see this is listed as <code>Degree</code>, which means we are using a geographic coordinate system.</p>
+<p><img src="../../img/proj_info.png" alt="projection information" /> <!-- .element width="80%" --></p>
+<p>To reproject this data into a projected coordinate system we can use the <code>Project</code> tool, found in <code>ArcToolbox &gt; Data Management Tools &gt; Projections and Transformations &gt; Project</code>. This tool requires the following parameters:</p>
+<ul>
+<li><code>Input Dataset or Feature Class</code>: Our shapefile data (<code>raccoons.shp</code>)</li>
+<li><code>Output Dataset or Feature Class</code>: The path and filename of the projected dataset</li>
+<li><code>Output Coordinate System</code>: <code>NAD_1983_UTM_ZONE_10N</code></li>
+<li><code>Geographic Transformation</code>: <code>WGS_1984_(ITRF00)_To_NAD_1983</code></li>
+</ul>
+<p>After running the tool, add the new dataset to the table of contents, <strong>and remove the original dataset</strong> so we don't get things confused later.</p>
+<h2 id="aggregating-data">Aggregating data</h2>
+<p>Before we do anything else, we should make a backup copy of our projected shapefile, as some of the operations we will be performing will modify the dataset. This is always good practice when performing geospatial analyses, to ensure that you can always start again from scratch if things go wrong. Open <code>ArcCatalog</code> and create a copy of the projected data by right clicking on the shapefile, copying it and pasting it into the same folder. Rename the file with the suffix <code>_backup</code> so we know what it is.</p>
+<p>Looking at the data, we can see that there are some apparent clusters in the data, with many points that are very close together. Due to the nature of this data, where people have reported sightings, giving the addresses in the attribute table, there is some uncertainty in their precise location. One way to overcome this is to aggregate points that are close together so that they overlap.</p>
+<p>Open the <code>Integrate</code> tool, found in <code>ArcToolbox &gt; Data Management Tools &gt; Feature Class &gt; Integrate</code> and select our projected raccoon data as the input feature. We now need to select an <code>XY Tolerance</code>, this is the maximum distance apart that two points can be for them to be integrated together. You need to select this value based on your understanding of the data, a good value in this case will be somewhere around 5 meters. Run the tool, and at first glance it may seem that not much has changed.</p>
+<p>Load our backed up data and toggle between the backup and the integrated file to see all the small movements that have happened. You may need to zoom to fully see what has changed. <strong>Now remove the backed up data from the table of contents</strong>.</p>
+<p>Now we can use the <code>Collect Events</code> tool, found in <code>ArcToolbox &gt; Spatial Statistics Tools &gt; Utilities &gt; Collect Events</code>, to aggregate all overlapping points into a single point, scaled by the number of overlaps. Use our projected raccoon data as the input, and choose a sensible output name. Look at the table of contents for the new layer that is created when this tool is run:</p>
+<p><img src="../../img/icount.png" alt="Attributes" /> <!-- .element width="80%" --></p>
+<p>The <code>ICOUNT</code> field is a count of the number of overlapping points in a location, and by default ArcMap scales the size of the points based on this attribute, so we can begin to see some patterns emerge in the data.</p>
+<p><strong>What areas seem to have the highest incidence of raccoon sightings?</strong></p>
+<h2 id="analysis-scale">Analysis scale</h2>
+<p>As we learned in the lecture, the scale over which we perform many analyses is important, and the scale choose can influence the results that we see. This is where our expert knowledge of the data comes in, and also the nature of the questions we are trying to answer. For example if we wish to understand where raccoons cluster in a city, we need to consider the typical distance raccoons may travel and any other spatial factors that may be driving the distribution of a phenomena we are studying. In reality this can be difficult to quantify, and there is rarely a 'right answer'.</p>
+<p>One way that we can use the data to identify likely spatial scales, is to perform a series of Moran's I spatial autocorrelation tests and look at how the Z-scores change with distance. We could do this manually, but luckily ArcMap has a tool that automates this process, <code>Incremental Spatial Autocorrelation</code>, which can be found in <code>ArcToolbox &gt; Spatial Statistics Tools &gt; Analyzing Patterns &gt; Incremental Spatial Autocorrelation</code>. The inputs are as follows:</p>
+<ul>
+<li><code>Input Feature Class</code>: Our aggregated raccoon data</li>
+<li><code>Input Field</code>: <code>ICOUNT</code></li>
+<li><code>Number of Distance Bands</code>: <code>10</code>, this is the number of Moran's I calculations that will be run.</li>
+<li><code>Output Report File</code>: This is the output filename, which unlike anything we have done until now, is a pdf. Choose a sensible location and filename for this.</li>
+</ul>
+<p>All of the other fields can be left as their defaults. After the tool has executed, navigate to the created pdf and open it. It should look something like this</p>
+<p><img src="../../img/inc_auto.png" alt="autocorr" /> <!-- .element width="80%" --></p>
+<p>From this graph we can see that there is a peak in the Z-scores identified at around 1400 meters and another at 1700 meters.</p>
+<h2 id="getis-ord-gi">Getis-Ord Gi*</h2>
+<p>Now that we have identified a length scale, we can run a Getis-Ord Gi* test to identify statistically significant hot and cold spots in the data. This allows us to move beyond visual identification of clusters, and say something quantitative about the spatial distribution of our data.</p>
+<p>The tool we use is called <code>Hot Spot Analysis (Getis-Ord Gi*)</code> and can be found in <code>ArcToolbox &gt; Spatial Statistics Tools &gt; Mapping Clusters &gt; Hot Spot Analysis (Getis-Ord Gi*)</code>. The inputs for this tool are as follows:</p>
+<ul>
+<li><code>Input Feature Class</code>: Our aggregated raccoon data</li>
+<li><code>Input Field</code>: <code>ICOUNT</code></li>
+<li><code>Output Feature Class</code>: The path and filename of the result of our hot spot analysts</li>
+<li><code>Conceptualization of Spatial Relationships</code>: <code>FIXED_DISTANCE_BAND</code></li>
+<li><code>Distance Method</code>: <code>EUCLIDEAN_DISTANCE</code></li>
+<li><code>Distance Band</code>: This is the distance we selected from our incremental spatial autocorrelation calculations.</li>
+<li>All other options can be left as their defaults.</li>
+</ul>
+<p>The <code>Distance Method</code> indicates how we calculate distances between points, for other types of analysis it may be more appropriate to use <code>MANHATTAN_DISTANCE</code>, which calculates distance between points, following a grid, traveling at right angles, similar to how we navigate a city. We use <code>EUCLIDEAN_DISTANCE</code>, the straight line distance, in this case as we assume that raccoons will take the shortest path between two locations, cutting through gardens rather than following the road layout.</p>
+<p>When the tool has completed, a new dataset will be loaded into your table of contents, with statistically significant hot spots coloured red, statistically significant cold spots coloured blue and the beige points are not statistically significant clusters.</p>
+<p><strong>Look at the patterns in the data. Compare it to the aggregated data, where points were scaled by number of overlaps. What similarities or differences do you see between these two approaches?</strong></p>
+<h2 id="interpolating-results">Interpolating results</h2>
+<p>It can often be useful to visualise the results of a clustering analysis by creating a raster surface from the dicrete point data. This process is known as interpolation, and we will cover this in detail next week.</p>
+<p>For now we will use a process called Inverse Distance Weighting (IDW) to convert our point values into a surface. The tool we will use is called <code>IDW</code> and can be found in <code>ArcToolbox &gt; Spatial Analyst Tools &gt; Interpolation &gt; IDW</code>. The inputs are as follows:</p>
+<ul>
+<li><code>Input point features</code>: The output from the hot spot analysis</li>
+<li><code>Z value field</code>: <code>GiZScore</code></li>
+<li><code>Output raster</code>: The path and filename of the interpolated raster file</li>
+<li>All other options can be left blank.</li>
+</ul>
+<p><strong>Spend some time thinking about how to present this data, what would an appropriate colour scheme be? Does overlaying the point data on top of the surface help? Can you use transparency to show the basemap underneath?</strong></p>
+<h2 id="portfolio-instructions">Portfolio instructions</h2>
+<ul>
+<li>Perform 3 hot spot analyses, using 3 different distance values</li>
+<li>Make 3 maps, showing the differences between the hot spots identified</li>
+<li>Write a figure caption (approximately 250 words) describing the three maps, and the differences between the clusters identified at different distance values</li>
+</ul>
+</body>
+</html>

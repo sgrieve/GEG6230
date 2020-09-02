@@ -94,7 +94,7 @@ There are copies of all of these books in the Mile End Library, and an ebook ver
 |  9 |  19/11 | 13:00-16:00  |  GIS is tedious: Automating your work 1 |
 |  10 | 26/11 | 13:00-16:00  |  GIS is tedious: Automating your work 2 |
 |  11 | 3/12 | 13:00-16:00  |  GIS is tedious: Automating your work 3 |
-|  12 | 10/12 | 13:00-16:00  |  Reproducible geoscience and assessment workshop |
+|  12 | 10/12 | 13:00-16:00 |  Reproducible geoscience and assessment workshop |
 
 # Assessment
 
