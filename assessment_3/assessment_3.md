@@ -1,6 +1,8 @@
 ---
 geometry: margin=2.5cm
 output: pdf_document
+urlcolor: blue
+colorlinks: true
 ---
 
 # GEG6230 - Advanced Geospatial Science - Assignment 3

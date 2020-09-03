@@ -1,6 +1,8 @@
 ---
 title: "GEG6230 Introduction to ModelBuilder"
 author: Stuart Grieve
+urlcolor: blue
+colorlinks: true
 ...
 
 # Introduction to ModelBuilder

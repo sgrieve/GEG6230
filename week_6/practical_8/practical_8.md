@@ -1,6 +1,8 @@
 ---
 title: "GEG5223 Practical 8"
 author: Stuart Grieve
+urlcolor: blue
+colorlinks: true
 ...
 
 # Hot spot analysis

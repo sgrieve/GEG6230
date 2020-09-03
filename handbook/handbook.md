@@ -3,6 +3,8 @@ geometry: margin=2.5cm
 output: pdf_document
 title: "GEG6230: Advanced Geospatial Science Handbook 2020-21"
 author: Stuart Grieve
+urlcolor: blue
+colorlinks: true
 ---
 
 # Module Information

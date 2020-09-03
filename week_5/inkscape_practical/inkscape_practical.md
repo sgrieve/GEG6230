@@ -1,6 +1,8 @@
 ---
 title: "GEG6230 Introduction to Inkscape"
 author: Stuart Grieve
+urlcolor: blue
+colorlinks: true
 ...
 
 # Introduction to Inkscape

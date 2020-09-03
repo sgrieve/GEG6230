@@ -1,6 +1,8 @@
 ---
 title: "GEG5223 Practical 9"
 author: Stuart Grieve
+urlcolor: blue
+colorlinks: true
 ...
 
 # Interpolation
