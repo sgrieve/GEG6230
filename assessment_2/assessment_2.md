@@ -5,14 +5,14 @@ urlcolor: blue
 colorlinks: true
 ---
 
-# GEG6230 - Advanced Geospatial Science - Assignment 3
+# GEG6230 - Advanced Geospatial Science - Assignment 2
 
 ## GIS project
 
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
-- Credit: 45% module mark (6.75 credits)
+- Credit: 50% module mark (7.5 credits)
 - Page limit: 4 A4 pages + code
-- Deadline: 2pm 18/12/19, via QMplus
+- Deadline: 2pm TBD, via QMplus
 
 You have a dataset of landslide scar outline polygons for the [Coweeta Experimental Catchment](https://coweeta.uga.edu/) in North Carolina, USA. As part of ongoing efforts to better understand landsliding in this area, you need to calculate the factor of safety (`Fs`) of each of these polygons.
 
@@ -62,14 +62,3 @@ Alongside a series of numbered polygon shapefiles, called `scar_1.shp` through t
 2. A copy of the Jupyter notebook containing the python workflow to calculate `Fs` for each catchment.
 
 **These two files should be placed in a `.zip` file, with your student number as the filename, and submitted to QMplus.**
-
-## Feedback
-
-You will be given time in class to begin this assignment, where you will be able to discuss your ideas with Stuart, as well as your classmates.
-
-If you require further help you can attend Stuart's Advice and Feedback hours (without an appointment):
-
-- Tuesday 14:00-15:00
-- Thursday 10:00-11:00
-
-Or at any other time by appointment, email Stuart (s.grieve@qmul.ac.uk) to arrange one.
