@@ -11,12 +11,10 @@ colorlinks: true
 
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 50% module mark (7.5 credits)
-- Page limit: 1 A3 page
+- Page limit: 1 A3 page + 500 words
 - Deadline: 2pm TBD, via QMplus
 
-You are working as a GIS analyst and have been instructed by your client to assist in the identification of suitable hydro power sites across the Lake District. A number of candidate catchments have been proposed but the client does not understand the data about each catchment as they have never done a GIS course.
-
-Create a one page visualisation, highlighting **some** of the information provided by the client in a more accessible manner. **Your final visualisation should include 2 maps and 2 graphs.**
+You are working as a GIS analyst and have been instructed by your client to assist in the identification of suitable hydro power sites across the Lake District. A number of candidate catchments have been proposed, but the client does not understand the data about each catchment as they have never done a GIS course. **You must ensure that the final visualisation is understandable to someone with no geography or GIS background.**
 
 There are 4 catchments, each with a unique number: `75001, 75004, 75006, 75007`
 
@@ -44,3 +42,17 @@ Factors which may make a catchment good for a hydro power scheme:
 - Temperatures usually above freezing
 
 **Note that which catchments you choose is unimportant, this assignment will be graded based on the presentation of the data, not the identification of the best catchments for hydro power.**
+
+## What to submit
+
+1) Create a A3 one page visualisation, highlighting **some** of the information provided by the client in a more accessible manner. **Your final visualisation should include 2 maps and 2 graphs.**
+
+2) Write 500 words outlining, with reference to the literature, how you designed this visualisation to be accessible.
+
+Things you can consider (you can cover some or all of these, or go in a different direction):
+
+- Think about the language you use in any captions and text included in the visualisation - is is free of jargon?
+- How complex does the data need to be? Can you use qualitative interpretations?
+- Think about data-ink ratios
+- Choose colours carefully both to convey a message and for accessibility
+- How will the visualisation work on different technologies (screen, paper, phone, etc)
