@@ -108,7 +108,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Assessment weighting:** 50%
 
-**Page limit:** 1 A3 page
+**Page limit:** 1 A3 page + 500 words
 
 **Deadline:**
 
@@ -118,7 +118,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Assessment weighting:** 50%
 
-**Page limit:** 4 A4 pages + code
+**Page limit:** 5 A4 pages + code
 
 **Deadline:**
 
