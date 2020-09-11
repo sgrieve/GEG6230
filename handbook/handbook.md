@@ -11,7 +11,7 @@ colorlinks: true
 
 **Credit value:** 15 credits
 
-**Module convener:** Dr Stuart Grieve (s.grieve@qmul.ac.uk, Room 206, Geography)
+**Module convener:** Dr Stuart Grieve (s.grieve@qmul.ac.uk, Working from home)
 
 **Advice and feedback hours:**
 
@@ -77,7 +77,7 @@ The following texts provide detailed information on many of the concepts and tec
 - Tufte, E. (2001). The visual display of quantitative information. Second Edition.
 - Monmonnier, M. (2018). How to lie with maps. Third edition.
 
-There are copies of all of these books in the Mile End Library, and an ebook version of Burrough et al. available on the library website. In all three cases older versions of these books are also available, and are still suitable to refer to.
+There are copies of all of these books in the Mile End Library. In all three cases older versions of these books are also available, and are still suitable to refer to.
 
 **Where specific chapters are assigned as readings, pdfs will be posted on QMplus.**
 
