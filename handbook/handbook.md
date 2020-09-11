@@ -130,4 +130,19 @@ Feedback and provisional marks for coursework will be returned within 4 term-tim
 
 # Acting on Feedback from Last Year
 
-Changelog
+Each year, we gather feedback from students on our courses, as well as get feedback from other staff in the department and from our external examiners. In the last year, aside from the work to move the class online I have made the following changes to the module:
+
+- Removed a presentation assessment
+  - Students felt that the week spent on presentations could have been better spent learning in other ways.
+- Added dedicated office hour
+  - Last year we had 2 dedicated office hours, one before each assessment. These were very popular, so I am running them every week during the module.
+- Making readings more available
+  - Students couldn't always get a copy of readings from the library. I have requested more hard copies be purchased and will post PDF scans of readings on QMplus.
+- More python AND more ArcMap
+  - Some students wanted more Python and less ArcMap, others wanted the reverse. My plan this year is to have more of both, partly enabled by removing the presentation assessment.
+- QMplus now organised by week rather than topic
+  - Students struggled to find things on the QMplus page. This year everything will be organised into weeks rather than topics to make things easier to find.
+- Provide more self-study exercises for Python
+  - I will be writing additional exercises to supplement the ones already available
+- I'm too nice with feedback
+  - Some students felt that my feedback was not critical enough - I will endeavour to provide more clear criticisms in feedback, tied to ways to improve your work in future.
