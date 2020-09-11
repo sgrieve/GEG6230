@@ -15,9 +15,9 @@ colorlinks: true
 
 **Advice and feedback hours:**
 
-- Normal day 1
-- normal day 2
-- dedicated slot for this module
+- Mondays 10:00 - 11:00
+- Tuesdays 10:00 - 11:00 **Dedicated slot for this module**
+- Fridays 12:00 - 13:00
 
 **Timetable:** Semester A, Thursday 13:00 - 16:00, Online
 
@@ -57,7 +57,7 @@ Now more than ever, I value your feedback and ideas on how the class is going - 
 
 **Lectures/Practicals:** 33 hours
 
-**Dedicated office Hours:** 11 hours
+**Dedicated office Hours:** 10 hours
 
 **Independent study**: 120 hours
 
