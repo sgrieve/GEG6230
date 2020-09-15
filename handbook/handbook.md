@@ -23,8 +23,8 @@ colorlinks: true
 
 **Coursework deadlines:**
 
-- Data visualisation project:
-- GIS portfolio:
+- Data visualisation project: 6/11/20 2pm
+- GIS portfolio: 16/12/20 2pm
 
 # Module Overview
 
@@ -110,7 +110,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 1 A3 page + 500 words
 
-**Deadline:**
+**Deadline:** 6/11/20 2pm
 
 ## Assignment 2
 
@@ -120,7 +120,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 5 A4 pages + code
 
-**Deadline:**
+**Deadline:** 16/12/20 2pm
 
 Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2020-21 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
 
