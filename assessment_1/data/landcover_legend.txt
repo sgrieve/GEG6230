@@ -1,0 +1,6 @@
+landcover_code, description
+1, Forest
+2, Farmland
+3, Grassland
+4, Mountains, heathland or bog
+5, Urban

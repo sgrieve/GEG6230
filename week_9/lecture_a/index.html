@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GEG6230 - Designing geoprocessing workflows</title>
+
+		<meta name="description" content="GEG6230 - Course Introduction">
+		<meta name="author" content="Stuart Grieve">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../../reveal/css/reset.css">
+		<link rel="stylesheet" href="../../reveal/css/reveal.css">
+    <link rel="stylesheet" href="../../reveal/css/custom.css">
+		<link rel="stylesheet" href="../../reveal/css/theme/night.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../reveal/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../reveal/css/print/pdf.css' : '../../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+<section data-markdown>
+<textarea data-template>
+
+## Designing Geoprocessing Workflows
+
+GEG6230 - Stuart Grieve - Week 9
+
+These slides:
+https://swdg.io/GEG6230/week_9/lecture_a/
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### What is a geoprocessing workflow?
+
+- Combinations of individual geospatial analyses
+- Starting from input data and leading to an answer or result
+- Automation of boring/difficult tasks
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### OpenTopography
+
+![https://opentopography.org/about/technology](../../img/OT_arch.jpg) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### DigiMap
+
+![](../../img/digimap.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+![](../../img/nature.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section>
+  <div align="center" data-svg-fragment-big="../../img/schematic_2.svg#[*|label=a]">
+      <a class="fragment" title="[*|label=b]"></a>
+      <a class="fragment" title="[*|label=c]"></a>
+      <a class="fragment" title="[*|label=d]"></a>
+      <a class="fragment" title="[*|label=e]"></a>
+      <a class="fragment" title="[*|label=f]"></a>
+      <a class="fragment" title="[*|label=g]"></a>
+      <a class="fragment" title="[*|label=h]"></a>
+      <a class="fragment" title="[*|label=i]"></a>
+  </div>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Benefits of workflows
+
+- Consistency
+- Reproducibility (More on this in Week 11)
+- Efficiency
+- Simplicity - building the complex from the simple
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+# An Aside...
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Breaking tasks into small steps is how **everything** gets done
+
+- Scientific research
+- Software development
+- Writing
+- GIS
+- Learning anything
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Manufacture
+
+![](../../img/chain.gif) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Turing completeness
+
+- If a language has flow control, memory and repitition it can do **anything**
+
+![](../../img/woah.gif) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Geospatial primitives
+
+Most GIS work is simply a combination of a series of simple operations:
+
+- Select
+- Buffer
+- Intersect
+- Union
+- Difference
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Geospatial primitives
+
+For example, we can find the number of points within 100 meters of a line by creating a 100 meter
+**buffer** around the line, and **selecting** all of the points within the buffer.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Representing workflows
+
+There are 2 main ways we can represent/implement a geospatial workflow:
+
+1. Visual methods
+1. Code
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Visual methods
+
+We can use flow charts to describe the flow of data from the input to the output
+
+![](../../img/schematic_2.svg) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Feature Manipulation Engine (FME)
+
+![https://cdn.safe.com/wp-content/uploads/2018/01/11110127/collapsible-bookmarks.gif](../../img/fme.gif) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Feature Manipulation Engine (FME)
+
+- Very popular in government, infrastructure and energy sectors
+- Good for transforming data between formats
+- Often used to convert CAD drawings of infrastructure project plans into GIS data
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Queensferry Crossing
+
+![https://www.theb1m.com/video/forth-bridges-spanning-three-centuries-of-engineering-innovation](../../img/forth-bridges.png) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### ArcGIS ModelBuilder
+
+![http://desktop.arcgis.com/en/arcmap/10.3/analyze/modelbuilder/what-is-modelbuilder.htm](../../img/modelbuilder-ex.png) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Advantages of visual methods
+
+- Easy to see the workflow
+- Simple debugging
+- Fast to learn
+- Simple to communicate to non-experts
+- Auditable
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Disdvantages of visual methods
+
+- Slow to put together
+- Not computationally efficient
+- Limited by the tools on offer
+- Hard to share
+- Vendor lock in
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Code
+
+![](../../img/code-logos.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Advantages of code
+
+- Powerful: we can do anything!
+- Auditable
+- Computationally efficient
+- No vendor lock in (usually)
+- Easy to share
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Disdvantages of code
+
+- Harder to learn
+- Harder to see what is happening
+- Hard to communicate to a non-expert
+- Challenging to debug complex workflows
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Group exercise
+
+Identify trees that are within 300 metres of the lake and 400 meters of the road:
+
+![Image of the data](../../img/tree-road-lake.png) <!-- .element width="70%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Group exercise
+
+In small groups:
+
+1. Break this task down into its most basic geospatial components
+1. Turn this list of tasks into a flowchart visual workflow
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Group exercise
+
+In small groups:
+
+1. Break this task down into its most basic geospatial components
+1. Turn this list of tasks into a flowchart visual workflow
+1. Join up with another group and compare workflows
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Today's practical
+
+We are going to learn how to use ArcGIS's ModelBuilder to turn our paper
+and pen workflows into GIS reality.
+
+</textarea>
+</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../../reveal/js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+        // Parallax background image
+        parallaxBackgroundImage: "../../img/bg4.jpg", //https://unsplash.com/photos/OYFHT4X5isg
+
+      	// Parallax background size
+      	parallaxBackgroundSize: "4200px 1800px",
+
+        // Number of slides away from the current that are visible
+      	viewDistance: 3,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        math: {
+		           mathjax: '../../reveal/plugin/MathJax/MathJax.js',
+		           config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+	            },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../reveal/plugin/search/search.js', async: true },
+					{ src: '../../reveal/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../reveal/plugin/notes/notes.js', async: true },
+          { src: '../../reveal/plugin/math/math.js', async: true },
+          { src: '../../reveal/plugin/embed-tweet.js' },
+          { src: '../../reveal/plugin/reveal-svg-fragment.js', condition: function() { return !!document.querySelector( '[data-svg-fragment]' ); } },
+          { src: '../../reveal/plugin/reveal-svg-fragment-big.js', condition: function() { return !!document.querySelector( '[data-svg-fragment-big]' ); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

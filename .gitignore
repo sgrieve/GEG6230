@@ -6,3 +6,4 @@ live_coding/*
 !live_coding/_episodes/*
 *.ipynb
 .ipynb_checkpoints
+readings/*
