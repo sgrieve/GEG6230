@@ -7,3 +7,4 @@ live_coding/*
 *.ipynb
 .ipynb_checkpoints
 readings/*
+attach/*
