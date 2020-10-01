@@ -10,9 +10,19 @@ We are going to be using Jupyter Notebooks as our python environment during this
 
 On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows:
 
-1. In the start menu, launch `Python 3.7`
+1. In the start menu, launch `Python 3.7`.
 
 1. This will open a Terminal window. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
+
+1. A browser window will eventually open: this is our Jupyter Notebook environment.
+
+When working from home via AppsAnywhere, we can launch a Jupyter Notebook as follows:
+
+1. Connect to the AppsAnywhere service as normal (refer to the Tech Support section of [QMplus](https://qmplus.qmul.ac.uk/course/view.php?id=15277) if you need a refresher).
+
+1. Find the icon labelled `Python 3.7` and double click on it.
+
+1. After a few seconds, a terminal window will open with the following text at the top `Anaconda Python 3.7 environment`. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
 
 1. A browser window will eventually open: this is our Jupyter Notebook environment.
 
@@ -158,7 +168,7 @@ weight in kilograms is now: 65.0
 > A variable is analogous to a sticky note with a name written on it:
 > assigning a value to a variable is like putting that sticky note on a particular value.
 >
-> ![Variables as Sticky Notes](../fig/python-sticky-note-variables-01.svg)
+> ![Variables as Sticky Notes](../fig/python-sticky-note-variables-01.png)
 >
 > This means that assigning a value to one variable does **not** change
 > values of other variables.
@@ -176,7 +186,7 @@ weight in kilograms is now: 65.0
 > ~~~
 > {: .output}
 >
-> ![Creating Another Variable](../fig/python-sticky-note-variables-02.svg)
+> ![Creating Another Variable](../fig/python-sticky-note-variables-02.png)
 >
 > Let's now change `weight_kg`:
 >
@@ -191,7 +201,7 @@ weight in kilograms is now: 65.0
 > ~~~
 > {: .output}
 >
-> ![Updating a Variable](../fig/python-sticky-note-variables-03.svg)
+> ![Updating a Variable](../fig/python-sticky-note-variables-03.png)
 >
 > Since `weight_lb` doesn't "remember" where its value comes from,
 > it is not updated when we change `weight_kg`.
