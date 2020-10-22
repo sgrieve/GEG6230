@@ -23,7 +23,7 @@ colorlinks: true
 
 **Coursework deadlines:**
 
-- Data visualisation project: 6/11/20 2pm
+- Data visualisation project: 13/11/20 2pm
 - GIS portfolio: 16/12/20 2pm
 
 # Module Overview
@@ -110,7 +110,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 1 A3 page + 500 words
 
-**Deadline:** 6/11/20 2pm
+**Deadline:** 13/11/20 2pm
 
 ## Assignment 2
 
