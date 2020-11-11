@@ -157,17 +157,41 @@ Select `Export...` and choose where to save the data, ensuring that you change t
 
 ![Saving as a text file](../../img/table_to_csv.png) <!-- .element width="80%" -->
 
+This file can then be opened using Python in the same way we have loaded data during the first assignment. It will make your life easier if you create your new notebook file in the same folder as `evaluation.csv`:
 
+**Not all of the commands needed are provided here - please refer to your notes from previous weeks to revise importing modules and the finer details of visualising these results.**
 
-<!--
+Looking at the data file in Excel, we can see that it has the following structure:
 
-Right click on the joined table in the Table of Contents, and select `Data > Export`. Give a sensible filename to the exported data and **Make sure that you give this file the `.dbf` extension, or it will not load into Excel!**
+![Headers of data](../../img/eval_headers.png) <!-- .element width="80%" -->
 
-Load this file in Excel, and save it as a proper Excel workbook, to ensure that you do not lose any data. The we now need to calculate our residuals, this is done by taking the interpolated measurement and subtracting the elevation from `test_data.shp` from it. Create three new columns your residuals for each interpolation type.
+Your structure may be different based on what order you did your sampling in. To check the structure of your file run the following code:
 
-Once you have each column of residuals, you can plot them as a histogram using the histogram tool:
+```python
+with open('evaluation.csv') as f:
+    headers = f.readline()
 
-![Excel histogram](../../img/excel_hist.png) <!-- .element width="80%" -->
+print(headers)
+```
 
-<!--
-**What patterns can you see in these histograms? Are the errors the same for each interpolation method? Are they biased towards over or under estimates?** -->
+When we are loading these data, we can specify the columns we want to load (our IDW, Thiessen, and Spline data as well as the elevation column which may be in different places than shown in the below code), rather than grabbing a bunch of redundant data, via the `usecols` argument:
+
+```python
+data = np.loadtxt(fname='evaluation.csv', delimiter=',', skiprows=1, usecols=[4, 5, 6, 11])
+
+```
+
+We now need to calculate our residuals, this is done by taking the interpolated measurement and subtracting the elevation from `test_data.shp` from it.
+
+```python
+spline_resid = data[:, 0] - data[:, 3]
+thiessen_resid = data[:, 1] - data[:, 3]
+idw_resid = data[:, 2] - data[:, 3]
+
+```
+
+**Again, note that your column indexes may be different to these**
+
+You can now use the `plt.hist()` command to create histograms of your three sets of residuals.
+
+**What patterns can you see in these histograms? Are the errors the same for each interpolation method? Are they biased towards over or under estimates?**

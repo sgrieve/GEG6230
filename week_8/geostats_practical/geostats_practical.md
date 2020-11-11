@@ -30,6 +30,18 @@ Download the file `geostats_data.zip` from QMplus and extract it into a sensible
 
 You may want to load a basemap using the drop down menu on the `Add Data` button, to see the observations in their geographical context. Bear in mind that this data is downloaded from the internet and can slow down navigation around the map.
 
+## Before we start
+
+When working on ArcGIS via AppsAnywhere, you will often have to enable some ArcMap extensions before you can run any tools. To do this, click `Customize > Extensions...` on the toolbar at the top of the window:
+
+![ArcGIS extensions 1](../../img/extensions1.png) <!-- .element width="80%" -->
+
+In the window that opens, select the options that are checked in the the below image:
+
+![ArcGIS extensions 2](../../img/extensions2.png) <!-- .element width="80%" -->
+
+**It is a good idea to check this before every session working with ArcMap via AppsAnywhere.**
+
 ## Projecting our data
 
 When performing a geostatistical analysis, we need to consider how our data is projected. If we use a **geographic** coordinate system, which represents measurements as degrees, minutes and seconds, distances and areas are not constant across the dataset, which could impact the validity of our results. Instead, we want to use a **projected** coordinate system, which preserves areas and distances across a dataset.
