@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Stuart Grieve" />
+  <meta name="dcterms.date" content="2020-11-11" />
+  <title>GEG6230 Spatial Interpolation</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style>
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <!--
+  https://gist.github.com/killercup/5917178
+  -->
+  <style type="text/css">
+  html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    color: #444;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 1em;
+    margin: auto;
+    max-width: 42em;
+    background: #fefefe;
+  }
+  
+  a {
+    color: #0645ad;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #0b0080;
+  }
+  
+  a:hover {
+    color: #06e;
+  }
+  
+  a:active {
+    color: #faa700;
+  }
+  
+  a:focus {
+    outline: thin dotted;
+  }
+  
+  *::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  *::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  a::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  a::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  p {
+    margin: 1em 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+    line-height: 125%;
+    margin-top: 2em;
+    font-weight: normal;
+  }
+  
+  h4, h5, h6 {
+    font-weight: bold;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
+  
+  h5 {
+    font-size: 1em;
+  }
+  
+  h6 {
+    font-size: 0.9em;
+  }
+  
+  blockquote {
+    color: #666666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+  
+  hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  pre, code, kbd, samp {
+    color: #000;
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.98em;
+  }
+  
+  pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  b, strong {
+    font-weight: bold;
+  }
+  
+  dfn {
+    font-style: italic;
+  }
+  
+  ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  ul, ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+  }
+  
+  li p:last-child {
+    margin-bottom: 0;
+  }
+  
+  ul ul, ol ol {
+    margin: .3em 0;
+  }
+  
+  dl {
+    margin-bottom: 1em;
+  }
+  
+  dt {
+    font-weight: bold;
+    margin-bottom: .8em;
+  }
+  
+  dd {
+    margin: 0 0 .8em 2em;
+  }
+  
+  dd:last-child {
+    margin-bottom: 0;
+  }
+  
+  img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+  }
+  
+  figure {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  figure img {
+    border: none;
+    margin: 0 auto;
+  }
+  
+  figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0 0 .8em;
+  }
+  
+  table {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  table th {
+    padding: .2em 1em;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+  
+  table td {
+    padding: .2em 1em;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    vertical-align: top;
+  }
+  
+  .author {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      filter: none !important;
+      -ms-filter: none !important;
+    }
+  
+    body {
+      font-size: 12pt;
+      max-width: 100%;
+    }
+  
+    a, a:visited {
+      text-decoration: underline;
+    }
+  
+    hr {
+      height: 1px;
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+  
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+  
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+      content: "";
+    }
+  
+    pre, blockquote {
+      border: 1px solid #999;
+      padding-right: 1em;
+      page-break-inside: avoid;
+    }
+  
+    tr, img {
+      page-break-inside: avoid;
+    }
+  
+    img {
+      max-width: 100% !important;
+    }
+  
+    @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+  }
+  
+    @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+  }
+  
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    h2, h3 {
+      page-break-after: avoid;
+    }
+  }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">GEG6230 Spatial Interpolation</h1>
+<p class="author">Stuart Grieve</p>
+<p class="date">11/11/20</p>
+</header>
+<h1 id="interpolation">Interpolation</h1>
+<h2 id="aims-and-objectives">Aims and Objectives</h2>
+<p>In this practical you will be using some lidar point data from OpenTopography to explore a range of interpolation techniques, which were discussed in the lecture. We will also look at ways of evaluating the quality of these interpolations.</p>
+<p>By the end of this class you should be able to:</p>
+<ol type="1">
+<li>Perform interpolation using the Thiessen polygon method</li>
+<li>Perform interpolation using the IDW method</li>
+<li>Perform interpolation using the spline method</li>
+<li>Quantify the quality of each of these techniques</li>
+</ol>
+<h2 id="data">Data</h2>
+<p>The data we are using today are two shapefiles of elevation values generated from topographic data provided by https://OpenTopography.org for the San Bernadino Mountains in California. The two shapefiles cover the same spatial area, one will be used for our interpolations, and the other will be used to evaluate those interpolations.</p>
+<p>Note that in reality topographic data is rarely stored as point shapefiles due to the inefficiency of the file format. We have converted the data into this format as it is easier to use for ArcGIS’s interpolation tools. Advanced Geospatial Science will return to this topic and look at other ways of interpolating topographic data.</p>
+<p>Download the file <code>interpolation_data.zip</code> from QMplus and extract it into a sensible location (either a folder or a GeoDatabase). The zip archive contains:</p>
+<ul>
+<li><code>training_data.shp</code> - A shapefile containing point elevation values for our study area.</li>
+<li><code>test_data.shp</code> - A shapefile containing point elevation values for our study area, which can be used to evaluate our interpolated surface.</li>
+<li><code>hillshade.tif</code> - A hillshade of a larger area of the San Bernadino Mountains, that can be used to obtain some context for the data we are studying.</li>
+</ul>
+<p>There is an alternative file, <code>interpolation_data_small.zip</code>, provided on QMplus, which contains the above shapefiles, but not <code>hillshade.tif</code>. This can be used if you are on a slow internet connection.</p>
+<h3 id="visualising-the-data">Visualising the data</h3>
+<p>Load the <code>training_data.shp</code> and <code>hillshade.tif</code> using the <code>Add Data</code> button. You can see that we have over 8000 lidar elevation values unevenly distributed across part of the landscape. Open the attribute table for <code>training_data.shp</code> and you will see that every point has an elevation value (in meters above sea level) recorded as an attribute. Note that the <code>Shape*</code> column describes the data as <code>Point ZM</code>, this means that the elevation values are also stored as part of the shapefile geometry. Unfortunately, some of the tools we will be using today do not support true three dimensional shapefiles, so we have the elevation values as an attribute for those cases.</p>
+<p>We are first going to visualise the point data, by colouring the points by their elevation values. Open the <code>training_data.shp</code> <code>Properties</code> window by right clicking on the layer in the table of contents. Select the <code>Symbology</code> tab and choose <code>Quantities</code>. From here we can select the values we wish to display (Elevation in this case), choose an appropriate colour ramp and number of classes. The more classes you choose the smoother the transitions between colours will be.</p>
+<p><img src="../../img/point_quant.png" alt="Point Properties" /> <!-- .element width="80%" --></p>
+<p>This helps us to see that there is a large ridge running across our dataset from east to west.</p>
+<h3 id="thiessen-polygons">Thiessen polygons</h3>
+<p>Our first interpolation will use Thiessen polygons to create polygons of constant elevation values around each of our points. To do this we will open the <code>Create Thiessen Polygons</code> tool, which can be found under <code>ArcToolBox &gt; Analysis Tools &gt; Proximity &gt; Create Thiessen Polygons</code>. There are only three parameters for this tool, the input data is our <code>training_data.shp</code>, the <code>Output Feature Class</code> is the path and filename of the output Thiessen polygons, and we <strong>must</strong> set <code>Output Fields</code> to <code>ALL</code>, otherwise the elevation data will not be stored in each polygon. Once the tool has completed, it will load a new polygon dataset.</p>
+<p>Zoom in to some of the data, and look at how each polygon has been ‘grown’ around each point. Does this look similar to what you saw in the lecture?</p>
+<p>Lets use the same visualisation techniques as we did for the points to assign a colour to each polygon based on it’s elevation value.</p>
+<p><img src="../../img/thiessen_example.png" alt="Coloured Thiessen polygons" /> <!-- .element width="80%" --></p>
+<p>Note that at the edges things always go a little odd for Thiessen polygons, so we are going to crop the edges so that we are only <strong>interpolating</strong> and not <strong>extrapolating</strong>. To do this we need to create a polygon around the outermost points in our dataset. This is known as a <strong>convex hull</strong>. Open the <code>Minimum Bounding Geometry</code> tool from <code>ArcToolBox &gt; Data Management Tools &gt; Features &gt; Minimum Bounding Geometry</code> and fill in the following parameters:</p>
+<ul>
+<li><code>Input Features</code>: This is our training data</li>
+<li><code>Output Feature Class</code>: This is the path and filename of our output file</li>
+<li><code>Geometry Type</code>: Set this to <code>CONVEX_HULL</code></li>
+<li>Everything else can be left as the default</li>
+</ul>
+<p>Once this tool has run, we will have a polygon dataset which outlines the limits of the interpolation we can perform. We can now use the <code>Intersect</code> tool, found in <code>ArcToolBox &gt; Analysis Tools &gt; Overlay &gt; Intersect</code> to remove the bad data from the edges of our dataset, using the following parameters:</p>
+<ul>
+<li><code>Input Features</code>: Select both the generated convex hull and the Thiessen polygon datasets</li>
+<li><code>Output Feature Class</code>: This is the path and filename of our output file</li>
+<li>Everything else can be left as the default</li>
+</ul>
+<p>Now, we want to convert these clipped polygons into a surface, using the <code>Polygon to Raster</code> tool, found in <code>ArcToolBox &gt; Conversion &gt; To Raster &gt; Polygon to Raster</code>. Use the following parameters:</p>
+<ul>
+<li><code>Input Features</code>: This is our clipped Thiessen polygons</li>
+<li><code>Value field</code>: Choose <code>elevation</code></li>
+<li><code>Output Feature Class</code>: This is the path and filename of our output raster</li>
+<li>Everything else can be left as the default</li>
+</ul>
+<p>Finally, create a hillshade of this new raster surface, so that we can compare it qualitatively to the provided hillshade of the whole landscape. <strong>What are your first impressions? Is this a good way of interpolating elevation values? Why?</strong></p>
+<h3 id="inverse-distance-weighting-idw">Inverse Distance Weighting (IDW)</h3>
+<p>We are now going to revisit the IDW tool that we used briefly in the last practical. The tool can be found in <code>ArcToolbox &gt; Spatial Analyst Tools &gt; Interpolation &gt; IDW</code>. The standard inputs are as follows:</p>
+<ul>
+<li><code>Input point features</code>: The training data</li>
+<li><code>Z value field</code>: <code>elevation</code></li>
+<li><code>Output raster</code>: The path and filename of the interpolated raster file. <strong>Must include the <code>.tif</code> file extension</strong></li>
+<li><code>Output cell size</code>: This is the size of each cell in our output raster grid. Leave this as the default.</li>
+</ul>
+<p>There are then a series of settings which we can adjust, which will alter the nature of the interpolated surface we create. The <code>Power</code> option, reflects the exponent on the distance value:</p>
+<p><span class="math display">\[ Z_p = \frac{\sum_{i=1}^{n} \frac{Z_i}{d^2}}{\sum_{i=1}^{n} \frac{1}{d^2}}\]</span></p>
+<p>In the lecture we saw that setting <code>Power</code> to <code>2</code> would preserve peaks in the surface, while using a value of <code>1</code> would smooth out the data.</p>
+<p>The next parameter is the <code>Search radius</code>, which can be either <code>Variable</code> or <code>Fixed</code>. This controls the neighbourhood that we use to calculated the elevation value for each cell in our new raster grid. If we select <code>variable</code>, we can then select a number of points to be included in each IDW calculation. This means that the neighbourhood is smaller in areas of high point density and larger in less dense areas.</p>
+<p>If we select <code>Fixed</code>, we can specify a <code>Distance</code>, which is the radius of the neighbourhood to be used across the whole dataset. If we choose a large value (100s of meters) we will include lots of points, smoothing out any local trends, but if we choose a much smaller value we will not have many points, resulting in a rougher surface.</p>
+<p>Note that by default ArcMap applies a classified colour ramp to the outputs of our interpolations. It will be easier for you to interpret these surfaces by changing the symbology from <code>classified</code> to <code>stretched</code> in the layer’s properties, in addition to generating a hillshade of each new surface.</p>
+<p>Using all of these settings, create a series of different interpolated surfaces to explore how changing these parameters impacts the final result. Decide what set of parameters makes the best interpolation, when compared to <code>hillshade.tif</code>.</p>
+<h3 id="splines">Splines</h3>
+<p>Reminder from the lecture:</p>
+<p>Regularised splines: - Smoother surface - High weight leads to smooth surface, ignoring more points</p>
+<p>Tension splines: - Rougher surface - High weight creates ‘stiffer’ surface that passes through points more closely</p>
+<p>The final interpolation method we will be using is the <code>Spline</code> tool, found in <code>ArcToolbox &gt; Spatial Analyst Tools &gt; Interpolation &gt; Spline</code>, which has the following parameters:</p>
+<ul>
+<li><code>Input point features</code>: The training data</li>
+<li><code>Z value field</code>: <code>elevation</code></li>
+<li><code>Output raster</code>: The path and filename of the interpolated raster file. <strong>Must include the <code>.tif</code> file extension</strong></li>
+<li><code>Output cell size</code>: This is the size of each cell in our output raster grid. Leave this as the default.</li>
+<li><code>Spline type</code>: Either <code>REGULARIZED</code> or <code>TENSION</code></li>
+<li><code>Weight</code>: a value ranging from 0.01 to &gt; 50</li>
+<li><code>Number of points</code>: The number of points included in each neighbourhood calculation. Default is 12.</li>
+</ul>
+<p>As with the IDW interpolations performed in the last section, run several Spline interpolations, exploring how changing the spline type from <code>REGULARIZED</code> to <code>TENSION</code> and adjusting the weight and number of points impacts the resulting interpolated surface.</p>
+<h3 id="evaluating-interpolations">Evaluating interpolations</h3>
+<p>In addition to the qualitative comparisons we have been making between the hillshaded interpolations, we can also employ some of the quantitative approaches to evaluation we discussed in the last lecture.</p>
+<p>To perform a quantitative evaluation we can now load our test data (<code>test_data.shp</code>) that we have so far not used in our analysis, and so we know it is independent of what we have done so far.</p>
+<p>To do this we are going to use the <code>Sample</code> tool, can be found in <code>ArcToolbox &gt; Spatial Analyst Tools &gt; Extraction &gt; Sample</code>. This tool will extract the values of the given raster datasets and needs the following inputs:</p>
+<ul>
+<li><code>Input rasters</code>: These are the values we will be sampling, so add our three interpolated rasters, one for each of our interpolation methods.</li>
+<li><code>Input location raster or point features</code>: This is our test data.</li>
+<li><code>Output table</code>: This is the filename of the output data.</li>
+<li>The other parameters do not need to be changed</li>
+</ul>
+<p>There is one more step we need to perform before we can load our data into Python. We need to join the attributes of <code>test_data.shp</code> into the table we have just created, so that we have the actual elevation values in the same place as the elevations from our three interpolations.</p>
+<p>Right click on the table created by the <code>Sample</code> tool, and select <code>Joins and Relates &gt; Join</code>:</p>
+<p><img src="../../img/join_1.png" alt="Join options" /> <!-- .element width="80%" --></p>
+<p>Complete the options as shown in the image:</p>
+<p><img src="../../img/join_2.png" alt="Join options" /> <!-- .element width="80%" --></p>
+<p>which will link the attributes to the new table based on the unique <code>FID</code> field within <code>test_data.shp</code>. After this has completed, open the attribute table and check that you now have a table containing the elevation values from <code>test_data.shp</code> alongside the 3 interpolated elevation values.</p>
+<p><img src="../../img/join_3.png" alt="Join options" /> <!-- .element width="80%" --></p>
+<p>We can now export our spatially joined data as a <code>csv</code> file that we can load using Python for further analysis. Open the Table we have just done the join on, and click on the <code>Table Options</code> button in the top left of the window:</p>
+<p><img src="../../img/table_options.png" alt="Table Options" /> <!-- .element width="80%" --></p>
+<p>Select <code>Export...</code> and choose where to save the data, ensuring that you change the file type to <code>Text file</code> and you choose a sensible filename such as <code>evaluation.csv</code>:</p>
+<p><img src="../../img/table_to_csv.png" alt="Saving as a text file" /> <!-- .element width="80%" --></p>
+<p>This file can then be opened using Python in the same way we have loaded data during the first assignment. It will make your life easier if you create your new notebook file in the same folder as <code>evaluation.csv</code>:</p>
+<p><strong>Not all of the commands needed are provided here - please refer to your notes from previous weeks to revise importing modules and the finer details of visualising these results.</strong></p>
+<p>Looking at the data file in Excel, we can see that it has the following structure:</p>
+<p><img src="../../img/eval_headers.png" alt="Headers of data" /> <!-- .element width="80%" --></p>
+<p>Your structure may be different based on what order you did your sampling in. To check the structure of your file run the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;evaluation.csv&#39;</span>) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb1-2" title="2">    headers <span class="op">=</span> f.readline()</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="bu">print</span>(headers)</a></code></pre></div>
+<p>When we are loading these data, we can specify the columns we want to load (our IDW, Thiessen, and Spline data as well as the elevation column which may be in different places than shown in the below code), rather than grabbing a bunch of redundant data, via the <code>usecols</code> argument:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span><span class="st">&#39;evaluation.csv&#39;</span>, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>, skiprows<span class="op">=</span><span class="dv">1</span>, usecols<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">11</span>])</a></code></pre></div>
+<p>We now need to calculate our residuals, this is done by taking the interpolated measurement and subtracting the elevation from <code>test_data.shp</code> from it.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">spline_resid <span class="op">=</span> data[:, <span class="dv">0</span>] <span class="op">-</span> data[:, <span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb3-2" title="2">thiessen_resid <span class="op">=</span> data[:, <span class="dv">1</span>] <span class="op">-</span> data[:, <span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb3-3" title="3">idw_resid <span class="op">=</span> data[:, <span class="dv">2</span>] <span class="op">-</span> data[:, <span class="dv">3</span>]</a></code></pre></div>
+<p><strong>Again, note that your column indexes may be different to these</strong></p>
+<p>You can now use the <code>plt.hist()</code> command to create histograms of your three sets of residuals.</p>
+<p><strong>What patterns can you see in these histograms? Are the errors the same for each interpolation method? Are they biased towards over or under estimates?</strong></p>
+</body>
+</html>
