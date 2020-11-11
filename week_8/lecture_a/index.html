@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>GEG6230 - Spatial Interpolation</title>
+		<title>GEG6230 - Introduction to Geostatistics</title>
 
-		<meta name="description" content="GEG6230 - Spatial Interpolation">
+		<meta name="description" content="GEG6230 - Introduction to Geostatistics">
 		<meta name="author" content="Stuart Grieve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,12 +47,12 @@
 <section data-markdown>
 <textarea data-template>
 
-## Spatial Interpolation
+## Introduction to Geostatistics
 
-GEG6230 - Stuart Grieve - Week 8
+GEG6230 - Stuart Grieve - Week 6
 
 These slides:
-https://swdg.io/GEG6230/week_8/lecture_a/index.html
+https://swdg.io/GEG6230/week_6/lecture_a/index.html
 
 </textarea>
 </section>
@@ -62,11 +62,10 @@ https://swdg.io/GEG6230/week_8/lecture_a/index.html
 
 ### Lecture Overview
 
-- What is interpolation?
-- Thiessen polygons
-- Inverse Distance Weighting (IDW)
-- Splines
-- Evaluating interpolation
+- Patterns in geospatial data
+- k-means clustering
+- Spatial autocorrelation
+- Hot and cold spot analysis
 
 </textarea>
 </section>
@@ -74,21 +73,12 @@ https://swdg.io/GEG6230/week_8/lecture_a/index.html
 <section data-markdown>
 <textarea data-template>
 
-### What is interpolation?
+### Whats special about spatial?
 
-- The creation of new data points **within the range** of existing data
-- Often used to turn point measurements into a continuous surface
-- Not to be confused with extrapolation, where we predict values **outside of the bounds** of our data
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### What is interpolation?
-
-![Interpolation example](../../img/interpolation.svg) <!-- .element width="80%" -->
+- Data is the currency of science
+- Geospatial data combines data with place
+- Allows us to see geographic patterns in the world
+- But only if we have the right techniques!
 
 </textarea>
 </section>
@@ -96,19 +86,13 @@ https://swdg.io/GEG6230/week_8/lecture_a/index.html
 <section data-markdown>
 <textarea data-template>
 
-### What is interpolation?
+### Patterns in geospatial data
 
-![extrapolation example](../../img/extrapolation.svg) <!-- .element width="80%" -->
+Data can be:
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Applications of interpolation
-
-![http://www.gitta.info/ContiSpatVar/en/html/Interpolatio_learningObject1.xhtml](../../img/swiss_rainfall_interp.jpg) <!-- .element width="70%" -->
+- Spatially random
+- Spatially uniform
+- Spatially clustered
 
 </textarea>
 </section>
@@ -116,40 +100,9 @@ https://swdg.io/GEG6230/week_8/lecture_a/index.html
 <section data-markdown>
 <textarea data-template>
 
-### Applications of interpolation
+### Spatially random data
 
-<iframe data-src="https://www.youtube.com/embed/-QasXK524Sc?rel=0" data-autoplay class="stretch"></iframe>
-
-</textarea>
-</section>
-
-<section>
-  <h3>Sampling</h3>
-  <div data-svg-fragment-big="../../img/interp_example.svg#[*|label=a]">
-      <a class="fragment" title="[*|label=b]"></a>
-      <a class="fragment" title="[*|label=c]"></a>
-      <a class="fragment" title="[*|label=d]"></a>
-      <a class="fragment" title="[*|label=e]"></a>
-      <a class="fragment" title="[*|label=f]"></a>
-      <a class="fragment" title="[*|label=g]"></a>
-      <a class="fragment" title="[*|label=h]"></a>
-      <a class="fragment" title="[*|label=i]"></a>
-      <a class="fragment" title="[*|label=j]"></a>
-      <a class="fragment" title="[*|label=l]"></a>
-      <a class="fragment" title="[*|label=m]"></a>
-      <a class="fragment" title="[*|label=o]"></a>
-  </div>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Sampling strategies
-
-- Uniform
-- Random
-- What are the features we want to capture?
-- Tradeoff between cost and accuracy
+![Random points](../../img/random_points.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -157,13 +110,9 @@ https://swdg.io/GEG6230/week_8/lecture_a/index.html
 <section data-markdown>
 <textarea data-template>
 
-### Requirements for interpolation:
+### Spatially uniform data
 
-Tobler's first law must apply
-
-If the data is not spatially autocorrelated our interpolation will be meaningless.
-
-We know how to test for this using Moran's I from last week!
+![uniform points](../../img/uniform_points.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -171,11 +120,9 @@ We know how to test for this using Moran's I from last week!
 <section data-markdown>
 <textarea data-template>
 
-### Types of interpolation
+### Spatially clustered data
 
-- Thiessen polygons
-- Inverse Distance Weighting (IDW)
-- Spline
+![Clean clusters](../../img/clusters_clean.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -183,23 +130,15 @@ We know how to test for this using Moran's I from last week!
 <section data-markdown>
 <textarea data-template>
 
-### Thiessen polygons
+### Clusters are important
 
-Simplest form of spatial interpolation
+![John Snow](../../img/John_Snow.jpg) <!-- .element: style="float: right; width: 20%" -->
 
-Also known as Voronoi diagram
+John Snow (1813 - 1858) <!-- .element: style="width: 70%" -->
 
-Assumes values are constant in the neighbourhood around each sample
+Doctor and founder of epidemiology <!-- .element: style="width: 70%" -->
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Thiessen polygons
-
-![https://upload.wikimedia.org/wikipedia/commons/d/d9/Voronoi_growth_euclidean.gif](../../img/Voronoi.gif) <!-- .element width="55%" -->
+Performed the first spatial analysis, looking at cholera in Soho <!-- .element: style="width: 70%" -->
 
 </textarea>
 </section>
@@ -207,28 +146,9 @@ Assumes values are constant in the neighbourhood around each sample
 <section data-markdown>
 <textarea data-template>
 
-### Thiessen polygons
+### Clusters are important
 
-![Spatial interpolation, L MITAS AND H MITASOVA](../../img/voronoi_3d.png) <!-- .element width="80%" -->
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Thiessen polygons
-
-Benefits:
-
-- Popular for ordinal data: You can't have half a person
-- Doesn't generate new values
-- Easy to interpret
-
-Limitations:
-
-- Results in a blocky surface
-- If we know data is continuous does it make sense?
+![Original John Snow map](../../img/Snow_map.jpg) <!-- .element width="60%" -->
 
 </textarea>
 </section>
@@ -236,13 +156,9 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### IDW
+### Clusters are important
 
-Values that are closer to our interpolation point have more influence over the result
-
-A distance-weighted mean
-
-Either fixed distance or fixed number of points
+![http://blog.rtwilson.com/john-snows-cholera-data-in-more-formats/](../../img/SnowMap_Points.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -250,9 +166,9 @@ Either fixed distance or fixed number of points
 <section data-markdown>
 <textarea data-template>
 
-### IDW (Smooth)
-<br><br>
-## $$ Z_p = \frac{\sum_{i=1}^{n} \frac{Z_i}{d}}{\sum_{i=1}^{n} \frac{1}{d}}$$
+### Clusters are important
+
+![Pump memorial](../../img/John_Snow_pump.jpg) <!-- .element width="40%" -->
 
 </textarea>
 </section>
@@ -260,30 +176,9 @@ Either fixed distance or fixed number of points
 <section data-markdown>
 <textarea data-template>
 
-### IDW (Peak preserving)
-<br><br>
-## $$ Z_p = \frac{\sum_{i=1}^{n} \frac{Z_i}{d^2}}{\sum_{i=1}^{n} \frac{1}{d^2}}$$
+### Clusters are important
 
-</textarea>
-</section>
-
-<section>
-  <h3>IDW</h3>
-  <div data-svg-fragment-big="../../img/idw_example.svg#[*|label=a]">
-      <a class="fragment" title="[*|label=b]"></a>
-      <a class="fragment" title="[*|label=c]"></a>
-      <a class="fragment" title="[*|label=d]"></a>
-      <a class="fragment" title="[*|label=e]"></a>
-      <a class="fragment" title="[*|label=f]"></a>
-  </div>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### IDW
-
-![Spatial interpolation, L MITAS AND H MITASOVA](../../img/idw_mitasova.png) <!-- .element width="80%" -->
+![https://tobaccocontrol.bmj.com/content/tobaccocontrol/25/1/75.full.pdf](../../img/tobacco.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -291,29 +186,9 @@ Either fixed distance or fixed number of points
 <section data-markdown>
 <textarea data-template>
 
-### IDW - barriers
+### What is a cluster?
 
-![http://www.gisresources.com/barriers/](../../img/Barriers.jpg) <!-- .element width="55%" -->
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### IDW
-Benefits:
-
-- Easy to conceptualise
-- Quick to process
-- Preserves large scale features
-
-Limitations:
-
-- Bullseye pattern in some surfaces
-- Very smooth result
-- Will not pass through all points
-- Small features will be lost
+![Noisy clustered data](../../img/clusters_noise.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -321,11 +196,9 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### Spline
+### What is a cluster?
 
-- Fit a curve through the data points
-- Trying to minimise the change in slope between points
-- Weight parameter controls nature of the fit
+![random data](../../img/random_points.png) <!-- .element width="80%" -->
 
 </textarea>
 </section>
@@ -333,39 +206,14 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### Spline
+### What is a cluster?
 
-- Regularised splines:
-  - Smoother surface
-  - High weight leads to smooth surface, ignoring more points
+Rules for defining clusters:
 
-- Tension splines:
-  - Rougher surface
-  - High weight creates 'stiffer' surface that passes through points more closely
-
-</textarea>
-</section>
-
-<section>
-  <h3>Spline</h3>
-  <div data-svg-fragment-big="../../img/spline_example.svg#[*|label=a]">
-      <a class="fragment" title="[*|label=b]"></a>
-      <a class="fragment" title="[*|label=c]"></a>
-      <a class="fragment" title="[*|label=d]"></a>
-      <a class="fragment" title="[*|label=e]"></a>
-      <a class="fragment" title="[*|label=f]"></a>
-      <a class="fragment" title="[*|label=g]"></a>
-      <a class="fragment" title="[*|label=h]"></a>
-      <a class="fragment" title="[*|label=i]"></a>
-  </div>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Regularised spline
-
-![Spatial interpolation, L MITAS AND H MITASOVA](../../img/spline_reg.png) <!-- .element width="80%" -->
+- How many clusters?
+- Must everything be in a cluster?
+- Minimum density?
+- Maximum size?
 
 </textarea>
 </section>
@@ -373,9 +221,7 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### Tension spline
-
-![Spatial interpolation, L MITAS AND H MITASOVA](../../img/spline_ten.png) <!-- .element width="80%" -->
+## Are there ways to identify clusters automatically?
 
 </textarea>
 </section>
@@ -383,19 +229,24 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### Spline
+### k-means clustering
 
-Benefits:
+1. Choose a number of clusters for our data
+1. Randomly place cluster centroids on the map
+1. Assign each point the value of its nearest cluster centroid
+1. Update the centroids to the center of the new clusters
+1. Repeat steps 3 and 4 until the centroids stop moving
 
-- Retain smaller features than IDW
-- Creates a continuous surface
-- Can be made to pass through all points
+</textarea>
+</section>
 
-Limitations:
 
-- Often over smooths surface
-- Weight parameter hard to select
-- Do we want to pass through all points?
+<section data-markdown>
+<textarea data-template>
+
+### k-means clustering
+
+<iframe data-src="https://www.youtube.com/embed/5I3Ei69I40s?rel=0" data-autoplay class="stretch"></iframe>
 
 </textarea>
 </section>
@@ -403,25 +254,17 @@ Limitations:
 <section data-markdown>
 <textarea data-template>
 
-### Limits of interpolation
+### k-means clustering
 
-- Can never perfectly predict values
-- Cannot estimate values outside the bounds of our samples - this is **extrapolation**
-- Easy to bias results based on type of interpolation used
-- People like to see surfaces and may place too much weight on them
-- Used without understanding thanks to simple GIS implementations
+Pros of k-means:
+- Simple to implement and explain
+- Works on any n dimensional data - not just spatial data
+- Popular - lots of implementations
 
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Evaluating interpolation
-
-In an ideal world we have the real data to compare to our interpolation
-
-But then why are we doing the interpolation?
+Cons of k-means:
+- Doesn't account for attribute values
+- Relies on us choosing parameters
+- Parameters are divorced from physical prinicples
 
 </textarea>
 </section>
@@ -429,54 +272,12 @@ But then why are we doing the interpolation?
 <section data-markdown>
 <textarea data-template>
 
-### Qualitative evaluation
+### Geospatial clustering
 
-- Does it look sane?
+There are other methods we can use to identify **spatial** patterns in our data:
 
-- What are our expectations of the data?
-
-- Expert knowledge
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Quantitative evaluation
-
-When we have a large dataset we can divide it into two sub-datasets:
-
-- A training dataset
-- A test dataset
-
-Typically the majority of the data is put into the training dataset, and a
-random sample of our measurements go into the test dataset.
-
-The difference between a test point and our surface is a **residual** and we can
-use residuals to understand the quality of our interpolation.
-
-</textarea>
-</section>
-
-<section>
-  <h3>Quantitative evaluation</h3>
-  <div data-svg-fragment-big="../../img/evaluation_example.svg#[*|label=a]">
-      <a class="fragment" title="[*|label=b]"></a>
-      <a class="fragment" title="[*|label=c]"></a>
-      <a class="fragment" title="[*|label=d]"></a>
-      <a class="fragment" title="[*|label=e]"></a>
-      <a class="fragment" title="[*|label=f]"></a>
-      <a class="fragment" title="[*|label=g]"></a>
-  </div>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Quantitative evaluation
-
-![Example of plotting residuals](../../img/residual_scatter.svg) <!-- .element width="80%" -->
+- Spatial autocorrelation
+- Hot/cold spot analysis
 
 </textarea>
 </section>
@@ -484,9 +285,172 @@ use residuals to understand the quality of our interpolation.
 <section data-markdown>
 <textarea data-template>
 
-### Quantitative evaluation
+### Spatial autocorrelation
 
-![Example of plotting a residual hist](../../img/residual_hist.svg) <!-- .element width="80%" -->
+Quantitative formalisation of Tobler's first law:
+
+> Everything is related to everything else, but near things are more related than distant things
+
+Allows us to take spatial datasets and quantify their spatial patterns
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Spatial autocorrelation
+
+![Page 118 Burrough and McDonnell](../../img/queen_rook.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Spatial autocorrelation
+
+<!--
+I = \frac
+{
+n\sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}(y_i-\bar{y})(y_j-\bar{y})
+}
+{
+\big(\sum_{i=1}^{n}(y_i-\bar{y})^2\big)\big(\sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}\big)
+}
+-->
+
+![Morans I](../../img/morans_I.svg) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Spatial autocorrelation
+
+$w_{ij}$ corresponds to the distance between points.
+
+Using this we can look for autocorrelation over many different scales.
+
+The scale we consider depends on the thing we are studying.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Spatial autocorrelation
+
+![Morans example from pg 118 Burrough and McDonnell](../../img/moran_explainer.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Spatial autocorrelation
+
+![Interpreting Morans I](../../img/moran_interp.png) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+- Getis Ord Gi* is a geostatistical test for 'hot spots'
+
+- A hot spot is a statistically significant region of elevated attribute values
+
+- A cold spot is a statistically significant region of reduced attribute values
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+<!--
+G_i^* = \frac
+{
+\sum_{j=1}^{n} w_{i,j}x_j - \bar{X} \sum_{j=1}^{n}w_{i,j}
+}
+
+{
+S \sqrt
+{
+
+\frac{n \sum_{j=1}^{n}w_{i,j}^{2}- \big( \sum_{j=1}^{n} w_{i,j} \big)^2}{n-1}
+
+}
+}
+-->
+
+![Getis ord explainer](../../img/getis_ord_explainer.svg) <!-- .element width="100%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+As with Morans I, scale is important and is represented by $w_{i,j}$
+
+The scale we consider depends on the thing we are studying.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+Interpreting Getis Ord Gi* results:
+
+- A positve Gi* value indicates a hot spot
+- A negative Gi* value indicates a cold spot
+- The larger the value, the more intense the clustering
+- Values close to $0$ do not indicate clustering of either type
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+![https://arxiv.org/pdf/1803.09745.pdf](../../img/dream.png) <!-- .element width="65%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Hot/cold spots
+
+Benefits of Getis Ord Gi*:
+- Not all data must be in a cluster
+- Allows significance testing of clusters
+- Gives hot and cold spots
+
+Limitations of Getis Ord Gi*:
+- Need to select an appropriate scale
+- Can be complex to implement
+- Need to know clusters exist before running
 
 </textarea>
 </section>
@@ -496,10 +460,10 @@ use residuals to understand the quality of our interpolation.
 
 ### Summary
 
-- Difference between interpolation and extrapolation
-- Interpolation is not magic!
-- Applications and benefits of 3 different interpolation methods
-- We can evaluate an interpolation both qualitatively and quantitatively
+- Geospatial data's geographic patterns are important
+- We can use traditional clustering algorithms on geospatial data
+- The spatial organisation of data can play a role in the non-spatial patterns we observe
+- There are more specialised algorithms which allow us to statistically identify clusters
 
 </textarea>
 </section>
@@ -509,7 +473,7 @@ use residuals to understand the quality of our interpolation.
 
 ### Reading
 
-- Mitas, Lubos, and Helena Mitasova. "Spatial interpolation." Geographical information systems: principles, techniques, management and applications 1, no. 2 (1999).
+- Goodchild, Michael F., Spatial autocorrelation. Concepts and Techniques in Modern Geography (CATMOG) Vol. 47 (1986)
 - PDF on QMplus
 
 </textarea>
