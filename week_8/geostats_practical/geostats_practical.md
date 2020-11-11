@@ -104,9 +104,7 @@ When the tool has completed, a new dataset will be loaded into your table of con
 
 ## Interpolating results
 
-It can often be useful to visualise the results of a clustering analysis by creating a raster surface from the discrete point data. This process is known as interpolation, and we will cover this in detail next.
-
-For now we will use a process called Inverse Distance Weighting (IDW) to convert our point values into a surface. The tool we will use is called `IDW` and can be found in `ArcToolbox > Spatial Analyst Tools > Interpolation > IDW`. The inputs are as follows:
+It can often be useful to visualise the results of a clustering analysis by interpolating a raster surface from the discrete point data. We will go into more detail on interpolation in ArcGIS in the next practical, but for now we will use Inverse Distance Weighting (IDW) to convert our point values into a surface. The tool we will use is called `IDW` and can be found in `ArcToolbox > Spatial Analyst Tools > Interpolation > IDW`. The inputs are as follows:
 
 - `Input point features`: The output from the hot spot analysis
 - `Z value field`: `GiZScore`
