@@ -177,7 +177,8 @@ print(headers)
 When we are loading these data, we can specify the columns we want to load (our IDW, Thiessen, and Spline data as well as the elevation column which may be in different places than shown in the below code), rather than grabbing a bunch of redundant data, via the `usecols` argument:
 
 ```python
-data = np.loadtxt(fname='evaluation.csv', delimiter=',', skiprows=1, usecols=[4, 5, 6, 11])
+data = np.loadtxt(fname='evaluation.csv', delimiter=',',
+                  skiprows=1, usecols=[4, 5, 6, 11])
 
 ```
 
