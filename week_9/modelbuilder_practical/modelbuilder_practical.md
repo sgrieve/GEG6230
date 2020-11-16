@@ -77,7 +77,7 @@ Now that we have made a model, we will want to save it so that we can use it aga
 
 ## Exporting a model image
 
-It is often useful to be able to export an image of our model to include in a report. This can be done in the `Model` menu `Model > Export > To Graphic`. We can choose a png file if we just need a quick image, but if we want to be able to edit the file in Inkscape, we need to select `Enhanced Metafile (*.emf)`, as this can be loaded by Inkscape.
+It is often useful to be able to export an image of our model to include in a report. This can be done in the `Model` menu `Model > Export > To Graphic`. We can choose a `.png` file if we just need a quick image, but if we want to be able to edit the file in Inkscape, we need to select `Enhanced Metafile (*.emf)`, as this can be loaded by Inkscape.
 
 ## Loading a model
 
@@ -103,7 +103,7 @@ Where $K$ is an erosion coefficient, $m$ and $n$ are constants, $S$ is the slope
 
 In this exercise we have multiple different catchment files which need to be processed. The aim is to add a new field to each of their attribute tables containing their erosion rate. ModelBuilder has some special tools for cases like this, called **iterators**, we can think of this as like the loops we have been learning in Python.
 
-The iterator we are going to use here is called `Iterate Feature Classes`, it is found in the insert menu (`Insert > Iterators > Iterate Feature Classes`). Double click on this tool to open its settings, and under `Workspace or Feature Dataset` choose the folder that the four `catchment_*.shp` files are in. Click OK, and the tool will become colored in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.
+The iterator we are going to use here is called `Iterate Feature Classes`, it is found in the insert menu (`Insert > Iterators > Iterate Feature Classes`). Double click on this tool to open its settings, and under `Workspace or Feature Dataset` choose the folder that the four `catchment_*.shp` files are in. Click OK, and the tool will become coloured in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.
 
 ### Zonal statistics
 
