@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2019-10-21" />
+  <meta name="dcterms.date" content="2020-11-16" />
   <title>GEG6230 Introduction to ModelBuilder</title>
   <style>
       code{white-space: pre-wrap;}
@@ -351,7 +351,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to ModelBuilder</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">10/21/19</p>
+<p class="date">11/16/20</p>
 </header>
 <h1 id="introduction-to-modelbuilder">Introduction to ModelBuilder</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -363,8 +363,26 @@
 <li>Save models as custom toolboxes</li>
 <li>Load and edit saved toolboxes</li>
 </ol>
+<h2 id="downloading-the-data">Downloading the data</h2>
+<p>This practical, and the work in Week 10 and 11 all use the same data, which can be downloaded from the <code>Week 9</code> section on QMplus. If you have access to your local computer’s hard drive via AppsAnywhere, you can download the data on your own computer and then copy across the files via your <code>G: Drive</code> in AppsAnywhere.</p>
+<p><img src="../../img/g-drive.png" alt="G drive" /> <!-- .element width="80%" --></p>
+<p>If you cannot copy your data across in the above manner, you can download it directly within AppsAnywhere. Start by launching Python, and opening a Jupyter Notebook. Once you have opened a Jupyter Notebook, click on the new tab button at the top of the screen:</p>
+<p><img src="../../img/new_tab.png" alt="New tab" /> <!-- .element width="80%" --></p>
+<p>This will open a new browser window, in which you can navigate to QMplus and log in as normal. navigate to the <code>Week 9</code> section on QMplus and click on the data file to begin the download. When prompted, select <code>Save As</code> and choose a sensible location such as your GEG6230 folder where your notebooks are stored.</p>
+<p><img src="../../img/save-as.png" alt="Save as" /> <!-- .element width="80%" --></p>
+<p>In some cases the download will fail:</p>
+<p><img src="../../img/fail.png" alt="Fail" /> <!-- .element width="80%" --></p>
+<p>If this happens, simply click <code>Retry</code> and the download should resume with no problems.</p>
+<h2 id="extracting-the-data">Extracting the data</h2>
+<p>Once the zip file has been downloaded and copied to a folder in your <code>G: Drive</code>, you can extract it by right clicking on the downloaded zip file. This will pop up a warning, which you can click <code>Ok</code> to:</p>
+<p><img src="../../img/warning.png" alt="Warning" /> <!-- .element width="80%" --></p>
+<p>Select <code>Extract All</code> in the right click menu:</p>
+<p><img src="../../img/extract.png" alt="Extract all" /> <!-- .element width="80%" --></p>
+<p>This will complete after a few seconds, and you will be able to see all of your data files in the folder that has been created:</p>
+<p><img src="../../img/extracted.png" alt="Extracted files" /> <!-- .element width="80%" --></p>
+<p><strong>Remember to put your data in a sensible folder that does not have any spaces in the file name.</strong></p>
 <h2 id="building-our-first-model">Building our first model</h2>
-<p>The first model we will be building will be a solution to our in-class exercise of identifying trees near a road and lake. To recap our requirements, we need to identify all trees that are within 300 meters of the lake and 400 meters of the road. We have the following data files for this exercise, which can be downloaded from QMplus:</p>
+<p>The first model we will be building will be a solution to our in-class exercise of identifying trees near a road and lake. To recap our requirements, we need to identify all trees that are within 300 meters of the lake and 400 meters of the road. For this model, we will be using the following files:</p>
 <ul>
 <li><code>road.shp</code></li>
 <li><code>trees.shp</code></li>
@@ -399,23 +417,23 @@
 <h2 id="saving-a-model">Saving a model</h2>
 <p>Now that we have made a model, we will want to save it so that we can use it again and share it with others. To do this, click the save button, which will launch a save window. However, we cannot just save our model anywhere, it must be saved within a <code>Toolbox</code>. Navigate to where you wish to save your model, and click the <code>New Toolbox</code> button on the top right of the save window. Give this toolbox a descriptive name and double click on it. We can now choose a name for our new model, and click save.</p>
 <h2 id="exporting-a-model-image">Exporting a model image</h2>
-<p>It is often useful to be able to export an image of our model to include in a report. This can be done in the <code>Model</code> menu <code>Model &gt; Export &gt; To Graphic</code>. We can choose a png file if we just need a quick image, but if we want to be able to edit the file in Inkscape, we need to select <code>Enhanced Metafile (*.emf)</code>, as this can be loaded by Inkscape.</p>
+<p>It is often useful to be able to export an image of our model to include in a report. This can be done in the <code>Model</code> menu <code>Model &gt; Export &gt; To Graphic</code>. We can choose a <code>.png</code> file if we just need a quick image, but if we want to be able to edit the file in Inkscape, we need to select <code>Enhanced Metafile (*.emf)</code>, as this can be loaded by Inkscape.</p>
 <h2 id="loading-a-model">Loading a model</h2>
 <p>If we wish to return to a previously saved model, we need to load the toolbox we saved it in. To do this, right click on the ArcToolbox and choose <code>Add Toolbox...</code>, navigate to where you saved your toolbox, select it and click <code>Open</code>. This will add your toolbox alongside all of the built in toolboxes that come with ArcMap. Open your toolbox and you will see your model!</p>
 <p>To reopen your model in ModelBuilder, right click on the model and click <code>Edit</code>. <strong>There is a bug in ArcMap that means that the ModelBuilder window will load off the side of the screen. Press the windows key and the left arrow to move it into view.</strong> You may also need to use the zoom tools to reset the zoom to something sensible.</p>
 <h2 id="a-more-complex-model">A more complex model</h2>
-<p>Now that we have figured out the basics of building and using a model, we are going to build a new model to calculate the stream power at the outlet of a series of catchments. To do this we have the following data, again available on QMplus:</p>
+<p>Now that we have figured out the basics of building and using a model, we are going to build a new model to calculate the stream power at the outlet of a series of catchments. To do this we will use the following data, downloaded earlier in this practical:</p>
 <ul>
 <li><code>catchment_1.shp</code> through <code>catchment_4.shp</code></li>
-<li><code>DEM.tif</code></li>
 <li><code>Slope.tif</code></li>
 </ul>
+<p><strong>Some of the steps we will be taking will edit the catchment shapefiles so it is a good idea to make a copy of these as a backup in case things go wrong.</strong></p>
 <p>The aim of our new model is to calculate the stream power, <span class="math inline">\(E\)</span>, which is an approximate measure of the rate of fluvial erosion at a point in a landscape. It is calculated as:</p>
 <p><span class="math display">\[E = KA^mS^n\]</span></p>
 <p>Where <span class="math inline">\(K\)</span> is an erosion coefficient, <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are constants, <span class="math inline">\(S\)</span> is the slope and <span class="math inline">\(A\)</span> is the basin area. Note that typically we would use the channel slope for this calculation, but for simplicity we will use the basin slope here as an approximation. The result of this calculation will be the erosion rate at the catchment outlet in meters per year.</p>
 <h3 id="iterators">Iterators</h3>
 <p>In this exercise we have multiple different catchment files which need to be processed. The aim is to add a new field to each of their attribute tables containing their erosion rate. ModelBuilder has some special tools for cases like this, called <strong>iterators</strong>, we can think of this as like the loops we have been learning in Python.</p>
-<p>The iterator we are going to use here is called <code>Iterate Feature Classes</code>, it is found in the insert menu (<code>Insert &gt; Iterators &gt; Iterate Feature Classes</code>). Double click on this tool to open its settings, and under <code>Workspace or Feature Dataset</code> choose the folder that the four <code>catchment_*.shp</code> files are in. Click OK, and the tool will become colored in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.</p>
+<p>The iterator we are going to use here is called <code>Iterate Feature Classes</code>, it is found in the insert menu (<code>Insert &gt; Iterators &gt; Iterate Feature Classes</code>). Double click on this tool to open its settings, and under <code>Workspace or Feature Dataset</code> choose the folder that the four <code>catchment_*.shp</code> files are in. Click OK, and the tool will become coloured in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.</p>
 <h3 id="zonal-statistics">Zonal statistics</h3>
 <p>We need to calculate the mean basin slope for each of our catchments, we can do this using the <code>Zonal Statistics as Table</code> tool (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Zonal &gt; Zonal Statistics as Table</code>). First, add the slope data using the <code>Add Data</code> button, then drag and drop the <code>Zonal Statistics as Table</code> tool into the ModelBuilder window and connect it to the slope raster, as the <code>Input Value Raster</code>. Now double click on the <code>Zonal Statistics as Table</code> tool and configure the following options:</p>
 <ul>

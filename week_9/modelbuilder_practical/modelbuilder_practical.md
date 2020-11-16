@@ -18,9 +18,45 @@ By the end of this class you should be able to:
 1. Save models as custom toolboxes
 1. Load and edit saved toolboxes
 
+## Downloading the data
+
+This practical, and the work in Week 10 and 11 all use the same data, which can be downloaded from the `Week 9` section on QMplus. If you have access to your local computer's hard drive via AppsAnywhere, you can download the data on your own computer and then copy across the files via your `G: Drive` in AppsAnywhere.
+
+![G drive](../../img/g-drive.png) <!-- .element width="80%" -->
+
+If you cannot copy your data across in the above manner, you can download it directly within AppsAnywhere. Start by launching Python, and opening a Jupyter Notebook. Once you have opened a Jupyter Notebook, click on the new tab button at the top of the screen:
+
+![New tab](../../img/new_tab.png) <!-- .element width="80%" -->
+
+This will open a new browser window, in which you can navigate to QMplus and log in as normal. navigate to the `Week 9` section on QMplus and click on the data file to begin the download. When prompted, select `Save As` and choose a sensible location such as your GEG6230 folder where your notebooks are stored.
+
+![Save as](../../img/save-as.png) <!-- .element width="80%" -->
+
+In some cases the download will fail:
+
+![Fail](../../img/fail.png) <!-- .element width="80%" -->
+
+If this happens, simply click `Retry` and the download should resume with no problems.
+
+## Extracting the data
+
+Once the zip file has been downloaded and copied to a folder in your `G: Drive`, you can extract it by right clicking on the downloaded zip file. This will pop up a warning, which you can click `Ok` to:
+
+![Warning](../../img/warning.png) <!-- .element width="80%" -->
+
+Select `Extract All` in the right click menu:
+
+![Extract all](../../img/extract.png) <!-- .element width="80%" -->
+
+This will complete after a few seconds, and you will be able to see all of your data files in the folder that has been created:
+
+![Extracted files](../../img/extracted.png) <!-- .element width="80%" -->
+
+**Remember to put your data in a sensible folder that does not have any spaces in the file name.**
+
 ## Building our first model
 
-The first model we will be building will be a solution to our in-class exercise of identifying trees near a road and lake. To recap our requirements, we need to identify all trees that are within 300 meters of the lake and 400 meters of the road. We have the following data files for this exercise, which can be downloaded from QMplus:
+The first model we will be building will be a solution to our in-class exercise of identifying trees near a road and lake. To recap our requirements, we need to identify all trees that are within 300 meters of the lake and 400 meters of the road. For this model, we will be using the following files:
 
 - `road.shp`
 - `trees.shp`
@@ -87,11 +123,12 @@ To reopen your model in ModelBuilder, right click on the model and click `Edit`.
 
 ## A more complex model
 
-Now that we have figured out the basics of building and using a model, we are going to build a new model to calculate the stream power at the outlet of a series of catchments. To do this we have the following data, again available on QMplus:
+Now that we have figured out the basics of building and using a model, we are going to build a new model to calculate the stream power at the outlet of a series of catchments. To do this we will use the following data, downloaded earlier in this practical:
 
 - `catchment_1.shp` through `catchment_4.shp`
-- `DEM.tif`
 - `Slope.tif`
+
+**Some of the steps we will be taking will edit the catchment shapefiles so it is a good idea to make a copy of these as a backup in case things go wrong.**
 
 The aim of our new model is to calculate the stream power, $E$, which is an approximate measure of the rate of fluvial erosion at a point in a landscape. It is calculated as:
 
