@@ -41,6 +41,7 @@ Alongside a series of numbered polygon shapefiles, called `scar_1.shp` through t
 - Soil depth
 - Soil density
 - Hydrological constant
+- Cohesion
 
 
 ## Tasks
