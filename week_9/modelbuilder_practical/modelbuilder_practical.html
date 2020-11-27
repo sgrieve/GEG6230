@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2020-11-16" />
+  <meta name="dcterms.date" content="2020-11-27" />
   <title>GEG6230 Introduction to ModelBuilder</title>
   <style>
       code{white-space: pre-wrap;}
@@ -351,7 +351,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to ModelBuilder</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">11/16/20</p>
+<p class="date">11/27/20</p>
 </header>
 <h1 id="introduction-to-modelbuilder">Introduction to ModelBuilder</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -434,6 +434,7 @@
 <h3 id="iterators">Iterators</h3>
 <p>In this exercise we have multiple different catchment files which need to be processed. The aim is to add a new field to each of their attribute tables containing their erosion rate. ModelBuilder has some special tools for cases like this, called <strong>iterators</strong>, we can think of this as like the loops we have been learning in Python.</p>
 <p>The iterator we are going to use here is called <code>Iterate Feature Classes</code>, it is found in the insert menu (<code>Insert &gt; Iterators &gt; Iterate Feature Classes</code>). Double click on this tool to open its settings, and under <code>Workspace or Feature Dataset</code> choose the folder that the four <code>catchment_*.shp</code> files are in. Click OK, and the tool will become coloured in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.</p>
+<p>In this example, the data folder may have more than just the <code>catchment_*.shp</code> files in it. To ensure that our iterator only iterates over the catchment files, we can use the <code>Wildcard</code> option in the same way we use <code>glob</code> in Python, adding in the text: <code>catchment_*</code> so that only files that match that pattern are iterated over.</p>
 <h3 id="zonal-statistics">Zonal statistics</h3>
 <p>We need to calculate the mean basin slope for each of our catchments, we can do this using the <code>Zonal Statistics as Table</code> tool (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Zonal &gt; Zonal Statistics as Table</code>). First, add the slope data using the <code>Add Data</code> button, then drag and drop the <code>Zonal Statistics as Table</code> tool into the ModelBuilder window and connect it to the slope raster, as the <code>Input Value Raster</code>. Now double click on the <code>Zonal Statistics as Table</code> tool and configure the following options:</p>
 <ul>

@@ -142,6 +142,8 @@ In this exercise we have multiple different catchment files which need to be pro
 
 The iterator we are going to use here is called `Iterate Feature Classes`, it is found in the insert menu (`Insert > Iterators > Iterate Feature Classes`). Double click on this tool to open its settings, and under `Workspace or Feature Dataset` choose the folder that the four `catchment_*.shp` files are in. Click OK, and the tool will become coloured in. We have created a series of inputs, one for each of our catchment shapefiles, that we can now process automatically.
 
+In this example, the data folder may have more than just the `catchment_*.shp` files in it. To ensure that our iterator only iterates over the catchment files, we can use the `Wildcard` option in the same way we use `glob` in Python, adding in the text: `catchment_*` so that only files that match that pattern are iterated over.
+
 ### Zonal statistics
 
 We need to calculate the mean basin slope for each of our catchments, we can do this using the `Zonal Statistics as Table` tool (`ArcToolbox > Spatial Analyst Tools > Zonal > Zonal Statistics as Table`). First, add the slope data using the `Add Data` button, then drag and drop the `Zonal Statistics as Table` tool into the ModelBuilder window and connect it to the slope raster, as the `Input Value Raster`. Now double click on the `Zonal Statistics as Table` tool and configure the following options:
