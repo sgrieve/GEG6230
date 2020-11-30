@@ -72,3 +72,15 @@ For the write up on the reproducibility of the methods these two references will
 Church, M., Dudill, A., Venditti, J. G., & Frey, P. (2020). Are results in geomorphology reproducible?. Journal of Geophysical Research: Earth Surface, 125(8), e2020JF005553.
 
 Grieve, S. W. D., Clubb, F. J., & Mudd, S. M. (2020). Reproducible topographic analysis. In Developments in Earth Surface Processes (Vol. 23, pp. 339-367). Elsevier.
+
+
+# Frequently asked questions
+
+**How do I calculate `cos`, `sin` and `tan`?**
+In both the ModelBuilder and Python solutions, you will need to make use of the `math` module to access these functions. In ModelBuilder, this can be done by using the commands `math.cos`, `math.sin` and `math.tan` inside the `Calculate Field` tool. In Python, you will first need to `import math` before using these commands.
+
+**My python code inside `Calculate Field` does not indent automatically?**
+In this environment, code does not indent automatically. You should add the indent yourself using an even number of spaces. Typically this will be 2 or 4.
+
+**Which zonal statistic should I use?**
+From a geomorphology perspective, you should use the maximum slope when calculating the Fs values, as we want to know the worst case scenario for slope stability. For this exercise, it is ok if you use the mean value instead, as long as you use the same statistic in both the ModelBuilder and Python parts of your submission.
