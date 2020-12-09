@@ -196,6 +196,9 @@ Society relies on trustworthy geoscience:
 
 ### Point and click analysis
 
+- It is a lot harder to communicate a series of point and click instructions than some lines of code
+- Look at how long some of the practical instructions are!
+
 </textarea>
 </section>
 
@@ -203,6 +206,12 @@ Society relies on trustworthy geoscience:
 <textarea data-template>
 
 ### Undocumented workflows
+
+- If you hand your code or model to someone else, can they understand it?
+  - Big part of the assignment!
+- If you come back to your code after a year, will you remember what it does?
+- Bus factor
+- People move jobs, retire
 
 </textarea>
 </section>
@@ -212,6 +221,11 @@ Society relies on trustworthy geoscience:
 
 ### Private data
 
+- Your code might be public, but what about the data?
+- Lots of (good) reasons not to share data
+  - Personal information, (commercially) sensitive data
+- Are there good geography reasons to not share data?
+
 </textarea>
 </section>
 
@@ -219,6 +233,12 @@ Society relies on trustworthy geoscience:
 <textarea data-template>
 
 ### Paywalls
+
+- Can you access the paper that describes the methods?
+- Can you afford to run someone's workflow
+- ArcGIS licence costs <span>$</span>3000 (+spatial analyst <span>$</span>600)
+- This is an equality issue
+  - If only wealthy people can reproduce a result, is it really reproducible?
 
 </textarea>
 </section>
@@ -230,8 +250,112 @@ Society relies on trustworthy geoscience:
 
 1. Write up detailed methods
 1. Automate workflows and share them
-1. Share your data
 1. Use open source
+1. Share your data
+
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Detailed methods
+
+- Add descriptions and explanations into your notebooks in between code block
+- Use comments to explain individual lines when needed
+  - Explain **why** you are doing something not just what you are doing:
+
+```python
+# Good:
+area = length * width  # Calculating the area of the polygon
+```
+
+```python
+# Bad:
+area = length * width  # Multiply the length by the width
+```
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Detailed methods
+
+- Write detailed methods sections (relevant for IGS/PES!)
+- Use meaningful variable names:
+
+```python
+# Good:
+stream_power = K * (A ** m) * (S ** n)
+```
+
+```python
+# Bad:
+x = K * (A ** m) * (S ** n)
+```
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Automate workflows and share them
+
+- This is what we have been doing!
+- Instead of doing things manually every time, build a model or write some code
+  - Ensures the same results every time
+  - Allows sharing of analysis (especially if using open source tools)
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Open Source
+
+- Using open source tools such as Python democratises analysis and research
+- This is not always possible, especially in industry
+  - Lots of places use ArcGIS (which is why we teach it)
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Share data
+
+- Sharing data leads to new insights and results
+- Contractual requirement of research funding in many countries
+- Value for money for science funding
+- Financial benefit to buisnesses, and government
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Share data
+
+Damage to buried infrastructure costs the UK £1.2 billion per year.
+
+![Pipes](../../img/pipes.png) <!-- .element width="70%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+![Geospatial commission](../../img/geospatial-comm.png) <!-- .element width="100%" -->
+
+[Geospatial Commission, 2019](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/897060/Project_Orange_V3_01.07.pdf) <!-- .element: class="caption" -->
 
 </textarea>
 </section>
@@ -263,11 +387,12 @@ regard to reproducibility.**
 </textarea>
 </section>
 
-
 <section data-markdown>
 <textarea data-template>
 
 ### Reading
+
+Both on QMplus:
 
 Church, M., Dudill, A., Venditti, J. G., & Frey, P. (2020). Are results in geomorphology reproducible?.
 Journal of Geophysical Research: Earth Surface, 125(8), e2020JF005553. <!-- .element class="references"-->
@@ -278,6 +403,13 @@ in Earth Surface Processes (Vol. 23, pp. 339-367). Elsevier <!-- .element class=
 </textarea>
 </section>
 
+<section data-markdown>
+<textarea data-template>
+
+# Thank you!
+
+</textarea>
+</section>
 
 
 
