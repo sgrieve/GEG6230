@@ -11,20 +11,20 @@ colorlinks: true
 
 **Credit value:** 15 credits
 
-**Module convener:** Dr Stuart Grieve (s.grieve@qmul.ac.uk, Working from home)
+**Module convener:** Dr Stuart Grieve (s.grieve@qmul.ac.uk, Room 206)
 
 **Advice and feedback hours:**
 
-- Mondays 10:00 - 11:00
-- Tuesdays 10:00 - 11:00 **Dedicated slot for this module**
-- Fridays 12:00 - 13:00
+- Mondays XX:00 - XX:00
+- Tuesdays 12:00 - 1:00 **Dedicated slot for this module** Queens E2xx
+- Fridays XX:00 - XX:00
 
-**Timetable:** Semester A, Thursday 13:00 - 16:00, Online
+**Timetable:** Semester A, Monday 9:30 - 12:30, Queens LG5 PC Lab
 
 **Coursework deadlines:**
 
-- Data visualisation project: 13/11/20 2pm
-- GIS portfolio: 16/12/20 2pm
+- Data visualisation project: 12/11/21 2pm
+- GIS portfolio: 23/12/21 2pm
 
 # Module Overview
 
@@ -45,29 +45,21 @@ On successful completion of the module students will be able to demonstrate:
 - Self-learning and collaborative skills whilst writing and understanding algorithms and computer code
 - An ability to review current literature, drawing on interdisciplinary perspectives
 
-# Covid Statement
-
-This is an extremely stressful time for all of us, and I am particularly aware of how difficult the last few months will have been for many of you. I am extremely concerned about the safety of my loved ones and I assume that you will share many of these worries.
-
-When I developed this class, it was designed around a lot of in-person interaction, 1:1 teaching and collaboration. Clearly this is not possible in the way that I had originally planned, however I am committed to your learning experience, and to making your online learning as effective and enjoyable as possible. I ask that we all treat each other with patience and kindness, not everything I try will work, and I anticipate there will be a lot of as yet unforeseen challenges that we will all face this semester.
-
-Now more than ever, I value your feedback and ideas on how the class is going - my (virtual) door is always open. And if you are struggling with any aspect of the class, please let me know - the sooner I am aware of a problem the sooner we can find a solution.
-
 # Contact Hours and Attendance
 
 **Lectures/Practicals:** 33 hours
 
-**Dedicated office Hours:** 10 hours
+**Dedicated office Hours:** 11 hours
 
 **Independent study**: 120 hours
 
-All teaching for this course will take place online via Blackboard Collaborate. Each week there is a 3 hour timetabled session. On some weeks this will consist of a lecture, followed by a practical to be completed independently by the students. In other weeks, the session will be an interactive live coding lesson. Each week, in addition to these 3 timetabled hours, there will be a dedicated class office hour, also held on Blackboard Collaborate, where students can get 1:1 or small group feedback and help with class material.
+All teaching for this course will take place in person. Each week there is a 3 hour timetabled session. On some weeks this will consist of a lecture, followed by a practical to be completed independently by the students. In other weeks, the session will be an interactive live coding lesson. Each week, in addition to these 3 timetabled hours, there will be a dedicated class office hour, where students can get 1:1 or small group feedback and help with class material.
 
 Lectures in this course are integrated with practical work, and build week to week so skipping a class will impact your ability to pass the course. It is your responsibility to catch up on any material you have missed prior to the next class.
 
 # QMplus
 
-QMplus will be used to provide lecture and practical materials in advance of each class. Data which will be used in practical work and assessments will be provided on QMplus. Recordings of online classes will be posted online shortly after each week's session.
+QMplus will be used to provide lecture and practical materials in advance of each class. Data which will be used in practical work and assessments will be provided on QMplus. Recordings of classes will be posted online shortly after each week's session.
 
 # Reading
 
@@ -85,18 +77,18 @@ There are copies of all of these books in the Mile End Library. In all three cas
 
 | Week  | Date  | Time  | Session  |
 |---|---|---|---|---|
-|  1 |  24/9 | 13:00-16:00  |  Introduction to Advanced Geospatial Science  |
-|  2 |  1/10 | 13:00-16:00  |  Data visualisation and plotting 1  |
-|  3 |  8/10 | 13:00-16:00  |  Data visualisation and plotting 2  |
-|  4 |  15/10 | 13:00-16:00  |  Data visualisation and plotting 3 |
-|  5 |  22/10 | 13:00-16:00  |  Data visualisation and plotting 4  |
-|  6 |  29/10 | 13:00-16:00  |  Introduction to Geostatistics  |
+|  1 |  27/9 | 9:30-12:30  |  Module intro & Data visualisation  |
+|  2 |  4/10 | 9:30-12:30  |  Data visualisation and plotting 1  |
+|  3 |  11/10 | 9:30-12:30  |  Data visualisation and plotting 2  |
+|  4 |  18/10 | 9:30-12:30  |  Data visualisation and plotting 3 |
+|  5 |  25/10 | 9:30-12:30  |  Data visualisation and plotting 4  |
+|  6 |  1/11 | 9:30-12:30  |  GIS is tedious: Automating your work 1  |
 |  7 |  - | -  | **Reading Week: No class**  |
-|  8 |  12/11 | 13:00-16:00  |  Spatial Interpolation |
-|  9 |  19/11 | 13:00-16:00  |  GIS is tedious: Automating your work 1 |
-|  10 | 26/11 | 13:00-16:00  |  GIS is tedious: Automating your work 2 |
-|  11 | 3/12 | 13:00-16:00  |  GIS is tedious: Automating your work 3 |
-|  12 | 10/12 | 13:00-16:00 |  Reproducible geoscience and assessment workshop |
+|  8 |  15/11 | 9:30-12:30  |  GIS is tedious: Automating your work 2 |
+|  9 |  22/11 | 9:30-12:30  |  GIS is tedious: Automating your work 3 |
+|  10 | 29/11 | 9:30-12:30  |  Getting data from the web |
+|  11 | 6/12 | 9:30-12:30  |  Getting data from the web |
+|  12 | 13/12 | 9:30-12:30 |  Reproducible geoscience and assessment workshop |
 
 # Assessment
 
@@ -110,7 +102,7 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 1 A3 page + 500 words
 
-**Deadline:** 13/11/20 2pm
+**Deadline:** 12/11/21 2pm
 
 ## Assignment 2
 
@@ -120,9 +112,9 @@ This module is assessed solely via coursework. Full details for each of these as
 
 **Page limit:** 5 A4 pages + code
 
-**Deadline:** 16/12/20 2pm
+**Deadline:** 23/12/21 2pm
 
-Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Guide for Undergraduate Students 2020-21 (the “red book”) which is available as a PDF on the QMplus Landing Page for the School of Geography.
+Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Undergraduate Information Zone via the QMplus Landing Page for the School of Geography.
 
 # Feedback
 
@@ -130,12 +122,12 @@ Feedback and provisional marks for coursework will be returned within 4 term-tim
 
 # Acting on Feedback from Last Year
 
-Each year, we gather feedback from students on our courses, as well as get feedback from other staff in the department and from our external examiners. In the last year, aside from the work to move the class online I have made the following changes to the module:
+Each year, we gather feedback from students on our courses, as well as get feedback from other staff in the department and from our external examiners. In the last two years, I have made the following changes to the module:
 
 - Removed a presentation assessment
   - Students felt that the week spent on presentations could have been better spent learning in other ways.
 - Added dedicated office hour
-  - Last year we had 2 dedicated office hours, one before each assessment. These were very popular, so I am running them every week during the module.
+  - We used to only have 2 dedicated office hours, one before each assessment. These were very popular, so I am running them every week during the module.
 - Making readings more available
   - Students couldn't always get a copy of readings from the library. I have requested more hard copies be purchased and will post PDF scans of readings on QMplus.
 - More python AND more ArcMap
@@ -143,6 +135,5 @@ Each year, we gather feedback from students on our courses, as well as get feedb
 - QMplus now organised by week rather than topic
   - Students struggled to find things on the QMplus page. This year everything will be organised into weeks rather than topics to make things easier to find.
 - Provide more self-study exercises for Python
-  - I will be writing additional exercises to supplement the ones already available
 - I'm too nice with feedback
   - Some students felt that my feedback was not critical enough - I will endeavour to provide more clear criticisms in feedback, tied to ways to improve your work in future.
