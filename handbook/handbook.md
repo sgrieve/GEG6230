@@ -15,16 +15,11 @@ colorlinks: true
 
 **Advice and feedback hours:**
 
-- Mondays XX:00 - XX:00
-- Tuesdays 12:00 - 1:00 **Dedicated slot for this module** Queens E2xx
-- Fridays XX:00 - XX:00
+- Mondays 14:00 - 15:00
+- Tuesdays 12:00 - 1:00 **Dedicated slot for this module** Geog 226
+- Thursdays 10:00 - 11:00
 
 **Timetable:** Semester A, Monday 9:30 - 12:30, Queens LG5 PC Lab
-
-**Coursework deadlines:**
-
-- Data visualisation project: 12/11/21 2pm
-- GIS portfolio: 23/12/21 2pm
 
 # Module Overview
 
@@ -56,6 +51,8 @@ On successful completion of the module students will be able to demonstrate:
 All teaching for this course will take place in person. Each week there is a 3 hour timetabled session. On some weeks this will consist of a lecture, followed by a practical to be completed independently by the students. In other weeks, the session will be an interactive live coding lesson. Each week, in addition to these 3 timetabled hours, there will be a dedicated class office hour, where students can get 1:1 or small group feedback and help with class material.
 
 Lectures in this course are integrated with practical work, and build week to week so skipping a class will impact your ability to pass the course. It is your responsibility to catch up on any material you have missed prior to the next class.
+
+Lectures and practicals will be livestreamed via BlackBoard Collaborate to support students who are self isolating or otherwise have permission to access remote learning.
 
 # QMplus
 
@@ -93,26 +90,6 @@ There are copies of all of these books in the Mile End Library. In all three cas
 # Assessment
 
 This module is assessed solely via coursework. Full details for each of these assessments will be provided in class and on QMplus.
-
-## Assignment 1
-
-**Data visualisation project:** Given a series of geographic datasets, design a single page combination of graphs and maps to effectively communicate the data to a non-expert audience.
-
-**Assessment weighting:** 50%
-
-**Page limit:** 1 A3 page + 500 words
-
-**Deadline:** 12/11/21 2pm
-
-## Assignment 2
-
-**GIS project:** Complete a series of GIS tasks, compiling the results into a brief report.
-
-**Assessment weighting:** 50%
-
-**Page limit:** 5 A4 pages + code
-
-**Deadline:** 23/12/21 2pm
 
 Full Coursework Submission Guidelines, details of Penalties for Late Submission and information on how to make an application to the School of Geography’s Extenuating Circumstances Panel can be found in the Undergraduate Information Zone via the QMplus Landing Page for the School of Geography.
 
