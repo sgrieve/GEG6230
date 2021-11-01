@@ -20,23 +20,7 @@ By the end of this class you should be able to:
 
 ## Downloading the data
 
-This practical, and the work in Week 10 and 11 all use the same data, which can be downloaded from the `Week 9` section on QMplus. If you have access to your local computer's hard drive via AppsAnywhere, you can download the data on your own computer and then copy across the files via your `G: Drive` in AppsAnywhere.
-
-![G drive](../../img/g-drive.png) <!-- .element width="80%" -->
-
-If you cannot copy your data across in the above manner, you can download it directly within AppsAnywhere. Start by launching Python, and opening a Jupyter Notebook. Once you have opened a Jupyter Notebook, click on the new tab button at the top of the screen:
-
-![New tab](../../img/new_tab.png) <!-- .element width="80%" -->
-
-This will open a new browser window, in which you can navigate to QMplus and log in as normal. navigate to the `Week 9` section on QMplus and click on the data file to begin the download. When prompted, select `Save As` and choose a sensible location such as your GEG6230 folder where your notebooks are stored.
-
-![Save as](../../img/save-as.png) <!-- .element width="80%" -->
-
-In some cases the download will fail:
-
-![Fail](../../img/fail.png) <!-- .element width="80%" -->
-
-If this happens, simply click `Retry` and the download should resume with no problems.
+This practical, and the work in Week 8 and 9 all use the same data, which can be downloaded from the `Week 6` section on QMplus. 
 
 ## Extracting the data
 
