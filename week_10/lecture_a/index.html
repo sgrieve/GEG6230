@@ -72,7 +72,11 @@ https://swdg.io/GEG6230/week_10/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-brief primer on how the internet works: http etc
+### How does the internet work?
+
+- We use the internet every day
+- Unlike in the early 1990s most of the nuts and bolts are abstracted away from us
+- But when we load a website, use an app, or stream a video, what is actually happening?
 
 </textarea>
 </section>
@@ -80,7 +84,13 @@ brief primer on how the internet works: http etc
 <section data-markdown>
 <textarea data-template>
 
-http error codes
+### HTTP
+
+- HyperText Transfer Protocol
+- Invented by Tim Berners-Lee at CERN c. 1990
+- A means of communicating between a **client** (our web browser, app, etc) and a **remote server**
+
+![https://medium.com/@jen_strong/the-request-response-cycle-of-the-web-1b7e206e9047](../../img/http.png) <!-- .element width="60%" -->
 
 </textarea>
 </section>
@@ -88,7 +98,9 @@ http error codes
 <section data-markdown>
 <textarea data-template>
 
-websites are good for humans to get information, but what about computers?
+### The first ever website!
+
+http://info.cern.ch/hypertext/WWW/TheProject.html
 
 </textarea>
 </section>
@@ -96,7 +108,25 @@ websites are good for humans to get information, but what about computers?
 <section data-markdown>
 <textarea data-template>
 
-APIs!
+### URLs
+
+A web address or Uniform Resource Locator (URL) is used by a web browser to
+locate information on a remote server.
+
+By specifiying different URLs we can access different information.
+
+https://swdg.io/GEG6230/week_10/lecture_a/ Points to these slides, but if we change the URL, we can find other slides!
+
+</textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
+
+### Websites are good for humans to get information, but what about computers?
+
+![](../../img/computer_meme.jpeg) <!-- .element width="50%" -->
 
 </textarea>
 </section>
@@ -104,16 +134,9 @@ APIs!
 <section data-markdown>
 <textarea data-template>
 
-Some examples
+### HTTP
 
-</textarea>
-</section>
-
-
-<section data-markdown>
-<textarea data-template>
-
-building up query strings in a browser - can do this as an exercise for the students
+![https://medium.com/@jen_strong/the-request-response-cycle-of-the-web-1b7e206e9047](../../img/http.png) <!-- .element width="100%" -->
 
 </textarea>
 </section>
@@ -121,7 +144,73 @@ building up query strings in a browser - can do this as an exercise for the stud
 <section data-markdown>
 <textarea data-template>
 
-ettiquette and fair use
+### HTTP Verbs
+
+These are the commands clients can use to communicate with remote servers:
+
+- GET: Retrieve information from a remote server.
+- POST: Send new information to the server, which is usually stored by the server.
+- PUT: Overwrite information on the remote server with the supplied information.
+- DELETE: Deletes something on the remote server.
+
+[Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) <!-- .element: class="caption" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Status Codes
+
+After every HTTP operation, the server returns a status code
+
+- 1xx: Information
+- 2xx: Success
+- 3xx: Redirection
+- 4xx: Client error
+- 5xx: Server error
+
+[Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) <!-- .element: class="caption" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+## APIs
+
+- An Application Programming Interface (API) is a connection between different pieces of software
+- In the context of the web, it is a means to automate data collection, making use of structured URLs and HTTP verbs
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Examples
+
+- https://cataas.com//#/
+- https://icanhazdadjoke.com/search?term=computer
+- https://dukengn.github.io/Dog-facts-API/
+- https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=3
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Etiquette
+
+Lots of organisations provide APIs to access their data for free, lots of government agencies are required to by law,
+but many people do it to preserve the spirit of the free and open internet.
+
+This means that we shouldn't abuse people's kindness.
+
+There may be rate limits set to limit the number of requests you can make in a period of time. Don't circumvent these!
 
 </textarea>
 </section>
@@ -131,17 +220,99 @@ ettiquette and fair use
 
 ### What about geospatial data?
 
+The examples so far have been non-geospatial, but an early adopter of APIs and HTTP was the geospatial community.
+
 </textarea>
 </section>
-
 
 <section data-markdown>
 <textarea data-template>
 
-wms, wfs, wmts wcs etc
+### The OGC
 
-Explain what the OGC is, why we need standards, link to the documents,
-then explain what each of these acronyms mean
+The Open Geospatial Consortium (OGC) is made up of a global network of buisnesses,
+governments, universities and research organisations who work to define geospatial standards.
+
+![ogc.org/about](../../img/ogc.jpeg) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### THE OGC
+
+The reason we can move data between GIS systems, write python code to analyse
+geospatial data, and view maps on the web is down to the work of the OGC.
+
+This is done by defining **standards**.
+
+These are vital in the fight against monopolies.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### WMS
+A Web Map Service (WMS) produces maps of spatially referenced data dynamically from geographic information. This International Standard defines a “map” to be a portrayal of geographic information as a digital image file suitable for display on a computer screen. A map is not the data itself. <!-- .element: class="smallp" -->
+
+This International Standard defines three operations: one returns service-level metadata; another returns a map whose geographic and dimensional parameters are well-defined; and an optional third operation returns information about particular features shown on a map. <!-- .element: class="smallp" -->
+
+Web Map Service operations can be invoked using a standard web browser by submitting requests in the form of Uniform Resource Locators (URLs). The content of such URLs depends on which operation is requested. In particular, when requesting a map the URL indicates what information is to be shown on the map, what portion of the Earth is to be mapped, the desired coordinate reference system, and the output image width and height. <!-- .element: class="smallp" -->
+
+[WMS Specification](http://portal.opengeospatial.org/files/?artifact_id=14416) <!-- .element: class="caption" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### WMS Example
+
+[Clickable Link](http://giswebservices.massgis.state.ma.us/geoserver/wms?dpi=120&request=GetMap&layers=GISDATA.EOTMAJROADS_ARC&srs=EPSG:4326&bbox=-71.1,42.35,-71.0,42.37&width=1000&height=300&format=image/png&service=wms&transparent=true)
+
+
+```
+http://giswebservices.massgis.state.ma.us/geoserver/wms?
+dpi=120&
+request=GetMap&
+layers=GISDATA.EOTMAJROADS_ARC&
+srs=EPSG:4326&
+bbox=-71.1,42.35,-71.0,42.37&
+width=1000&
+height=300&
+format=image/png&
+service=wms&
+transparent=true
+```
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### Other OGC standards
+
+- WMTS - An optimised version of WMS that works with tiles rather then whole images to speed things up.
+- WFS - A standard designed to share vector data, rather than static images.
+- WCS - A standard designed to share data alongside its attributes to allow for things like time to be represented.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### OGC Standards
+
+- This is a little clunky, but we can plug these URLs into GIS packages to play properly with the data
+- The philosophy is that instead of selling data, you sell access to data and to data processing hardware
+- So we can use any GIS we want, pull data in a standard way from lots of places and mix it together
 
 </textarea>
 </section>
@@ -151,21 +322,11 @@ then explain what each of these acronyms mean
 
 ### Making money
 
-Outline data as a service concept
-
-Highlight idea of transition away from selling data itself to selling ways to process data
-
-examples of postcode resolution and geoparsing
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### What3Words
-
-Explain why this is problematic
+- This approach is often called Data As A Service (DaaS)
+- Many common examples of this in the geospatial world:
+  - Postcode lookup
+  - Geoparsing addresses
+  - What3Words
 
 </textarea>
 </section>
@@ -173,12 +334,12 @@ Explain why this is problematic
 <section data-markdown>
 <textarea data-template>
 
-### Science as a service
+### Science as a Service
 
-Opentopo, science gateways
-
-all about open access - APIs let people access processed data without needing to download it all
-or have the compute to process it in the first place
+- Sometimes called a **Science Gateway**
+- Places like OpenTopography and DigiMap process geospatial data for you so you can download it without needing your own supercomputer
+- APIs let people access processed data without needing specialist hardware and software
+- Democratizes scientific research - especially if standards are followed!
 
 </textarea>
 </section>
@@ -186,7 +347,10 @@ or have the compute to process it in the first place
 <section data-markdown>
 <textarea data-template>
 
-### Conclusions & point to the live coding & practical coming up
+### Summary
+
+- By undetstanding a little about how the web works, we can make use of existing tools to access data easily
+- For the rest of today and next week, we will be exploring how to actually get data from the web using python and ArcMap
 
 </textarea>
 </section>

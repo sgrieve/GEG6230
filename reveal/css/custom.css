@@ -15,6 +15,12 @@ Custom css tweaks
   line-height: 0.5;
   font-size: 60%}
 
+/* A simple class to create small paragraphs */
+.reveal p.smallp {
+  margin: 20px 0;
+  line-height: 1.15;
+  font-size: 60%}
+
 /* Custom class to stretch images to fill the screen */
 .reveal .fill {
   width: 90%; }
