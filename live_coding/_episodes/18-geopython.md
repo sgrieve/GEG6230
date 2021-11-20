@@ -524,6 +524,88 @@ morestats = zonal_stats(catchment, array, affine=trans, stats='median majority r
 ~~~
 {: .language-python}
 
+## A simple geoprocessing example
+
+We are now going to recreate the first model we built in ModelBuilder, where the aim was to identify all trees that fell within 400m of the road and 300m of the lake.
+
+Lets start by opening a new notebook so that we can start from scratch
+
+Firstly we will import the libraries we will need for this exercise:
+
+~~~
+import fiona
+from shapely.geometry import shape, mapping, MultiPoint
+import matplotlib.pyplot as plt
+~~~
+{: .language-python}
+
+The we can use fiona to load the three shapefiles we need:
+
+~~~
+
+tree_pts = []
+with fiona.open('data/trees.shp') as shapefile:
+    for point in shapefile:
+        tree_pts.append(shape(point['geometry']))
+
+    trees = MultiPoint(tree_pts)
+
+with fiona.open('data/lake.shp') as shapefile:
+    lake = shape(shapefile[0]['geometry'])
+
+with fiona.open('data/road.shp') as shapefile:
+    road = shape(shapefile[0]['geometry'])
+
+~~~
+{: .language-python}
+
+
+By buffering the lake and the road, we can then get the `union` of the two buffers, which is the search area for our trees:
+
+~~~
+lake_buffer = lake.buffer(300)
+road_buffer = road.buffer(400)
+buffer_intersect = road_buffer.intersection(lake_buffer)
+~~~
+{: .language-python}
+
+We can quickly plot these geometries to make sure we are doing the right thing:
+
+~~~
+plt.plot(lake_buffer, color='g', alpha=0.2)
+plt.plot(road_buffer, color='r', alpha=0.2)
+plt.plot(buffer_intersect, color='k')
+~~~
+{: .language-python}
+
+
+We can then iterate over all of the points in our multipoint tree variable to find which points are within our search area:
+
+~~~
+
+selected_pts = []
+
+for point in trees:
+    if point.within(buffer_intersect):
+        selected_pts.append(point)
+
+~~~
+{: .language-python}
+
+Finally, we can save our list of points to a new shapefile, and load it in ArcGIS to check that our selection has worked.
+
+~~~
+
+schema = {'geometry': 'MultiPoint', 'properties': {'id': 'int'}}
+
+with fiona.open('selected_trees.shp', 'w', 'ESRI Shapefile', schema) as c:
+    for i, point in enumerate(selected_pts):
+        c.write({'geometry': mapping(point), 'properties': {'id': i}})
+
+~~~
+{: .language-python}
+
+
 ## A real geoprocessing workflow
 
 Now, we are going to start a new notebook and build a python version of the stream power workflow we built using ModelBuilder. Make sure that you can find the stream power files from the previous practical from within your notebook.
