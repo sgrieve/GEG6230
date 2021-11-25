@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Stuart Grieve" />
+  <meta name="dcterms.date" content="2021-11-25" />
+  <title>GEG6230 Loading WMS data into ArcMap</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <!--
+  https://gist.github.com/killercup/5917178
+  -->
+  <style type="text/css">
+  html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    color: #444;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 1em;
+    margin: auto;
+    max-width: 42em;
+    background: #fefefe;
+  }
+  
+  a {
+    color: #0645ad;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #0b0080;
+  }
+  
+  a:hover {
+    color: #06e;
+  }
+  
+  a:active {
+    color: #faa700;
+  }
+  
+  a:focus {
+    outline: thin dotted;
+  }
+  
+  *::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  *::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+  
+  a::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  a::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+  
+  p {
+    margin: 1em 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+    line-height: 125%;
+    margin-top: 2em;
+    font-weight: normal;
+  }
+  
+  h4, h5, h6 {
+    font-weight: bold;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
+  
+  h5 {
+    font-size: 1em;
+  }
+  
+  h6 {
+    font-size: 0.9em;
+  }
+  
+  blockquote {
+    color: #666666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+  
+  hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  pre, code, kbd, samp {
+    color: #000;
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.98em;
+  }
+  
+  pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  b, strong {
+    font-weight: bold;
+  }
+  
+  dfn {
+    font-style: italic;
+  }
+  
+  ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  ul, ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+  }
+  
+  li p:last-child {
+    margin-bottom: 0;
+  }
+  
+  ul ul, ol ol {
+    margin: .3em 0;
+  }
+  
+  dl {
+    margin-bottom: 1em;
+  }
+  
+  dt {
+    font-weight: bold;
+    margin-bottom: .8em;
+  }
+  
+  dd {
+    margin: 0 0 .8em 2em;
+  }
+  
+  dd:last-child {
+    margin-bottom: 0;
+  }
+  
+  img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+  }
+  
+  figure {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  figure img {
+    border: none;
+    margin: 0 auto;
+  }
+  
+  figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0 0 .8em;
+  }
+  
+  table {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  table th {
+    padding: .2em 1em;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+  
+  table td {
+    padding: .2em 1em;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    vertical-align: top;
+  }
+  
+  .author {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      filter: none !important;
+      -ms-filter: none !important;
+    }
+  
+    body {
+      font-size: 12pt;
+      max-width: 100%;
+    }
+  
+    a, a:visited {
+      text-decoration: underline;
+    }
+  
+    hr {
+      height: 1px;
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+  
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+  
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+      content: "";
+    }
+  
+    pre, blockquote {
+      border: 1px solid #999;
+      padding-right: 1em;
+      page-break-inside: avoid;
+    }
+  
+    tr, img {
+      page-break-inside: avoid;
+    }
+  
+    img {
+      max-width: 100% !important;
+    }
+  
+    @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+  }
+  
+    @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+  }
+  
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    h2, h3 {
+      page-break-after: avoid;
+    }
+  }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">GEG6230 Loading WMS data into ArcMap</h1>
+<p class="author">Stuart Grieve</p>
+<p class="date">11/25/21</p>
+</header>
+<h1 id="loading-wms-data-into-arcmap">Loading WMS data into ArcMap</h1>
+<h2 id="aims-and-objectives">Aims and Objectives</h2>
+<p>In this practical you will learn how to load geospatial data into ArcMap via the web, making use of WMS (Web Map Service) and WCS (Web Coverage Service) standards.</p>
+<p>By the end of this class you should be able to:</p>
+<ol type="1">
+<li>Find geospatial data being provided via WMS</li>
+<li>Import data into ArcMap projects via WMS and WCS</li>
+<li>Select layers from collections of data</li>
+<li>Create maps and combine datasets using these web based datasets</li>
+</ol>
+<h2 id="working-with-wms-data">Working with WMS data</h2>
+<p>We are going to start by loading some data from the <a href="https://sedac.ciesin.columbia.edu/">NASA Socioeconomic Data and Applications Centre</a>, who provide a lot of regional and global geospatial datasets via their WMS service. Much of the data they provide can also be downloaded from their website, but by using the WMS service we can grab lots of data quickly and explore it within our GIS system.</p>
+<p>We are going to explore some global data, including things like fertiliser use, urban growth and soil types. We can see some of the metadata about these datasets by visiting <a href="https://sedac.ciesin.columbia.edu/">this page</a>. Here we can see some information about how the data was produced, how we should cite the data and some examples of the dataset.</p>
+<p>Click on the link on the left hand side of the page called <strong>Map Services</strong> to bring up the WMS details:</p>
+<p><img src="../../img/wms1.png" alt="screenshot of SEDAC webpage" /> <!-- .element width="80%" --></p>
+<p>On this page we can see the information needed to complete our WMS query. There are links to view the data in a web browser, but we want to load these data into ArcMap. Copy the URL out of the code block:</p>
+<p><img src="../../img/wms2.png" alt="URL for the SEDAC WMS" /> <!-- .element width="80%" --></p>
+<p>The way we find WMS URLs varies depending on how people have designed their websites and data repositories, but we can usually find them listed under something similar to what we have seen above.</p>
+<h3 id="loading-wms-data-in-arcmap">Loading WMS Data in ArcMap</h3>
+<p>Open a new ArcMap project, and click on the <code>Add Data</code> button. Click on the <code>up one level</code> button until it is greyed out:</p>
+<p><img src="../../img/add-wms-1.png" alt="add wms 1" /> <!-- .element width="80%" --></p>
+<p>Here, we will see a number of different options for types of dataset that we can load. Double click on <code>GIS Servers</code>, and a series of options for different kinds of Web GIS data will pop up. After the lecture, you should be familiar with some of these. Double click on <code>Add WMS Server</code> and a new window will pop up:</p>
+<p><img src="../../img/add-wms-2.png" alt="add wms 2" /> <!-- .element width="80%" --></p>
+<p>Paste the URL you copied from the SEDAC website into the URL field at the top of the window, leave all the other settings unchanged and click on the <code>Get Layers</code> button. After a few seconds, the empty box will populate with all of the different datasets available from this WMS:</p>
+<p><img src="../../img/add-wms-3.png" alt="add wms 3" /> <!-- .element width="80%" --></p>
+<p>Take some time to scroll through some of the datasets, when you click on one, it pulls up some of the metadata about the dataset. Once you have finished exploring some of the data, click <code>OK</code>, which will create save this WMS connection in a similar way to how ArcMap saves a connection to a folder on your hard drive.</p>
+<p><img src="../../img/add-wms-4.png" alt="add wms 4" /> <!-- .element width="80%" --></p>
+<p>Double click on this folder and then single click on <code>GeoServer Web Map Service</code> and click on the <code>Add</code> button. (You can also double click on <code>GeoServer Web Map Service</code> to then select individual layers, but for now we will load everything.)</p>
+<h2 id="viewing-the-wms-data">Viewing the WMS Data</h2>
+<p>By default, ArcMap will only make the first 10 layers visible upon loading data using a WMS. Lets deselect those so that they are also not visible, before we begin loading any new data:</p>
+<p><img src="../../img/view-wms-1.png" alt="view wms 1" /> <!-- .element width="80%" --></p>
+<p>Scroll through the table of contents and toggle on the <code>Phosphorous Fertilizer Application</code> layer. After a few seconds a global map of fertiliser use should display in the map window. Zoom in to an area that interests you (e.g. Western Europe, North America, etc).</p>
+<p><img src="../../img/view-wms-2.png" alt="view wms 2" /> <!-- .element width="80%" --></p>
+<p>We can use the <code>Indentify</code> tool to interrogate this dataset, by clicking on pixels of interest to find out their value. Each click is sending an HTTP request to the WMS server for the information located at the clicked point.</p>
+<p><img src="../../img/view-wms-3.png" alt="view wms 3" /> <!-- .element width="80%" --></p>
+<p>But what do the numbers mean? A cool thing about grabbing data using WMS, is that it is already categorised and has colour maps applied to it. Right click on the <code>Phosphorous Fertilizer Application</code> layer in the table of contents and select <code>Properties</code>. Navigate to the <code>Styles</code> tab and we can see the legend for the data, alongside the abstract which gives us additional context about the data we are looking at.</p>
+<p>Close the window, and again right click on <code>Phosphorous Fertilizer Application</code> in the table of contents. This time, click on <code>Add WMS Legend to Map</code>, which will add a legend to your current map window, regardless of if you are in the data view or layout view.</p>
+<p><img src="../../img/wms-legend.png" alt="wms legend" /> <!-- .element width="80%" --></p>
+<p>This is another feature of WMS, whereby a legend graphic is provided alongside each data layer. We cannot use the standard ArcMap legend tool to create legends in the layout view, as the data is not stored locally, but rather available on request from the WMS server.</p>
+<h3 id="filtering-data">Filtering Data</h3>
+<p>We have a lot of layers in our table of contents, and it is difficult to keep track of them all. But fortunately we can filter out data we don’t want to use to make things easier. There are two ways of doing this, the first is to right click on <code>GeoServer Web Map Service</code> at the very top of the table of contents and select <code>Properties</code>. Here we have settings that will be applied to every layer within this group of layers. Navigate to the <code>Layers</code> tab:</p>
+<p><img src="../../img/wms-filter-1.png" alt="wms filter 1" /> <!-- .element width="80%" --></p>
+<p>Click on the <code>Just the layers listed below</code> option, which will allow us to select individual layers from the main list, and, using the arrows, move them into our list of selected layers. Choose some layers you would like to have a look at and click on <code>OK</code> to confirm your selection and return to the main map window. We now have a much easier to manage set of layers within our table of contents. One problem, however, is that we cannot change the drawing order of our layers.</p>
+<p>This leads us to the other way we can select individual layers. Right click on <code>GeoServer Web Map Service</code> in the table of contents, and remove these layers from the table of contents. Now click on <code>Add Data</code>, and navigate back to the WMS connection we made earlier. Instead of selecting <code>GeoServer Web Map Service</code> and clicking <code>Add</code>, double click on it to bring up a list of all of the layers contained within the WMS server.</p>
+<p>Select the following layers (you can do this one at a time, or select them at once by holding the <code>ctrl</code> key while clicking):</p>
+<ul>
+<li>Probabilities of Urban Expansion to 2030</li>
+<li>cartographic:national-boundaries</li>
+</ul>
+<p>We now have separate layers for each of our 2 WMS layers, but they both have the same name. Let’s rename them something descriptive so that we don’t get confused.</p>
+<p><img src="../../img/wms-urban-1.png" alt="wms urban expansion 1" /> <!-- .element width="80%" --></p>
+<p>Now we can see the projected rates of urban expansion in the next decade, I have zoomed in to London to see how where we live is going to change.</p>
+<p>I can add a basemap using ArcMap’s basemap feature (click the arrow beside the <code>Add Data</code> button, and select <code>Add Basemap...</code>) so that we can see the current outline of cities. So that we can see the basemap underneath our WMS data, we need to adjust the transparency of our urban expansion layer. Right click on this layer, and select <code>Properties</code> and then navigate to the <code>Advanced</code> tab. Here, there is a slider we can adjust to make the layer transparent, and allow the basemap to show through underneath.</p>
+<p><img src="../../img/wms-urban-2.png" alt="wms urban expansion 2" /> <!-- .element width="80%" --></p>
+<h3 id="independent-exercise-1">Independent Exercise 1</h3>
+<p>Using the skills that you have developed so far in this practical, load some other WMS layers from the SEDAC servers, and create a map showing some of that data. Be sure to include legends, scale bars, etc.</p>
+<h3 id="independent-exercise-2">Independent Exercise 2</h3>
+<p>Have a look online for other datasets that are available via WMS, and practice loading and exploring these data. Some starting points could include:</p>
+<ul>
+<li><a href="https://www.isric.org/instruction-wms">International Soil Reference and Information Centre</a></li>
+<li><a href="https://www.bgs.ac.uk/technologies/web-map-services-wms/">British Geological Survey</a></li>
+<li><a href="https://data.gov.uk/search?q=&amp;filters%5Bpublisher%5D=&amp;filters%5Btopic%5D=Environment&amp;filters%5Bformat%5D=WMS&amp;sort=recent">UK Government</a></li>
+</ul>
+<h3 id="wcs-data">WCS Data</h3>
+<p>When the OGC designed these specifications, they expected that by now, the vast majority of GIS work would be done via the web. Although this is in some ways true, the advances in cloud computing, the reductions in costs of powerful computers and the open data movement have made the use of the other OGC standards much less common.</p>
+<p>The limitation of WMS is that we cannot analyse the data being served, as we are only supplied with static images of the data, and responses to individual queries (e.g. what is the value at pixel x,y?). This limitation should be addressed by WCS servers, which allow the transfer of datasets via HTTP protocols and the subsequent analysis of those datasets locally. However, the ease of sharing data via websites means that it is less common for people to provide free WCS servers for data. It is reasonably common for businesses to provide data to customers via paid access to a WCS, as these services allow the business to track data usage.</p>
+<p>The USGS, does provide some of its data via WCS, and these data are bundled up into layer files that we can download, rather than having to input URLs. We can find some of these layer files from the <a href="https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer">US National Map Service</a>:</p>
+<p><img src="../../img/wcs-usgs.png" alt="USGS National Map Service" /> <!-- .element width="80%" --></p>
+<p>Click on the <code>ArcMap</code> link to download a layer file that points to these data, supplied via WCS.</p>
+<p>Load this layer into a new ArcMap document, just as you would any other raster or shapefile. After a few seconds, a hillshade of the USA should appear. But because this is data being supplied via a WCS, we can request derivative datasets. Right click on the layer in the table of contents and select <code>Properties</code>, navigate to the <code>Processing Templates</code> tab:</p>
+<p><img src="../../img/wcs-1.png" alt="wcs 1" /> <!-- .element width="80%" --></p>
+<p>Here, we can request different derivative datasets using the <code>Function</code> dropdown menu, to give us access to slope, aspect and contour data. In each case all of the processing to create these layers is done on the USGS servers, only for the data displayed in your map window. If you scroll the map, a new WCS query is sent off for the new map extent. This is really useful if you don’t have a powerful computer to process data on!</p>
+<p>We can also select <code>None</code> as our function, which gives us the raw DEM. This then allows us to use all of the usual tools we have within ArcMap to analyse DEM data. For example, I can use the 3D Analyst Toolbox (remember to activate the extension so you can use the toolbox!) to create elevation profiles:</p>
+<p><img src="../../img/wcs-2.png" alt="wcs 1" /> <!-- .element width="80%" --></p>
+</body>
+</html>

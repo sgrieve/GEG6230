@@ -81,7 +81,7 @@ This is another feature of WMS, whereby a legend graphic is provided alongside e
 
 We have a lot of layers in our table of contents, and it is difficult to keep track of them all. But fortunately we can filter out data we don't want to use to make things easier. There are two ways of doing this, the first is to right click on `GeoServer Web Map Service` at the very top of the table of contents and select `Properties`. Here we have settings that will be applied to every layer within this group of layers. Navigate to the `Layers` tab:
 
-![wms filter 1](../../img/wms-filter-3.png) <!-- .element width="80%" -->
+![wms filter 1](../../img/wms-filter-1.png) <!-- .element width="80%" -->
 
 Click on the `Just the layers listed below` option, which will allow us to select individual layers from the main list, and, using the arrows, move them into our list of selected layers. Choose some layers you would like to have a look at and click on `OK` to confirm your selection and return to the main map window. We now have a much easier to manage set of layers within our table of contents. One problem, however, is that we cannot change the drawing order of our layers.
 
@@ -134,4 +134,4 @@ Here, we can request different derivative datasets using the `Function` dropdown
 
 We can also select `None` as our function, which gives us the raw DEM. This then allows us to use all of the usual tools we have within ArcMap to analyse DEM data. For example, I can use the 3D Analyst Toolbox (remember to activate the extension so you can use the toolbox!) to create elevation profiles:
 
-![wcs 1](../../img/wcs-1.png) <!-- .element width="80%" -->
+![wcs 1](../../img/wcs-2.png) <!-- .element width="80%" -->
