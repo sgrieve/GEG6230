@@ -572,9 +572,9 @@ buffer_intersect = road_buffer.intersection(lake_buffer)
 We can quickly plot these geometries to make sure we are doing the right thing:
 
 ~~~
-plt.plot(lake_buffer, color='g', alpha=0.2)
-plt.plot(road_buffer, color='r', alpha=0.2)
-plt.plot(buffer_intersect, color='k')
+plt.plot(*lake_buffer.exterior.xy, color='g', alpha=0.2)
+plt.plot(*road_buffer.exterior.xy, color='r', alpha=0.2)
+plt.plot(*buffer_intersect.exterior.xy, color='k')
 ~~~
 {: .language-python}
 
