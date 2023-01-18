@@ -335,7 +335,7 @@ plt.scatter(x=temperature[:, 2], y=rainfall[:, 1], s=discharge[:, 1], c=discharg
 colorbar = plt.colorbar()
 colorbar.set_label('Discharge (cumecs)')
 plt.xlabel('Minimum temperature (C)')
-plt.xlabel('Rainfall (mm)')
+plt.ylabel('Rainfall (mm)')
 
 ~~~
 {: .language-python}
