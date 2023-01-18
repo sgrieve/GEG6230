@@ -7,12 +7,12 @@ colorlinks: true
 
 # GEG6230 - Advanced Geospatial Science - Assignment 1
 
-## Data visualisation project (Assignment 1)
+## Data visualisation poster (Assignment 1)
 
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 50% module mark (7.5 credits)
 - Page limit: 1 A3 page + 500 words
-- Deadline: 15/11/21 2pm, via QMplus
+- Deadline: 13/3/23 2pm, via QMplus
 
 You are working as a GIS analyst and have been instructed by your client to assist in the identification of suitable hydro power sites across the Lake District. A number of candidate catchments have been proposed, but the client does not understand the data about each catchment as they have never done a GIS course. **You must ensure that the final visualisation is understandable to someone with no geography or GIS background.**
 
@@ -45,7 +45,7 @@ Factors which may make a catchment good for a hydro power scheme:
 
 ## What to submit
 
-1) Create a A3 one page visualisation, highlighting **some** of the information provided by the client in a more accessible manner. **Your final visualisation should include 2 maps and 2 graphs.**
+1) Create an A3 poster, highlighting **some** of the information provided by the client in a more accessible manner. **Your final visualisation should include 2 maps and 2 graphs.**
 
 2) Write 500 words outlining, with reference to the literature, how you designed this visualisation to be accessible.
 
