@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2021-11-01" />
+  <meta name="dcterms.date" content="2023-03-31" />
   <title>GEG6230 Introduction to ModelBuilder</title>
   <style>
       code{white-space: pre-wrap;}
@@ -351,7 +351,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to ModelBuilder</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">11/01/21</p>
+<p class="date">03/31/23</p>
 </header>
 <h1 id="introduction-to-modelbuilder">Introduction to ModelBuilder</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -437,6 +437,7 @@
 <p>Click OK, and the tool should now be connected up to the green output from the iterator.</p>
 <h3 id="gathering-values">Gathering Values</h3>
 <p>We now have all of the values we need to calculate stream power. In order to perform calculations in ModelBuilder we need to use the <code>Get Field Value</code> tool, which is found in <code>Insert &gt; Model Only Tools &gt; Get Field Value</code>. Connect this new tool to the output of the <code>Zonal Statistics as Table</code> tool and double click on it to open its settings. Here you need to select the Field that we want to get, in this case this is <code>Mean</code>.</p>
+<p>Note that when using this tool, you may have the option to specify the <code>Datatype</code>. As we are working with numerical data, select <code>Double</code>, which is similar to the <code>float</code> data type we have seen in python. This will ensure that calculations can be performed using these values.</p>
 <p>This tool effectively creates a variable that we can use in calculations within a model run, so we should give it a meaningful name such as <code>slope</code>, by right clicking on the green output and choosing <code>Rename</code>.</p>
 <p>We now need to repeat this process to get the K value and basin area from each shapefile’s attribute table. Add another <code>Get Field Value</code> tool, and this time connect it to the green output from the iterator. Select either <code>K</code> or <code>Area</code> in the settings, and rename the output as before.</p>
 <p>Repeat this once more so that we have 3 outputs from <code>Get Field Value</code> tools, one for each of Area, K and Slope.</p>
