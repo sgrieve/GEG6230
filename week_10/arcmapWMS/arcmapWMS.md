@@ -25,13 +25,19 @@ We are going to start by loading some data from the [NASA Socioeconomic Data and
 
 We are going to explore some global data, including things like fertiliser use, urban growth and soil types. We can see some of the metadata about these datasets by visiting [this page](https://sedac.ciesin.columbia.edu/). Here we can see some information about how the data was produced, how we should cite the data and some examples of the dataset.
 
-Click on the link on the left hand side of the page called **Map Services** to bring up the WMS details:
+Click on the `MAPS` link at the top of the page and then select `MAP SERVICES` on the drop down menu that appears. On this page, you will see the information needed to complete our WMS query, within a short code block that looks similar to this:
 
-![screenshot of SEDAC webpage](../../img/wms1.png) <!-- .element width="80%" -->
+```
+var wms = new OpenLayers.Layer.WMS(
+  "Population Density",
+  "https://sedac.ciesin.columbia.edu/geoserver/wms",
+  {layers: 'gpw-v3:gpw-v3-population-density_2000'}
+);
+```
 
-On this page we can see the information needed to complete our WMS query. There are links to view the data in a web browser, but we want to load these data into ArcMap. Copy the URL out of the code block:
+Copy the URL out of the code block, so that we can use it in ArcMap later:
 
-![URL for the SEDAC WMS](../../img/wms2.png) <!-- .element width="80%" -->
+![SEDAC link](../../img/sedac-link.png) <!-- .element width="80%" -->
 
 The way we find WMS URLs varies depending on how people have designed their websites and data repositories, but we can usually find them listed under something similar to what we have seen above.
 
