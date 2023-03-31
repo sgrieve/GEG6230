@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2021-11-25" />
+  <meta name="dcterms.date" content="2023-03-31" />
   <title>GEG6230 Loading WMS data into ArcMap</title>
   <style>
       code{white-space: pre-wrap;}
@@ -350,7 +350,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Loading WMS data into ArcMap</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">11/25/21</p>
+<p class="date">03/31/23</p>
 </header>
 <h1 id="loading-wms-data-into-arcmap">Loading WMS data into ArcMap</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -365,10 +365,14 @@
 <h2 id="working-with-wms-data">Working with WMS data</h2>
 <p>We are going to start by loading some data from the <a href="https://sedac.ciesin.columbia.edu/">NASA Socioeconomic Data and Applications Centre</a>, who provide a lot of regional and global geospatial datasets via their WMS service. Much of the data they provide can also be downloaded from their website, but by using the WMS service we can grab lots of data quickly and explore it within our GIS system.</p>
 <p>We are going to explore some global data, including things like fertiliser use, urban growth and soil types. We can see some of the metadata about these datasets by visiting <a href="https://sedac.ciesin.columbia.edu/">this page</a>. Here we can see some information about how the data was produced, how we should cite the data and some examples of the dataset.</p>
-<p>Click on the link on the left hand side of the page called <strong>Map Services</strong> to bring up the WMS details:</p>
-<p><img src="../../img/wms1.png" alt="screenshot of SEDAC webpage" /> <!-- .element width="80%" --></p>
-<p>On this page we can see the information needed to complete our WMS query. There are links to view the data in a web browser, but we want to load these data into ArcMap. Copy the URL out of the code block:</p>
-<p><img src="../../img/wms2.png" alt="URL for the SEDAC WMS" /> <!-- .element width="80%" --></p>
+<p>Click on the <code>MAPS</code> link at the top of the page and then select <code>MAP SERVICES</code> on the drop down menu that appears. On this page, you will see the information needed to complete our WMS query, within a short code block that looks similar to this:</p>
+<pre><code>var wms = new OpenLayers.Layer.WMS(
+  &quot;Population Density&quot;,
+  &quot;https://sedac.ciesin.columbia.edu/geoserver/wms&quot;,
+  {layers: &#39;gpw-v3:gpw-v3-population-density_2000&#39;}
+);</code></pre>
+<p>Copy the URL out of the code block, so that we can use it in ArcMap later:</p>
+<p><img src="../../img/sedac-link.png" alt="SEDAC link" /> <!-- .element width="80%" --></p>
 <p>The way we find WMS URLs varies depending on how people have designed their websites and data repositories, but we can usually find them listed under something similar to what we have seen above.</p>
 <h3 id="loading-wms-data-in-arcmap">Loading WMS Data in ArcMap</h3>
 <p>Open a new ArcMap project, and click on the <code>Add Data</code> button. Click on the <code>up one level</code> button until it is greyed out:</p>
