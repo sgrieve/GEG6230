@@ -20,7 +20,7 @@ By the end of this class you should be able to:
 
 ## Downloading the data
 
-This practical, and the work in Week 8 and 9 all use the same data, which can be downloaded from the `Week 6` section on QMplus. 
+This practical, and the work in Week 8 and 9 all use the same data, which can be downloaded from the `Week 6` section on QMplus.
 
 ## Extracting the data
 
@@ -141,6 +141,8 @@ Click OK, and the tool should now be connected up to the green output from the i
 ### Gathering Values
 
 We now have all of the values we need to calculate stream power. In order to perform calculations in ModelBuilder we need to use the `Get Field Value` tool, which is found in `Insert > Model Only Tools > Get Field Value`. Connect this new tool to the output of the `Zonal Statistics as Table` tool and double click on it to open its settings. Here you need to select the Field that we want to get, in this case this is `Mean`.
+
+Note that when using this tool, you may have the option to specify the `Datatype`. As we are working with numerical data, select `Double`, which is similar to the `float` data type we have seen in python. This will ensure that calculations can be performed using these values.
 
 This tool effectively creates a variable that we can use in calculations within a model run, so we should give it a meaningful name such as `slope`, by right clicking on the green output and choosing `Rename`.
 
