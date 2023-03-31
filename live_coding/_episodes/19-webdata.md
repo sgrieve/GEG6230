@@ -145,7 +145,7 @@ jokes = jokes.json()
 
 for j in jokes['results']:
     print(j['joke'])
-    print'---')
+    print('---')
 ~~~
 {: .language-python}
 
@@ -337,19 +337,19 @@ print(station.json())
 
 The data is all output in a JSON file, as we have come to expect, but, the EA also formats the data for the web, so lets copy that url and paste it into our browser. This will let us see the details for this measurement station - does it look familiar? Its in one of the catchments we used in the first assessment!
 
-If we want to get the data for this gauge, we need to grab the unique station measurement id: `4cb01f29-742a-4b9f-918f-8c50310c1284-flow-m-86400-m3s-qualified`. Lets go back to our JSON and store this id as a variable:
+If we want to get the data for this gauge, we need to grab the unique station measurement id, which is stored as a URL. Lets go back to our JSON and store this id as a variable:
 
 ~~~
 station = station.json()
-measure_id = station['items'][0]['measures']['notation']
+measure_id = station['items'][1]['measures'][0]['@id']
 ~~~
 {: .language-python}
 
 We can then use this measurement ID to request a csv file of all of the data since a specified date:
 
 ~~~
-date = '2021-01-01'
-url = 'http://environment.data.gov.uk/hydrology/id/measures/{}/readings.csv?mineq-date={}'.format(measure_id, date)
+date = '2023-01-01'
+url = '{}/readings.csv?mineq-date={}'.format(measure_id, date)
 
 ea_data = requests.get(url, headers=myheader)
 print(ea_data.text)
