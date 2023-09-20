@@ -1,7 +1,6 @@
 ---
 geometry: margin=2.5cm
-output: pdf_document
-title: "GEG6230: Advanced Geospatial Science Handbook 2022-23"
+title: "GEG6230: Advanced Geospatial Science Handbook 2023-24"
 author: Stuart Grieve
 urlcolor: blue
 colorlinks: true
@@ -15,11 +14,11 @@ colorlinks: true
 
 **Advice and feedback hours:**
 
-- Mondays 14:00 - 15:00
-- Tuesdays 10:00 - 11:00 **Dedicated slot for this module** Queens Building LG5
-- Tuesdays 12:00 - 1:00
+- Mondays 12:00 - 13:00
+- Tuesdays 10:00 - 11:00
+- Friday 10:00 - 11:00 **Dedicated slot for this module** Maths Building MB 302
 
-**Timetable:** Semester A, Monday 9:30 - 12:30, Queens LG5 PC Lab
+**Timetable:** Semester A, Thursday 9:00 - 12:00, Queens Building QB-212
 
 # Module Overview
 
@@ -74,18 +73,18 @@ There are copies of all of these books in the Mile End Library. In all three cas
 
 | Week  | Date  | Time  | Session  |
 |---|---|---|---|---|
-|  1 |  23/1 | 9:00-12:00  |  Module intro & Data visualisation  |
-|  2 |  30/1 | 9:00-12:00  |  Data visualisation and plotting 1  |
-|  3 |  6/2 | 9:00-12:00  |  Data visualisation and plotting 2  |
-|  4 |  13/2 | 9:00-12:00  |  Data visualisation and plotting 3 |
-|  5 |  20/2 | 9:00-12:00  |  Data visualisation and plotting 4  |
-|  6 |  27/2 | 9:00-12:00  |  GIS is tedious: Automating your work 1  |
+|  1 |  28/9 | 9:00-12:00  |  Module intro & Data visualisation  |
+|  2 |  5/10 | 9:00-12:00  |  Data visualisation and plotting 1  |
+|  3 |  12/10 | 9:00-12:00  |  Data visualisation and plotting 2  |
+|  4 |  19/10 | 9:00-12:00  |  Data visualisation and plotting 3 |
+|  5 |  26/10 | 9:00-12:00  |  Data visualisation and plotting 4  |
+|  6 |  2/11 | 9:00-12:00  |  GIS is tedious: Automating your work 1  |
 |  7 |  - | -  | **Reading Week: No class**  |
-|  8 |  13/3 | 9:00-12:00  |  GIS is tedious: Automating your work 2 |
-|  9 |  20/3 | 9:00-12:00  |  GIS is tedious: Automating your work 3 |
-|  10 | 27/3 | 9:00-12:00  |  Getting data from the web |
-|  11 | 3/4 | 9:00-12:00  |  Getting data from the web |
-|  12 | - | - |  **Easter Monday: No class** |
+|  8 |  16/11 | 9:00-12:00  |  GIS is tedious: Automating your work 2 |
+|  9 |  23/11 | 9:00-12:00  |  GIS is tedious: Automating your work 3 |
+|  10 | 30/11 | 9:00-12:00  |  Getting data from the web |
+|  11 | 7/11 | 9:00-12:00  |  Getting data from the web |
+|  12 | 14/11 | 9:00-12:00 |  Coursework clinic and wrap-up |
 
 # Assessment
 
@@ -97,9 +96,9 @@ Full Coursework Submission Guidelines, details of Penalties for Late Submission 
 
 Feedback and provisional marks for coursework will be returned within 15 working days of submission. Informal feedback will be provided to both the class and on a 1:1 basis during each week's scheduled class and students are encouraged to make use of office hours to get further feedback on their progress.
 
-# Acting on Feedback from Last Year
+# Acting on Feedback from Previous Years
 
-Each year, we gather feedback from students on our courses, as well as get feedback from other staff in the department and from our external examiners. In the last three years, I have made the following changes to the module:
+Each year, we gather feedback from students on our courses, as well as get feedback from other staff in the department and from our external examiners. In the last four years, I have made the following changes to the module:
 
 - Removed a presentation assessment
   - Students felt that the week spent on presentations could have been better spent learning in other ways.
@@ -114,3 +113,4 @@ Each year, we gather feedback from students on our courses, as well as get feedb
 - Provide more self-study exercises for Python
 - I'm too nice with feedback
   - Some students felt that my feedback was not critical enough - I will endeavour to provide more clear criticisms in feedback, tied to ways to improve your work in future.
+- Adding some information about GIS careers to the end of module wrap-up

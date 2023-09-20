@@ -12,7 +12,7 @@ colorlinks: true
 - Contact: Stuart Grieve (s.grieve@qmul.ac.uk)
 - Credit: 50% module mark (7.5 credits)
 - Page limit: 1 A3 page + 500 words
-- Deadline: 13/3/23 2pm, via QMplus
+- Deadline: 3/11/23 2pm, via QMplus
 
 You are working as a GIS analyst and have been instructed by your client to assist in the identification of suitable hydro power sites across the Lake District. A number of candidate catchments have been proposed, but the client does not understand the data about each catchment as they have never done a GIS course. **You must ensure that the final visualisation is understandable to someone with no geography or GIS background.**
 
