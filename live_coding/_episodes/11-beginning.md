@@ -4,27 +4,33 @@ title: Getting started with Python
 
 We are going to be learning how to use Python to plot and analyse both spatial and aspatial data. But before we start making figures, we will start at the beginning.
 
+## Installing What We Need
+
+Over the course of the semester we are going to be using a number of different Python tools, and before we get started, we are going to install them. This installation process is unique to QMUL computers, but there are generic Python install instructions on QMplus. Later in the course we will discuss what these commands are doing in more detail.
+
+These steps only need to be followed once:
+
+1. In the start menu, launch `Python 3.9`.
+
+1. This will open a Terminal window. Type `geopy` into this window, press `Enter` and wait until everything is completed. This may take a minute or so.
+
+1. Now type `virt\geo\env\Scripts\activate` and press `Enter`. This will add `(env)` to the left of the active line in the terminal.
+
+1. Finally, type `virt\geo\env\Scripts\pip install jupyter` and press `Enter`. This will install the Jupyter Notebook environment that we will be using throughout the module.
+
 ## Jupyter Notebook
 
 We are going to be using Jupyter Notebooks as our python environment during this course. This is a great way to mix code and notes, helping us to understand what we are doing as well as why we are doing it.
 
-On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows:
+On computers in the QMUL computer labs, we can launch a Jupyter Notebook as follows, as long as we have completed the install process before:
 
-1. In the start menu, launch `Python 3.7`.
+1. In the start menu, launch `Python 3.9`.
 
-1. This will open a Terminal window. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
+1. This will open a Terminal window. Type `virt\geo\env\Scripts\activate` into this window, press `Enter` and wait a few seconds. This will add `(env)` to the left of the active line in the terminal.
 
-1. A browser window will eventually open: this is our Jupyter Notebook environment.
+1. Then type `virt\geo\env\Scripts\jupyter notebook` and press `Enter`
 
-When working from home via AppsAnywhere, we can launch a Jupyter Notebook as follows:
-
-1. Connect to the AppsAnywhere service as normal (refer to the Tech Support section of [QMplus](https://qmplus.qmul.ac.uk/course/view.php?id=15277) if you need a refresher).
-
-1. Find the icon labelled `Python 3.7` and double click on it.
-
-1. After a few seconds, a terminal window will open with the following text at the top `Anaconda Python 3.7 environment`. Type `jupyter notebook` into this window, press `Enter` and wait a few seconds.
-
-1. A browser window will eventually open: this is our Jupyter Notebook environment.
+1. A browser window will eventually open: this is our Jupyter Notebook environment. Note that the first few times you do this, it can take several minutes. The more often you use Jupyter, the faster it loads.
 
 Once we have loaded the notebook environment, we can navigate to a directory, and create a new notebook. Its important to make sure that the directory you are working in has all of the data files you will be working with. This saves a lot of hassle in the future.
 
