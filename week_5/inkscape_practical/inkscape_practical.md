@@ -13,7 +13,7 @@ In this practical you will be introduced to the vector graphics program `Inkscap
 
 By the end of this class you should be able to:
 
-1. Create maps in ArcMap in a format Inkscape can read
+1. Create maps in ArcGIS in a format Inkscape can read
 1. Set up Inkscape pages
 1. Load `svg` graphics from Python and ArcGIS into Inkscape  
 1. Annotate and edit imported graphics
@@ -25,29 +25,45 @@ Before we can start using Inkscape to create data visualisations, we need to hav
 
 ### Creating a map
 
-This first section is mostly revision from what we covered in GEG5223 last year. Our aim is to make a map in ArcMap that we can import into Inkscape. The map we are going to make is of catchments, with its hydrology overlain on a hillshade.
+This first section is mostly revision from what we covered in GEG5223 last year, although the ArcGIS interface is a little different to the version of ArcMap we used last year. Our aim is to make a map in ArcGIS that we can import into Inkscape. The map we are going to make is of catchments, with its hydrology overlain on a hillshade.
 
-1. Load the DEM for a of the catchments in the data folder into ArcMap, these notes will use catchment `75001`
+Inside the `Map` pane, we can click on `Add data` and navigate to where we saved our data for assessment 1. We are going to load the DEM for one of the catchments. These notes will use catchment `75001`
 
-1. Create a hillshade of the catchment DEMs (`ArcToolbox > Spatial Analyst Tools > Surface > Hillshade`)
+![Add data using map pane](../../img/map-pane.png) <!-- .element width="80%" -->
 
-1. Create a D-Inf flow direction raster for the catchment (`ArcToolbox > Spatial Analyst Tools > Hydrology > Flow Direction`)
+We are now going to do some simple analysis of the DEM. You can follow these prompts or explore other options. The main task here is to create a map that we can use within Inkscape.
 
-1. Create a flow accumulation raster for for the catchment (`ArcToolbox > Spatial Analyst Tools > Hydrology > Flow Accumulation`)
+In ArcGIS, we can search for tools using the search bar at the top of the screen and run them one by one:
 
-Now we have the data we want to display, we can start to think about how to visualise it as a map. We want to show where water is likely to accumulate across the landscape. From our experience last year, we know that flow accumulation rasters have a very wide range of values, making it hard to find an appropriate colour ramp to show the full range of the data. We are going to log transform this data, which will let us see a wider range of values.
+1. Create a hillshade of the catchment DEM (`Hillshade (Spatial Analyst)`)
 
-We can use `Raster Calculator` to do this calculation (`ArcToolbox > Spatial Analyst Tools > Map Algebra > Raster Calculator`), using the following expression:
+1. Create a D-Inf flow direction raster for the catchment (`Flow Direction  (Spatial Analyst)`)
 
-```
-Log10("75001_accum")
-```
+1. Create a flow accumulation raster for for the catchment (`Flow Accumulation  (Spatial Analyst)`)
 
-Where `75001_accum` is the name of your flow accumulation data for catchment 75001.
+Now we have the data we want to display, we can start to think about how to visualise it as a map. We want to show where water is likely to accumulate across the landscape.
 
-Do this and then play with the transparency, colour ramp and other display options until you get a result you are happy with. Now we can switch to the `Layout View` and finalise our map.
+Now we can create our map layout by clicking on the `` button
 
-Once we have finished making our map, we need to export it in the `svg` format, by going to `File > Export Map`, and selecting `SVG` as the file type.
+IMAGE OF THE BUTTON
+
+To add our map data to the layout, click on `Insert` and then select `New Layout`:
+
+![new layout](../../img/layout.png) <!-- .element width="80%" -->
+
+We can then add a map frame to show our data inside our layout:
+
+![map frame](../../img/frame.png) <!-- .element width="80%" -->
+
+Once you have added your map data, explore the other options within the Layout View to add relevant things to your map (scale bar, north arrow, legend, etc).
+
+Once we have finished making our map, we need to export it in the `svg` format, by going to `Share > Export Layout`:
+
+![export](../../img/export-arc.png) <!-- .element width="80%" -->
+
+And then making sure to select `svg` when exporting your map:
+
+![export 2](../../img/export-arc-2.png) <!-- .element width="80%" -->
 
 ### Creating a graph
 
@@ -57,7 +73,11 @@ We have already created several graphs during today's live coding session. Follo
 
 Inkscape is installed on all of the student PCs on campus, including the ones in the Geography Computer Room and the library. To launch it, search for `Inkscape` in the Start Menu, or navigate to the Inkscape icon under `I` in the Start Menu.
 
-It may take a little while to load, the first time you access it on a new machine, but once it loads it should look something like this:
+It may take a little while to load, the first time you access it on a new machine, but once it loads it will prompt you for some settings, which you can leave as the defaults:
+
+![Inkscape launch window](../../img/inkscape_launch-1.png) <!-- .element width="80%" -->
+
+Before clicking through to `Time to Draw` and then selecting `New Document`. The resulting window will look something like this:
 
 ![Inkscape launch window](../../img/inkscape_launch.png) <!-- .element width="80%" -->
 
@@ -69,6 +89,8 @@ For our assignment, we need a landscape A3 sized drawing area. We can change thi
 
 ![Document properties](../../img/doc_props.png) <!-- .element width="80%" -->
 
+NEED NEW IMAGE
+
 The areas highlighted in the above image show where to change our document to landscape, and to select the A3 paper size. Close the menu once you have done this.
 
 ## Importing `svg` files
@@ -77,13 +99,13 @@ Now we need to load our map and graph into Inkscape. To do this we again use the
 
 ## Inkscape layers
 
-Like many other graphics programs, Inkscape is able to represent our graphics as a series of layers. Open the layers tab from `Layer > Layers...`. It will open a small pane on the right of the window:
+Like many other graphics programs, Inkscape is able to represent our graphics as a series of layers. Open the layers tab from `Layer > Layers and Objects`. It will open a small pane on the right of the window:
 
 ![Layer pane](../../img/layers.png) <!-- .element width="80%" -->
 
 If we press the small eye symbol beside the layer name (`Layer 1` by default), we can toggle the visibility of a layer. If we click the little padlock, we can lock a layer from editing. This allows us to build up complex visualisations as a series of independent layers. Layers are shown on the screen in order, from top to bottom, the same way that a GIS displays layers.
 
-Split our graph and our map into different layers. Currently they are both in `Layer 1`. Lets create a new layer, that we will call `graph`, click on the plus symbol and input the new name for the layer and click `Add`. Next, rename `Layer 1` to `map`, by double clicking on its name and typing the new name in.
+Lets split our graph and our map into different layers. Currently they are both in `Layer 1`. Lets create a new layer, that we will call `graph`, click on the plus symbol and input the new name for the layer and click `Add`. Next, rename `Layer 1` to `map`, by double clicking on its name and typing the new name in.
 
 Now we have 2 layers, but both of our objects are in the same layer. Lets move the graph into the new `graph` layer by right clicking on it and selecting `Move to Layer`, and then choosing the appropriate layer for the object. Note that when we are creating new objects, they are automatically created in the layer that is currently highlighted in the Layers Pane.
 

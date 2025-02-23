@@ -5,17 +5,169 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2023-02-20" />
+  <meta name="dcterms.date" content="2025-02-23" />
   <title>GEG6230 Introduction to Inkscape</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
   <!--
   https://gist.github.com/killercup/5917178
   -->
@@ -26,7 +178,7 @@
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
-  
+
   body {
     color: #444;
     font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
@@ -37,98 +189,98 @@
     max-width: 42em;
     background: #fefefe;
   }
-  
+
   a {
     color: #0645ad;
     text-decoration: none;
   }
-  
+
   a:visited {
     color: #0b0080;
   }
-  
+
   a:hover {
     color: #06e;
   }
-  
+
   a:active {
     color: #faa700;
   }
-  
+
   a:focus {
     outline: thin dotted;
   }
-  
+
   *::-moz-selection {
     background: rgba(255, 255, 0, 0.3);
     color: #000;
   }
-  
+
   *::selection {
     background: rgba(255, 255, 0, 0.3);
     color: #000;
   }
-  
+
   a::-moz-selection {
     background: rgba(255, 255, 0, 0.3);
     color: #0645ad;
   }
-  
+
   a::selection {
     background: rgba(255, 255, 0, 0.3);
     color: #0645ad;
   }
-  
+
   p {
     margin: 1em 0;
   }
-  
+
   img {
     max-width: 100%;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     color: #111;
     line-height: 125%;
     margin-top: 2em;
     font-weight: normal;
   }
-  
+
   h4, h5, h6 {
     font-weight: bold;
   }
-  
+
   h1 {
     font-size: 2.5em;
   }
-  
+
   h2 {
     font-size: 2em;
   }
-  
+
   h3 {
     font-size: 1.5em;
   }
-  
+
   h4 {
     font-size: 1.2em;
   }
-  
+
   h5 {
     font-size: 1em;
   }
-  
+
   h6 {
     font-size: 0.9em;
   }
-  
+
   blockquote {
     color: #666666;
     margin: 0;
     padding-left: 3em;
     border-left: 0.5em #EEE solid;
   }
-  
+
   hr {
     display: block;
     height: 2px;
@@ -138,109 +290,109 @@
     margin: 1em 0;
     padding: 0;
   }
-  
+
   pre, code, kbd, samp {
     color: #000;
     font-family: monospace, monospace;
     _font-family: 'courier new', monospace;
     font-size: 0.98em;
   }
-  
+
   pre {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  
+
   b, strong {
     font-weight: bold;
   }
-  
+
   dfn {
     font-style: italic;
   }
-  
+
   ins {
     background: #ff9;
     color: #000;
     text-decoration: none;
   }
-  
+
   mark {
     background: #ff0;
     color: #000;
     font-style: italic;
     font-weight: bold;
   }
-  
+
   sub, sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
   }
-  
+
   sup {
     top: -0.5em;
   }
-  
+
   sub {
     bottom: -0.25em;
   }
-  
+
   ul, ol {
     margin: 1em 0;
     padding: 0 0 0 2em;
   }
-  
+
   li p:last-child {
     margin-bottom: 0;
   }
-  
+
   ul ul, ol ol {
     margin: .3em 0;
   }
-  
+
   dl {
     margin-bottom: 1em;
   }
-  
+
   dt {
     font-weight: bold;
     margin-bottom: .8em;
   }
-  
+
   dd {
     margin: 0 0 .8em 2em;
   }
-  
+
   dd:last-child {
     margin-bottom: 0;
   }
-  
+
   img {
     border: 0;
     -ms-interpolation-mode: bicubic;
     vertical-align: middle;
   }
-  
+
   figure {
     display: block;
     text-align: center;
     margin: 1em 0;
   }
-  
+
   figure img {
     border: none;
     margin: 0 auto;
   }
-  
+
   figcaption {
     font-size: 0.8em;
     font-style: italic;
     margin: 0 0 .8em;
   }
-  
+
   table {
     margin-bottom: 2em;
     border-bottom: 1px solid #ddd;
@@ -248,26 +400,26 @@
     border-spacing: 0;
     border-collapse: collapse;
   }
-  
+
   table th {
     padding: .2em 1em;
     background-color: #eee;
     border-top: 1px solid #ddd;
     border-left: 1px solid #ddd;
   }
-  
+
   table td {
     padding: .2em 1em;
     border-top: 1px solid #ddd;
     border-left: 1px solid #ddd;
     vertical-align: top;
   }
-  
+
   .author {
     font-size: 1.2em;
     text-align: center;
   }
-  
+
   @media only screen and (min-width: 480px) {
     body {
       font-size: 14px;
@@ -285,61 +437,61 @@
       filter: none !important;
       -ms-filter: none !important;
     }
-  
+
     body {
       font-size: 12pt;
       max-width: 100%;
     }
-  
+
     a, a:visited {
       text-decoration: underline;
     }
-  
+
     hr {
       height: 1px;
       border: 0;
       border-bottom: 1px solid black;
     }
-  
+
     a[href]:after {
       content: " (" attr(href) ")";
     }
-  
+
     abbr[title]:after {
       content: " (" attr(title) ")";
     }
-  
+
     .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
       content: "";
     }
-  
+
     pre, blockquote {
       border: 1px solid #999;
       padding-right: 1em;
       page-break-inside: avoid;
     }
-  
+
     tr, img {
       page-break-inside: avoid;
     }
-  
+
     img {
       max-width: 100% !important;
     }
-  
+
     @page :left {
       margin: 15mm 20mm 15mm 10mm;
   }
-  
+
     @page :right {
       margin: 15mm 10mm 15mm 20mm;
   }
-  
+
     p, h2, h3 {
       orphans: 3;
       widows: 3;
     }
-  
+
     h2, h3 {
       page-break-after: avoid;
     }
@@ -350,68 +502,192 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to Inkscape</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">02/20/23</p>
+<p class="date">02/23/25</p>
 </header>
 <h1 id="introduction-to-inkscape">Introduction to Inkscape</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
-<p>In this practical you will be introduced to the vector graphics program <code>Inkscape</code>. We will be using it to edit and combine Python plots and ArcGIS map documents.</p>
+<p>In this practical you will be introduced to the vector graphics
+program <code>Inkscape</code>. We will be using it to edit and combine
+Python plots and ArcGIS map documents.</p>
 <p>By the end of this class you should be able to:</p>
 <ol type="1">
-<li>Create maps in ArcMap in a format Inkscape can read</li>
+<li>Create maps in ArcGIS in a format Inkscape can read</li>
 <li>Set up Inkscape pages</li>
-<li>Load <code>svg</code> graphics from Python and ArcGIS into Inkscape<br />
+<li>Load <code>svg</code> graphics from Python and ArcGIS into
+Inkscape<br />
 </li>
 <li>Annotate and edit imported graphics</li>
-<li>Save results in vector format for use in reports and presentations</li>
+<li>Save results in vector format for use in reports and
+presentations</li>
 </ol>
 <h2 id="getting-started">Getting started</h2>
-<p>Before we can start using Inkscape to create data visualisations, we need to have some data to visualise. For this practical, and the associated assessment, we will be combining spatial and aspatial data in a single overall visualisation.</p>
+<p>Before we can start using Inkscape to create data visualisations, we
+need to have some data to visualise. For this practical, and the
+associated assessment, we will be combining spatial and aspatial data in
+a single overall visualisation.</p>
 <h3 id="creating-a-map">Creating a map</h3>
-<p>This first section is mostly revision from what we covered in GEG5223 last year. Our aim is to make a map in ArcMap that we can import into Inkscape. The map we are going to make is of catchments, with its hydrology overlain on a hillshade.</p>
+<p>This first section is mostly revision from what we covered in GEG5223
+last year, although the ArcGIS interface is a little different to the
+version of ArcMap we used last year. Our aim is to make a map in ArcGIS
+that we can import into Inkscape. The map we are going to make is of
+catchments, with its hydrology overlain on a hillshade.</p>
+<p>Inside the <code>Map</code> pane, we can click on
+<code>Add data</code> and navigate to where we saved our data for
+assessment 1. We are going to load the DEM for one of the catchments.
+These notes will use catchment <code>75001</code></p>
+<p><img src="../../img/map-pane.png" alt="Add data using map pane" />
+<!-- .element width="80%" --></p>
+<p>We are now going to do some simple analysis of the DEM. You can
+follow these prompts or explore other options. The main task here is to
+create a map that we can use within Inkscape.</p>
+<p>In ArcGIS, we can search for tools using the search bar at the top of
+the screen and run them one by one:</p>
 <ol type="1">
-<li><p>Load the DEM for a of the catchments in the data folder into ArcMap, these notes will use catchment <code>75001</code></p></li>
-<li><p>Create a hillshade of the catchment DEMs (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Surface &gt; Hillshade</code>)</p></li>
-<li><p>Create a D-Inf flow direction raster for the catchment (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Hydrology &gt; Flow Direction</code>)</p></li>
-<li><p>Create a flow accumulation raster for for the catchment (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Hydrology &gt; Flow Accumulation</code>)</p></li>
+<li><p>Create a hillshade of the catchment DEM
+(<code>Hillshade (Spatial Analyst)</code>)</p></li>
+<li><p>Create a D-Inf flow direction raster for the catchment
+(<code>Flow Direction  (Spatial Analyst)</code>)</p></li>
+<li><p>Create a flow accumulation raster for for the catchment
+(<code>Flow Accumulation  (Spatial Analyst)</code>)</p></li>
 </ol>
-<p>Now we have the data we want to display, we can start to think about how to visualise it as a map. We want to show where water is likely to accumulate across the landscape. From our experience last year, we know that flow accumulation rasters have a very wide range of values, making it hard to find an appropriate colour ramp to show the full range of the data. We are going to log transform this data, which will let us see a wider range of values.</p>
-<p>We can use <code>Raster Calculator</code> to do this calculation (<code>ArcToolbox &gt; Spatial Analyst Tools &gt; Map Algebra &gt; Raster Calculator</code>), using the following expression:</p>
-<pre><code>Log10(&quot;75001_accum&quot;)</code></pre>
-<p>Where <code>75001_accum</code> is the name of your flow accumulation data for catchment 75001.</p>
-<p>Do this and then play with the transparency, colour ramp and other display options until you get a result you are happy with. Now we can switch to the <code>Layout View</code> and finalise our map.</p>
-<p>Once we have finished making our map, we need to export it in the <code>svg</code> format, by going to <code>File &gt; Export Map</code>, and selecting <code>SVG</code> as the file type.</p>
+<p>Now we have the data we want to display, we can start to think about
+how to visualise it as a map. We want to show where water is likely to
+accumulate across the landscape.</p>
+<p>Now we can create our map layout by clicking on the `` button</p>
+<p>IMAGE OF THE BUTTON</p>
+<p>To add our map data to the layout, click on <code>Insert</code> and
+then select <code>New Layout</code>:</p>
+<p><img src="../../img/layout.png" alt="new layout" />
+<!-- .element width="80%" --></p>
+<p>We can then add a map frame to show our data inside our layout:</p>
+<p><img src="../../img/frame.png" alt="map frame" />
+<!-- .element width="80%" --></p>
+<p>Once you have added your map data, explore the other options within
+the Layout View to add relevant things to your map (scale bar, north
+arrow, legend, etc).</p>
+<p>Once we have finished making our map, we need to export it in the
+<code>svg</code> format, by going to
+<code>Share &gt; Export Layout</code>:</p>
+<p><img src="../../img/export-arc.png" alt="export" />
+<!-- .element width="80%" --></p>
+<p>And then making sure to select <code>svg</code> when exporting your
+map:</p>
+<p><img src="../../img/export-arc-2.png" alt="export 2" />
+<!-- .element width="80%" --></p>
 <h3 id="creating-a-graph">Creating a graph</h3>
-<p>We have already created several graphs during today’s live coding session. Follow your notes from this part of the class to save one of these graphs as an <code>svg</code> file. For this practical any <code>matplotlib</code> plot in <code>svg</code> format will be fine.</p>
+<p>We have already created several graphs during today’s live coding
+session. Follow your notes from this part of the class to save one of
+these graphs as an <code>svg</code> file. For this practical any
+<code>matplotlib</code> plot in <code>svg</code> format will be
+fine.</p>
 <h2 id="launch-inkscape">Launch Inkscape</h2>
-<p>Inkscape is installed on all of the student PCs on campus, including the ones in the Geography Computer Room and the library. To launch it, search for <code>Inkscape</code> in the Start Menu, or navigate to the Inkscape icon under <code>I</code> in the Start Menu.</p>
-<p>It may take a little while to load, the first time you access it on a new machine, but once it loads it should look something like this:</p>
-<p><img src="../../img/inkscape_launch.png" alt="Inkscape launch window" /> <!-- .element width="80%" --></p>
+<p>Inkscape is installed on all of the student PCs on campus, including
+the ones in the Geography Computer Room and the library. To launch it,
+search for <code>Inkscape</code> in the Start Menu, or navigate to the
+Inkscape icon under <code>I</code> in the Start Menu.</p>
+<p>It may take a little while to load, the first time you access it on a
+new machine, but once it loads it will prompt you for some settings,
+which you can leave as the defaults:</p>
+<p><img src="../../img/inkscape_launch-1.png"
+alt="Inkscape launch window" /> <!-- .element width="80%" --></p>
+<p>Before clicking through to <code>Time to Draw</code> and then
+selecting <code>New Document</code>. The resulting window will look
+something like this:</p>
+<p><img src="../../img/inkscape_launch.png"
+alt="Inkscape launch window" /> <!-- .element width="80%" --></p>
 <h2 id="inkscape-page-setup">Inkscape page setup</h2>
-<p>When you load Inkscape, you will see a rectangle in the centre of the screen, this is the page outline. By default this is set up to be a portrait orientated A4 page. This means that any graphics you create inside this boundary will be able to be placed on a page of that size.</p>
-<p>For our assignment, we need a landscape A3 sized drawing area. We can change this in <code>File &gt; Document Properties</code>, which looks like:</p>
-<p><img src="../../img/doc_props.png" alt="Document properties" /> <!-- .element width="80%" --></p>
-<p>The areas highlighted in the above image show where to change our document to landscape, and to select the A3 paper size. Close the menu once you have done this.</p>
+<p>When you load Inkscape, you will see a rectangle in the centre of the
+screen, this is the page outline. By default this is set up to be a
+portrait orientated A4 page. This means that any graphics you create
+inside this boundary will be able to be placed on a page of that
+size.</p>
+<p>For our assignment, we need a landscape A3 sized drawing area. We can
+change this in <code>File &gt; Document Properties</code>, which looks
+like:</p>
+<p><img src="../../img/doc_props.png" alt="Document properties" />
+<!-- .element width="80%" --></p>
+<p>NEED NEW IMAGE</p>
+<p>The areas highlighted in the above image show where to change our
+document to landscape, and to select the A3 paper size. Close the menu
+once you have done this.</p>
 <h2 id="importing-svg-files">Importing <code>svg</code> files</h2>
-<p>Now we need to load our map and graph into Inkscape. To do this we again use the File menu (<code>File &gt; Import...</code>) and navigate to where we saved our <code>svg</code> map and graph from earlier. Select one of these, and click open. Repeat this process to load the second image.</p>
+<p>Now we need to load our map and graph into Inkscape. To do this we
+again use the File menu (<code>File &gt; Import...</code>) and navigate
+to where we saved our <code>svg</code> map and graph from earlier.
+Select one of these, and click open. Repeat this process to load the
+second image.</p>
 <h2 id="inkscape-layers">Inkscape layers</h2>
-<p>Like many other graphics programs, Inkscape is able to represent our graphics as a series of layers. Open the layers tab from <code>Layer &gt; Layers...</code>. It will open a small pane on the right of the window:</p>
-<p><img src="../../img/layers.png" alt="Layer pane" /> <!-- .element width="80%" --></p>
-<p>If we press the small eye symbol beside the layer name (<code>Layer 1</code> by default), we can toggle the visibility of a layer. If we click the little padlock, we can lock a layer from editing. This allows us to build up complex visualisations as a series of independent layers. Layers are shown on the screen in order, from top to bottom, the same way that a GIS displays layers.</p>
-<p>Split our graph and our map into different layers. Currently they are both in <code>Layer 1</code>. Lets create a new layer, that we will call <code>graph</code>, click on the plus symbol and input the new name for the layer and click <code>Add</code>. Next, rename <code>Layer 1</code> to <code>map</code>, by double clicking on its name and typing the new name in.</p>
-<p>Now we have 2 layers, but both of our objects are in the same layer. Lets move the graph into the new <code>graph</code> layer by right clicking on it and selecting <code>Move to Layer</code>, and then choosing the appropriate layer for the object. Note that when we are creating new objects, they are automatically created in the layer that is currently highlighted in the Layers Pane.</p>
+<p>Like many other graphics programs, Inkscape is able to represent our
+graphics as a series of layers. Open the layers tab from
+<code>Layer &gt; Layers and Objects</code>. It will open a small pane on
+the right of the window:</p>
+<p><img src="../../img/layers.png" alt="Layer pane" />
+<!-- .element width="80%" --></p>
+<p>If we press the small eye symbol beside the layer name
+(<code>Layer 1</code> by default), we can toggle the visibility of a
+layer. If we click the little padlock, we can lock a layer from editing.
+This allows us to build up complex visualisations as a series of
+independent layers. Layers are shown on the screen in order, from top to
+bottom, the same way that a GIS displays layers.</p>
+<p>Lets split our graph and our map into different layers. Currently
+they are both in <code>Layer 1</code>. Lets create a new layer, that we
+will call <code>graph</code>, click on the plus symbol and input the new
+name for the layer and click <code>Add</code>. Next, rename
+<code>Layer 1</code> to <code>map</code>, by double clicking on its name
+and typing the new name in.</p>
+<p>Now we have 2 layers, but both of our objects are in the same layer.
+Lets move the graph into the new <code>graph</code> layer by right
+clicking on it and selecting <code>Move to Layer</code>, and then
+choosing the appropriate layer for the object. Note that when we are
+creating new objects, they are automatically created in the layer that
+is currently highlighted in the Layers Pane.</p>
 <h2 id="ungrouping">Ungrouping</h2>
-<p>The key trick with <code>svg</code> files, is that they are built up of a series of individual shapes and objects. In order to edit either our map or our graph, we can right click on an object and select <code>Ungroup</code> to break it into its component parts. you may need to do this several times to get to the individual object you wish to interact with. One of the most common reasons for doing this is to try to increase our data-ink ratio, by removing superfluous lines from graphics created in other programs.</p>
+<p>The key trick with <code>svg</code> files, is that they are built up
+of a series of individual shapes and objects. In order to edit either
+our map or our graph, we can right click on an object and select
+<code>Ungroup</code> to break it into its component parts. you may need
+to do this several times to get to the individual object you wish to
+interact with. One of the most common reasons for doing this is to try
+to increase our data-ink ratio, by removing superfluous lines from
+graphics created in other programs.</p>
 <h2 id="useful-inkscape-tools">Useful Inkscape tools</h2>
-<p>The majority of the tools you will need to edit, annotate and add to your data visualisations can be found on the left of the screen. When you select one of these tools, the bar on the top of the screen changes to show the various settings available for the currently chosen tool. Of the many tools on offer, the most useful ones for our purposes are:</p>
-<p><img src="../../img/ink_tools.png" alt="Inkscape" /> <!-- .element width="80%" --></p>
+<p>The majority of the tools you will need to edit, annotate and add to
+your data visualisations can be found on the left of the screen. When
+you select one of these tools, the bar on the top of the screen changes
+to show the various settings available for the currently chosen tool. Of
+the many tools on offer, the most useful ones for our purposes are:</p>
+<p><img src="../../img/ink_tools.png" alt="Inkscape" />
+<!-- .element width="80%" --></p>
 <h3 id="duplicate">Duplicate</h3>
-<p>If you wish to create a copy of an object, and be able to edit it, you need to <code>Duplicate</code> it rather than simply copy and paste it. To do this you can right click on an object and select <code>Duplicate</code> from the menu, or you can use the keyboard shortcut <code>Ctrl+D</code> to duplicate the currently selected objects.</p>
+<p>If you wish to create a copy of an object, and be able to edit it,
+you need to <code>Duplicate</code> it rather than simply copy and paste
+it. To do this you can right click on an object and select
+<code>Duplicate</code> from the menu, or you can use the keyboard
+shortcut <code>Ctrl+D</code> to duplicate the currently selected
+objects.</p>
 <h3 id="fill-and-stroke">Fill and stroke</h3>
-<p>When creating or editing objects, we can change the properties of lines (thickness, colour, transparency, etc) through the fill and stroke menu, which can be opened by right clicking on an object and selecting <code>Fill and Stroke...</code>. This will open a pane on the right of the window, which provides options to edit lines as well as changing the fill colour or pattern of solid objects.</p>
-<h2 id="exporting-the-finished-product">Exporting the finished product</h2>
-<p>Once you have completed all of the editing you wish to do on your maps and graphs, you can export them in a range of formats outlined in the <code>Save As</code> menu. <strong>Note that you should always save a copy of your work as an <code>Inkscape SVG</code> file to ensure you can come back and make more edits in the future.</strong></p>
-<p>You can also export a high resolution <code>png</code> version of your visualisation, using the <code>Export PNG Image</code> option in the file menu:</p>
-<p><img src="../../img/export.png" alt="Export" /> <!-- .element width="80%" --></p>
-<p>This allows you to export the whole page, or a currently selected object. You can increase the <code>dpi</code> (dots per inch) to export higher resolution images. Remember to click the <code>Export</code> button after choosing your output location, to actually start the export process.</p>
+<p>When creating or editing objects, we can change the properties of
+lines (thickness, colour, transparency, etc) through the fill and stroke
+menu, which can be opened by right clicking on an object and selecting
+<code>Fill and Stroke...</code>. This will open a pane on the right of
+the window, which provides options to edit lines as well as changing the
+fill colour or pattern of solid objects.</p>
+<h2 id="exporting-the-finished-product">Exporting the finished
+product</h2>
+<p>Once you have completed all of the editing you wish to do on your
+maps and graphs, you can export them in a range of formats outlined in
+the <code>Save As</code> menu. <strong>Note that you should always save
+a copy of your work as an <code>Inkscape SVG</code> file to ensure you
+can come back and make more edits in the future.</strong></p>
+<p>You can also export a high resolution <code>png</code> version of
+your visualisation, using the <code>Export PNG Image</code> option in
+the file menu:</p>
+<p><img src="../../img/export.png" alt="Export" />
+<!-- .element width="80%" --></p>
+<p>This allows you to export the whole page, or a currently selected
+object. You can increase the <code>dpi</code> (dots per inch) to export
+higher resolution images. Remember to click the <code>Export</code>
+button after choosing your output location, to actually start the export
+process.</p>
 </body>
 </html>
