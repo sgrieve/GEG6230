@@ -43,10 +43,6 @@ In ArcGIS, we can search for tools using the search bar at the top of the screen
 
 Now we have the data we want to display, we can start to think about how to visualise it as a map. We want to show where water is likely to accumulate across the landscape.
 
-Now we can create our map layout by clicking on the `` button
-
-IMAGE OF THE BUTTON
-
 To add our map data to the layout, click on `Insert` and then select `New Layout`:
 
 ![new layout](../../img/layout.png) <!-- .element width="80%" -->
@@ -88,8 +84,6 @@ When you load Inkscape, you will see a rectangle in the centre of the screen, th
 For our assignment, we need a landscape A3 sized drawing area. We can change this in `File > Document Properties`, which looks like:
 
 ![Document properties](../../img/doc_props.png) <!-- .element width="80%" -->
-
-NEED NEW IMAGE
 
 The areas highlighted in the above image show where to change our document to landscape, and to select the A3 paper size. Close the menu once you have done this.
 
