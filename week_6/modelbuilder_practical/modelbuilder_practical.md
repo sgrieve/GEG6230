@@ -65,7 +65,7 @@ We can now add our first GIS tool from the `Tools` dropdown inside the ModelBuil
 
 We need to find all of the trees within a distance of an object, so lets create a buffer. Search for `Buffer (Analysis Tools)` and click and drag the tool into the ModelBuilder window. Initially it will load as a grey rectangle connected to a grey oval. Remember that our input data are blue ovals, so that means that ovals are used to represent data, and rectangles represent tools.
 
-Once we have added a tool it needs to be connected to some data. Click and drag on the `trees` oval to connect it to the `Buffer` tool and selecting `Input Features` when prompted. Now double click on the buffer tool, choose a sensible place to store the output, and set the distance to `400 meters`. Click OK, and when you return to the main ModelBuilder window, the tool will have turned yellow, and its output green.
+Once we have added a tool it needs to be connected to some data. Click and drag on the `road` oval to connect it to the `Buffer` tool and selecting `Input Features` when prompted. Now double click on the buffer tool, choose a sensible place to store the output, and set the distance to `400 meters`. Click OK, and when you return to the main ModelBuilder window, the tool will have turned yellow, and its output green.
 
 Repeat this process with a second buffer tool, this time connected to `lake.shp`, with a buffer distance of `300 meters`. Your model should now look similar to this:
 
