@@ -322,7 +322,7 @@ Now we can calculate and plot out convex hull:
 
 ~~~
 convexhull = mymultipoint.convex_hull
-for point in mymultipoint:
+for point in mymultipoint.geoms:
     plt.scatter(point.x, point.y)
 plt.plot(*convexhull.exterior.xy)
 ~~~
@@ -404,7 +404,7 @@ with fiona.open('example_data/trees.shp') as shapefile:
 trees = MultiPoint(tree_points)
 tree_triangles = triangulate(trees)
 
-for tree in trees:
+for tree in trees.geoms:
     plt.scatter(tree.x, tree.y, zorder=1)
 
 for poly in tree_triangles:
@@ -585,7 +585,7 @@ We can then iterate over all of the points in our multipoint tree variable to fi
 
 selected_pts = []
 
-for point in trees:
+for point in trees.geoms:
     if point.within(buffer_intersect):
         selected_pts.append(point)
 
@@ -596,7 +596,7 @@ Finally, we can save our list of points to a new shapefile, and load it in ArcGI
 
 ~~~
 
-schema = {'geometry': 'MultiPoint', 'properties': {'id': 'int'}}
+schema = {'geometry': 'Point', 'properties': {'id': 'int'}}
 
 with fiona.open('selected_trees.shp', 'w', 'ESRI Shapefile', schema) as c:
     for i, point in enumerate(selected_pts):
