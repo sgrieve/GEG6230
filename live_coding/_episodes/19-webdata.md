@@ -80,38 +80,9 @@ But if we actually want to get useful data from the web, we need to make use of 
 
 The simplest APIs return some information without needing any parameters passed to them. These are good for learning but are rarely useful in the real world.
 
-~~~
-advice = requests.get('https://api.adviceslip.com/advice')
-print(advice.text)
-~~~
-{: .language-python}
-
-Does the format of this output look a little familiar? This is in JSON format, which works very similarly to a python dictionary!
-
-~~~
-advice_dict = advice.json()
-print(advice_dict)
-print(advice_dict['slip']['advice'])
-~~~
-{: .language-python}
-
-
-What else can this API do? Lets check it's documentation: https://api.adviceslip.com
-
-~~~
-
-for i in range(1, 5):
-    advice = requests.get('https://api.adviceslip.com/advice/{}'.format(i))
-    advice_dict = advice.json()
-    print(advice_dict['slip']['advice'])
-
-~~~
-{: .language-python}
-
 Remember in the lecture that we talked about etiquette, and not abusing these services? HTTP requests are designed so that you can supply information about why you are making a request, which helps administrators to understand who is using their service.
 
 ~~~
-
 myheader = {
            'User-Agent': 'QMUL Geography GEG6230',
            'From': 's.grieve@qmul.ac.uk',
@@ -123,6 +94,8 @@ print(joke.json()['joke'])
 
 ~~~
 {: .language-python}
+
+Does the format of this output look a little familiar? This is in JSON format, which works very similarly to a python dictionary!
 
 There are a few different ways we can construct API call urls, lets explore these by searching the joke database for some keywords:
 
@@ -190,7 +163,7 @@ This automatically builds the url in the correct format so we don't have to worr
 Lets now explore the UK carbon intensity data, which is reported in grams of CO2 per kWh of power generated. A value close to 0 means near 100% renewable energy generation, and high values for the UK are in excess of 300.
 
 ~~~
-url = 'https://api.carbonintensity.org.uk/intensity/{}/{}'.format('2021-08-20T12:00Z', '2021-08-30T12:00Z')
+url = 'https://api.carbonintensity.org.uk/intensity/{}/{}'.format('2024-08-20T12:00Z', '2024-08-30T12:00Z')
 intensity = requests.get(url, headers=myheader)
 
 
@@ -210,7 +183,7 @@ plt.plot(range(len(intensity_data)), intensity_data)
 We can also access data about the proportion of the UK's energy that comes from different sources. Lets plot up wind generation for 10 days in August 2021:
 
 ~~~
-url = 'https://api.carbonintensity.org.uk/generation/{}/{}'.format('2021-08-20T12:00Z', '2021-08-30T12:00Z')
+url = 'https://api.carbonintensity.org.uk/generation/{}/{}'.format('2024-08-20T12:00Z', '2024-08-30T12:00Z')
 genmix = requests.get(url, headers=myheader)
 
 wind = []
