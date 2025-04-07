@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2025-03-17" />
+  <meta name="dcterms.date" content="2025-04-07" />
   <title>GEG6230 Introduction to ModelBuilder</title>
   <style>
     html {
@@ -505,7 +505,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to ModelBuilder</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">03/17/25</p>
+<p class="date">04/07/25</p>
 </header>
 <h1 id="introduction-to-modelbuilder">Introduction to ModelBuilder</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -786,8 +786,8 @@ tool</li>
 <li>Field Name: This should be the name of the new field added by the
 <code>Add Field</code> tool, which will be <code>E</code> in our
 case</li>
-<li>Expression: <code>stream_power(%slope%, %area%, %K%)</code> - the
-<code>%</code> symbols are used to denote an ArcMap variable name in a
+<li>Expression: <code>stream_power(!slope!, !area!, !K!)</code> - the
+<code>!</code> symbols are used to denote an ArcMap variable name in a
 way that Python can understand.</li>
 <li>Expression Type: <code>Python 3</code></li>
 <li>Code Block: See Below</li>

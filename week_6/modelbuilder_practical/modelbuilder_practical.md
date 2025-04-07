@@ -172,7 +172,7 @@ Double click on the tool and select the following outputs:
 
 - Input Table: This is the output of the `Add Field` tool
 - Field Name: This should be the name of the new field added by the `Add Field` tool, which will be `E` in our case
-- Expression: `stream_power(%slope%, %area%, %K%)` - the `%` symbols are used to denote an ArcMap variable name in a way that Python can understand.
+- Expression: `stream_power(!slope!, !area!, !K!)` - the `!` symbols are used to denote an ArcMap variable name in a way that Python can understand.
 - Expression Type: `Python 3`
 - Code Block: See Below
 
