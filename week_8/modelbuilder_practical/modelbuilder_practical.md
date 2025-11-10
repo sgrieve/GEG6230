@@ -136,6 +136,8 @@ Your ModelBuilder window should look something like this:
 
 In this example, the data folder may have more than just the `catchment_*.shp` files in it. To ensure that our iterator only iterates over the catchment files, we can use the `Wildcard` option in the same way we use `glob` in Python, adding in the text: `catchment_*` so that only files that match that pattern are iterated over.
 
+**If you include the file extension as part of the wildcard (e.g., `catchment_*.shp`), it will not work.**
+
 ### Zonal statistics
 
 We need to calculate the mean basin slope for each of our catchments, we can do this using the `Zonal Statistics as Table (Spatial Analyst Tools)` tool. First, add the slope data to your map using the `Add Data` button and drag it across into the ModelBuilder window, then drag and drop the `Zonal Statistics as Table (Spatial Analyst Tools)` tool into the window and connect it to the slope raster, as the `Input Value Raster`. Now double click on the `Zonal Statistics as Table` tool and configure the following options:
@@ -159,21 +161,19 @@ Repeat this once more so that we have 3 outputs from `Get Field Value` tools, on
 
 ### Adding a new field
 
-We need to create a new field in each of our catchment shapefiles to store the stream power values. Drag and drop the `Add Field (Data Management Tools) into the ModelBuilder window. Connect it to the green output from the iterator, double click on it and modify the following settings, leaving all the others as their defaults:
+We need to create a new field in each of our catchment shapefiles to store the stream power values. Drag and drop the `Add Field (Data Management Tools)` into the ModelBuilder window. Connect it to the green output from the iterator, double click on it and modify the following settings, leaving all the others as their defaults:
 
 - Field Name: `E` You will have to type this, as we are creating a new column in the attribute table.
 - Field Type: `Double`
 
 ### Calculating stream power
 
-The final tool we have to add to our model is the one that will do the calculation, using the values we have identified using the `Get Field Value` tool. Drag and drop the `Calculate Field (Data Management Tools)` tool into the window. This is a really useful tool in ModelBuilder as it allows us to write small bits of Python to perform calculations.
+The next tool we have to add to our model is the one that will do the calculation, using the values we have identified using the `Get Field Value` tool. Drag and drop the `Calculate Value (Model Tools)` tool into the window. This is a really useful tool in ModelBuilder as it allows us to write small bits of Python to perform calculations.
 
-Double click on the tool and select the following outputs:
+Double click on this tool and select the following options:
 
-- Input Table: This is the output of the `Add Field` tool
-- Field Name: This should be the name of the new field added by the `Add Field` tool, which will be `E` in our case
-- Expression: `stream_power(!slope!, !area!, !K!)` - the `!` symbols are used to denote an ArcMap variable name in a way that Python can understand.
-- Expression Type: `Python 3`
+- Expression Type: `Python`
+- Expression: `stream_power(%Slope%, %Area%, %K%)` - the `%` symbols are used to denote an ArcMap variable name in a way that Python can understand.
 - Code Block: See Below
 
 The code block we need to add is a small Python function which will calculate the stream power for a given set of input values:
@@ -185,9 +185,23 @@ def stream_power(slope, area, K):
 
 The completed window for the `Calculate Field` tool will look something like this:
 
+![](../../img/mb_calc_value.png) <!-- .element width="80%" -->
+
+
+Finally, we are going to store the result of our calculations in the new column in the attribute table we created. Drag and drop the `Calculate Field (Data Management Tools)` tool into the window.
+
+Double click on the tool and select the following outputs:
+
+- Input Table: This is the output of the `Add Field` tool
+- Field Name: This should be the name of the new field added by the `Add Field` tool, which will be `E` in our case
+- Expression Type: `Python`
+- E = : `%E%` - This might give an error, but is correct!
+
+The completed window for the `Calculate Field` tool will look something like this:
+
 ![](../../img/mb_calc_field.png) <!-- .element width="80%" -->
 
-Having filled all of this in, click OK to return to your model. The final thing we need to do is add **Preconditions** to the model, so that it does not run things in the wrong order. To do this, we use the `Connect` tool to link each of the outputs to the `Calculate Field` tool, selecting the `precondition` option when prompted. This ensures that the calculation will only be performed when the variables are all ready. The final model should look something like this:
+Having filled all of this in, click OK to return to your model. The final thing we need to do is add **Preconditions** to the model, so that it does not run things in the wrong order. To do this, connect each of the outputs (K, slope, Area) to the `Calculate Field` tool, selecting the `precondition` option when prompted. This ensures that the calculation will only be performed when the variables are all ready. The final model should look something like this:
 
 ![Finished model](../../img/spm_model.png) <!-- .element width="80%" -->
 

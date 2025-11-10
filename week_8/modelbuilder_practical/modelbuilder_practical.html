@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Stuart Grieve" />
-  <meta name="dcterms.date" content="2025-04-07" />
+  <meta name="dcterms.date" content="2025-11-10" />
   <title>GEG6230 Introduction to ModelBuilder</title>
   <style>
     html {
@@ -505,7 +505,7 @@
 <header id="title-block-header">
 <h1 class="title">GEG6230 Introduction to ModelBuilder</h1>
 <p class="author">Stuart Grieve</p>
-<p class="date">04/07/25</p>
+<p class="date">11/10/25</p>
 </header>
 <h1 id="introduction-to-modelbuilder">Introduction to ModelBuilder</h1>
 <h2 id="aims-and-objectives">Aims and Objectives</h2>
@@ -718,6 +718,8 @@ only iterates over the catchment files, we can use the
 <code>Wildcard</code> option in the same way we use <code>glob</code> in
 Python, adding in the text: <code>catchment_*</code> so that only files
 that match that pattern are iterated over.</p>
+<p><strong>If you include the file extension as part of the wildcard
+(e.g., <code>catchment_*.shp</code>), it will not work.</strong></p>
 <h3 id="zonal-statistics">Zonal statistics</h3>
 <p>We need to calculate the mean basin slope for each of our catchments,
 we can do this using the
@@ -763,33 +765,29 @@ Slope.</p>
 so be careful!</strong></p>
 <h3 id="adding-a-new-field">Adding a new field</h3>
 <p>We need to create a new field in each of our catchment shapefiles to
-store the stream power values. Drag and drop the `Add Field (Data
-Management Tools) into the ModelBuilder window. Connect it to the green
-output from the iterator, double click on it and modify the following
-settings, leaving all the others as their defaults:</p>
+store the stream power values. Drag and drop the
+<code>Add Field (Data Management Tools)</code> into the ModelBuilder
+window. Connect it to the green output from the iterator, double click
+on it and modify the following settings, leaving all the others as their
+defaults:</p>
 <ul>
 <li>Field Name: <code>E</code> You will have to type this, as we are
 creating a new column in the attribute table.</li>
 <li>Field Type: <code>Double</code></li>
 </ul>
 <h3 id="calculating-stream-power">Calculating stream power</h3>
-<p>The final tool we have to add to our model is the one that will do
-the calculation, using the values we have identified using the
+<p>The next tool we have to add to our model is the one that will do the
+calculation, using the values we have identified using the
 <code>Get Field Value</code> tool. Drag and drop the
-<code>Calculate Field (Data Management Tools)</code> tool into the
-window. This is a really useful tool in ModelBuilder as it allows us to
-write small bits of Python to perform calculations.</p>
-<p>Double click on the tool and select the following outputs:</p>
+<code>Calculate Value (Model Tools)</code> tool into the window. This is
+a really useful tool in ModelBuilder as it allows us to write small bits
+of Python to perform calculations.</p>
+<p>Double click on this tool and select the following options:</p>
 <ul>
-<li>Input Table: This is the output of the <code>Add Field</code>
-tool</li>
-<li>Field Name: This should be the name of the new field added by the
-<code>Add Field</code> tool, which will be <code>E</code> in our
-case</li>
-<li>Expression: <code>stream_power(!slope!, !area!, !K!)</code> - the
-<code>!</code> symbols are used to denote an ArcMap variable name in a
+<li>Expression Type: <code>Python</code></li>
+<li>Expression: <code>stream_power(%Slope%, %Area%, %K%)</code> - the
+<code>%</code> symbols are used to denote an ArcMap variable name in a
 way that Python can understand.</li>
-<li>Expression Type: <code>Python 3</code></li>
 <li>Code Block: See Below</li>
 </ul>
 <p>The code block we need to add is a small Python function which will
@@ -798,12 +796,31 @@ calculate the stream power for a given set of input values:</p>
     return K * (area ** 0.3) * (slope ** 0.6)</code></pre>
 <p>The completed window for the <code>Calculate Field</code> tool will
 look something like this:</p>
+<p><img src="../../img/mb_calc_value.png" />
+<!-- .element width="80%" --></p>
+<p>Finally, we are going to store the result of our calculations in the
+new column in the attribute table we created. Drag and drop the
+<code>Calculate Field (Data Management Tools)</code> tool into the
+window.</p>
+<p>Double click on the tool and select the following outputs:</p>
+<ul>
+<li>Input Table: This is the output of the <code>Add Field</code>
+tool</li>
+<li>Field Name: This should be the name of the new field added by the
+<code>Add Field</code> tool, which will be <code>E</code> in our
+case</li>
+<li>Expression Type: <code>Python</code></li>
+<li>E = : <code>%E%</code> - This might give an error, but is
+correct!</li>
+</ul>
+<p>The completed window for the <code>Calculate Field</code> tool will
+look something like this:</p>
 <p><img src="../../img/mb_calc_field.png" />
 <!-- .element width="80%" --></p>
 <p>Having filled all of this in, click OK to return to your model. The
 final thing we need to do is add <strong>Preconditions</strong> to the
-model, so that it does not run things in the wrong order. To do this, we
-use the <code>Connect</code> tool to link each of the outputs to the
+model, so that it does not run things in the wrong order. To do this,
+connect each of the outputs (K, slope, Area) to the
 <code>Calculate Field</code> tool, selecting the
 <code>precondition</code> option when prompted. This ensures that the
 calculation will only be performed when the variables are all ready. The
