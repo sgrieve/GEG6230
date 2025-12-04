@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>GEG6230 - Reproducible Geoscience</title>
+		<title>GEG6230 - Getting Data From the Web</title>
 
-		<meta name="description" content="GEG6230 - Reproducible Geoscience">
+		<meta name="description" content="GEG6230 - Getting Data From the Web">
 		<meta name="author" content="Stuart Grieve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,12 +47,12 @@
 <section data-markdown>
 <textarea data-template>
 
-## Reproducible Geoscience
+## Getting Data From the Web
 
-GEG6230 - Stuart Grieve - Week 12
+GEG6230 - Stuart Grieve - Week 10
 
 These slides:
-https://swdg.io/GEG6230/week_12/lecture_a/
+https://swdg.io/GEG6230/week_10/lecture_a/
 
 </textarea>
 </section>
@@ -60,23 +60,11 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### Today's plan
+### What are we doing today?
 
-1. Lecture on Reproducible Geoscience
-1. Assessment workshop
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Lecture outline
-
-1. What is reproducibility?
-1. The reproducibility crisis!
-1. Barriers to reproducibility in geoscience
-1. Making our work more reproducible
+1. Getting data directly from the web
+2. Getting geospatial data into a GIS from the web
+3. Examples
 
 </textarea>
 </section>
@@ -84,12 +72,50 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### What is reproducibility?
+### How does the internet work?
 
-- **Reproducibility:** The ability to repeat an experiment/analysis and get the same result.
-- Cornerstone of science
-- Standing on the shoulders of giants
-- But is it?
+- We use the internet every day
+- Unlike in the early 1990s most of the nuts and bolts are abstracted away from us
+- But when we load a website, use an app, or stream a video, what is actually happening?
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### HTTP
+
+- HyperText Transfer Protocol
+- Invented by Tim Berners-Lee at CERN c. 1990
+- A means of communicating between a **client** (our web browser, app, etc) and a **remote server**
+
+![https://medium.com/@jen_strong/the-request-response-cycle-of-the-web-1b7e206e9047](../../img/http.png) <!-- .element width="60%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### The first ever website!
+
+http://info.cern.ch/hypertext/WWW/TheProject.html
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### URLs
+
+A web address or Uniform Resource Locator (URL) is used by a web browser to
+locate information on a remote server.
+
+By specifiying different URLs we can access different information.
+
+https://swdg.io/GEG6230/week_10/lecture_a/ Points to these slides, but if we change the URL, we can find other slides!
 
 </textarea>
 </section>
@@ -98,11 +124,9 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### What is reproducibility?
+### Websites are good for humans to get information, but what about computers?
 
-![Number of papers per year](../../img/no-of-refs.png) <!-- .element width="70%" -->
-
-[Bornmann and Mutz, 2015](https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23329) <!-- .element: class="caption" -->
+![](../../img/computer_meme.jpeg) <!-- .element width="50%" -->
 
 </textarea>
 </section>
@@ -110,25 +134,9 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### What is reproducibility?
+### HTTP
 
-- Science is organised around a series of perverse incentives
-  - So is much of industry...
-- Priority is placed on the new
-- Failure is not rewarded
-  - File drawer effect
-- Is anyone actually trying to reproduce other people's work?
-
-</textarea>
-</section>
-
-
-<section data-markdown>
-<textarea data-template>
-
-### Reproducibility crisis!?!
-
-![crisis examples](../../img/crisis.png) <!-- .element width="100%" -->
+![https://medium.com/@jen_strong/the-request-response-cycle-of-the-web-1b7e206e9047](../../img/http.png) <!-- .element width="100%" -->
 
 </textarea>
 </section>
@@ -136,28 +144,16 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### Definitions
+### HTTP Verbs
 
-- **Reproducibility:** Using someone else's code and data to get the same results as them.
-- **Replicability:** Collecting new data, writing your own code, and getting the same results as the original study.
+These are the commands clients can use to communicate with remote servers:
 
-![continuum fig](../../img/continuum.png) <!-- .element width="80%" class="plain"-->
+- GET: Retrieve information from a remote server.
+- POST: Send new information to the server, which is usually stored by the server.
+- PUT: Overwrite information on the remote server with the supplied information.
+- DELETE: Deletes something on the remote server.
 
-[Grieve et al., 2020](https://qmplus.qmul.ac.uk/pluginfile.php/2315329/mod_resource/content/1/grieve2020.pdf) <!-- .element: class="caption" -->
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### A geoscience crisis?
-
-![reproducibility stats](../../img/reproducibility-graphic.jpeg) <!-- .element width="45%" -->
-
-- 60% of Earth and 40% of environmental scientists have failed to reproduce work
-
-[Baker, 2016](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) <!-- .element: class="caption" -->
+[Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) <!-- .element: class="caption" -->
 
 </textarea>
 </section>
@@ -165,28 +161,17 @@ https://swdg.io/GEG6230/week_12/lecture_a/
 <section data-markdown>
 <textarea data-template>
 
-### Does it matter?
+### Status Codes
 
-Society relies on trustworthy geoscience:
-- Weather forecasts
-- Hazard predictions
-- Engineering plans for construction
-- Climate change mitigation
-- Water quality
-- Pollution monitoring
+After every HTTP operation, the server returns a status code
 
-</textarea>
-</section>
+- 1xx: Information
+- 2xx: Success
+- 3xx: Redirection
+- 4xx: Client error
+- 5xx: Server error
 
-<section data-markdown>
-<textarea data-template>
-
-### Barriers to reproducible geoscience
-
-1. Point and click analysis
-1. Undocumented workflows
-1. Private data
-1. Paywalls
+[Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) <!-- .element: class="caption" -->
 
 </textarea>
 </section>
@@ -194,24 +179,10 @@ Society relies on trustworthy geoscience:
 <section data-markdown>
 <textarea data-template>
 
-### Point and click analysis
+## APIs
 
-- It is a lot harder to communicate a series of point and click instructions than some lines of code
-- Look at how long some of the practical instructions are!
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Undocumented workflows
-
-- If you hand your code or model to someone else, can they understand it?
-  - Big part of the assignment!
-- If you come back to your code after a year, will you remember what it does?
-- Bus factor
-- People move jobs, retire
+- An Application Programming Interface (API) is a connection between different pieces of software
+- In the context of the web, it is a means to automate data collection, making use of structured URLs and HTTP verbs
 
 </textarea>
 </section>
@@ -219,26 +190,12 @@ Society relies on trustworthy geoscience:
 <section data-markdown>
 <textarea data-template>
 
-### Private data
+### Examples
 
-- Your code might be public, but what about the data?
-- Lots of (good) reasons not to share data
-  - Personal information, (commercially) sensitive data
-- Are there good geography reasons to not share data?
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Paywalls
-
-- Can you access the paper that describes the methods?
-- Can you afford to run someone's workflow
-- ArcGIS licence costs <span>$</span>3000 (+spatial analyst <span>$</span>600)
-- This is an equality issue
-  - If only wealthy people can reproduce a result, is it really reproducible?
+- https://cataas.com//#/
+- https://icanhazdadjoke.com/search?term=computer
+- https://dukengn.github.io/Dog-facts-API/
+- https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=3
 
 </textarea>
 </section>
@@ -246,13 +203,14 @@ Society relies on trustworthy geoscience:
 <section data-markdown>
 <textarea data-template>
 
-### Making geoscience more reproducible
+### Etiquette
 
-1. Write up detailed methods
-1. Automate workflows and share them
-1. Use open source
-1. Share your data
+Lots of organisations provide APIs to access their data for free, lots of government agencies are required to by law,
+but many people do it to preserve the spirit of the free and open internet.
 
+This means that we shouldn't abuse people's kindness.
+
+There may be rate limits set to limit the number of requests you can make in a period of time. Don't circumvent these!
 
 </textarea>
 </section>
@@ -260,41 +218,76 @@ Society relies on trustworthy geoscience:
 <section data-markdown>
 <textarea data-template>
 
-### Detailed methods
+### What about geospatial data?
 
-- Add descriptions and explanations into your notebooks in between code block
-- Use comments to explain individual lines when needed
-  - Explain **why** you are doing something not just what you are doing:
+The examples so far have been non-geospatial, but an early adopter of APIs and HTTP was the geospatial community.
 
-```python
-# Good:
-area = length * width  # Calculating the area of the polygon
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### The OGC
+
+The Open Geospatial Consortium (OGC) is made up of a global network of buisnesses,
+governments, universities and research organisations who work to define geospatial standards.
+
+![ogc.org/about](../../img/ogc.jpeg) <!-- .element width="80%" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### THE OGC
+
+The reason we can move data between GIS systems, write python code to analyse
+geospatial data, and view maps on the web is down to the work of the OGC.
+
+This is done by defining **standards**.
+
+These are vital in the fight against monopolies.
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### WMS
+A Web Map Service (WMS) produces maps of spatially referenced data dynamically from geographic information. This International Standard defines a “map” to be a portrayal of geographic information as a digital image file suitable for display on a computer screen. A map is not the data itself. <!-- .element: class="smallp" -->
+
+This International Standard defines three operations: one returns service-level metadata; another returns a map whose geographic and dimensional parameters are well-defined; and an optional third operation returns information about particular features shown on a map. <!-- .element: class="smallp" -->
+
+Web Map Service operations can be invoked using a standard web browser by submitting requests in the form of Uniform Resource Locators (URLs). The content of such URLs depends on which operation is requested. In particular, when requesting a map the URL indicates what information is to be shown on the map, what portion of the Earth is to be mapped, the desired coordinate reference system, and the output image width and height. <!-- .element: class="smallp" -->
+
+[WMS Specification](http://portal.opengeospatial.org/files/?artifact_id=14416) <!-- .element: class="caption" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+
+### WMS Example
+
+[Clickable Link](https://gis-prod.digital.mass.gov/geoserver/wms?dpi=120&request=GetMap&layers=GISDATA.EOTMAJROADS_ARC&srs=EPSG:4326&bbox=-71.1,42.35,-71.0,42.37&width=1000&height=300&format=image/png&service=wms&transparent=true)
+
+
 ```
-
-```python
-# Bad:
-area = length * width  # Multiply the length by the width
-```
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Detailed methods
-
-- Write detailed methods sections (relevant for IGS/PES!)
-- Use meaningful variable names:
-
-```python
-# Good:
-stream_power = K * (A ** m) * (S ** n)
-```
-
-```python
-# Bad:
-x = K * (A ** m) * (S ** n)
+https://gis-prod.digital.mass.gov/geoserver/wms?
+dpi=120&
+request=GetMap&
+layers=GISDATA.EOTMAJROADS_ARC&
+srs=EPSG:4326&
+bbox=-71.1,42.35,-71.0,42.37&
+width=1000&
+height=300&
+format=image/png&
+service=wms&
+transparent=true
 ```
 
 </textarea>
@@ -303,24 +296,11 @@ x = K * (A ** m) * (S ** n)
 <section data-markdown>
 <textarea data-template>
 
-### Automate workflows and share them
+### Other OGC standards
 
-- This is what we have been doing!
-- Instead of doing things manually every time, build a model or write some code
-  - Ensures the same results every time
-  - Allows sharing of analysis (especially if using open source tools)
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Open Source
-
-- Using open source tools such as Python democratises analysis and research
-- This is not always possible, especially in industry
-  - Lots of places use ArcGIS (which is why we teach it)
+- WMTS - An optimised version of WMS that works with tiles rather then whole images to speed things up.
+- WFS - A standard designed to share vector data, rather than static images.
+- WCS - A standard designed to share data alongside its attributes to allow for things like time to be represented.
 
 </textarea>
 </section>
@@ -328,24 +308,11 @@ x = K * (A ** m) * (S ** n)
 <section data-markdown>
 <textarea data-template>
 
-### Share data
+### OGC Standards
 
-- Sharing data leads to new insights and results
-- Contractual requirement of research funding in many countries
-- Value for money for science funding
-- Financial benefit to buisnesses, and government
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Share data
-
-Damage to buried infrastructure costs the UK £1.2 billion per year.
-
-![Pipes](../../img/pipes.png) <!-- .element width="70%" -->
+- This is a little clunky, but we can plug these URLs into GIS packages to play properly with the data
+- The philosophy is that instead of selling data, you sell access to data and to data processing hardware
+- So we can use any GIS we want, pull data in a standard way from lots of places and mix it together
 
 </textarea>
 </section>
@@ -353,36 +320,13 @@ Damage to buried infrastructure costs the UK £1.2 billion per year.
 <section data-markdown>
 <textarea data-template>
 
-![Geospatial commission](../../img/geospatial-comm.png) <!-- .element width="100%" -->
+### Making money
 
-[Geospatial Commission, 2019](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/897060/Project_Orange_V3_01.07.pdf) <!-- .element: class="caption" -->
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-
-### Assessment reminder
-
-> Write a 2 page discussion of the pros and cons of these two approaches to automation, **with
-regard to reproducibility.**
-
-</textarea>
-</section>
-
-
-<section data-markdown>
-<textarea data-template>
-
-### Conclusions
-
-- Reproducibility is a complex challenge within modern science
-- Many fields are identifying severe limitations in how they carry out research
-- Geoscience is likely no different
-- Important for industry as well as pure science
-- Many barriers to reproducible research
-- But we know what we need to do!
+- This approach is often called Data As A Service (DaaS)
+- Many common examples of this in the geospatial world:
+  - Postcode lookup
+  - Geoparsing addresses
+  - What3Words
 
 </textarea>
 </section>
@@ -390,15 +334,12 @@ regard to reproducibility.**
 <section data-markdown>
 <textarea data-template>
 
-### Reading
+### Science as a Service
 
-Both on QMplus:
-
-Church, M., Dudill, A., Venditti, J. G., & Frey, P. (2020). Are results in geomorphology reproducible?.
-Journal of Geophysical Research: Earth Surface, 125(8), e2020JF005553. <!-- .element class="references"-->
-
-Grieve, S. W. D., Clubb, F. J., & Mudd, S. M. (2020). Reproducible topographic analysis. In Developments
-in Earth Surface Processes (Vol. 23, pp. 339-367). Elsevier <!-- .element class="references"-->
+- Sometimes called a **Science Gateway**
+- Places like OpenTopography and DigiMap process geospatial data for you so you can download it without needing your own supercomputer
+- APIs let people access processed data without needing specialist hardware and software
+- Democratizes scientific research - especially if standards are followed!
 
 </textarea>
 </section>
@@ -406,11 +347,13 @@ in Earth Surface Processes (Vol. 23, pp. 339-367). Elsevier <!-- .element class=
 <section data-markdown>
 <textarea data-template>
 
-# Thank you!
+### Summary
+
+- By understanding a little about how the web works, we can make use of existing tools to access data easily
+- For the rest of today and next week, we will be exploring how to actually get data from the web using python and ArcMap
 
 </textarea>
 </section>
-
 
 
 			</div>
